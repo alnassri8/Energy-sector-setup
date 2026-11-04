@@ -6,7 +6,7 @@
 <title>Energy Sector Structures</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   /* Layout: country switcher, then per country a stacked structure chart and three reference tables (A institutions, B state companies, C other companies). CFA-notebook navy palette, light + dark. */
@@ -19,7 +19,7 @@
   --tag-own-bg:#e1f2e8; --tag-own:#1f7a4d;
   --tag-reg-bg:#e7eef8; --tag-reg:#1e3a6e;
   --tag-pvt-bg:#f3ecdc; --tag-pvt:#7a5a12;
-  --f:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --f:"IBM Plex Sans","IBM Plex Sans Arabic","Segoe UI",system-ui,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -102,13 +102,23 @@ h2{font-size:21px;margin:26px 0 12px;color:var(--navy);text-wrap:balance}
 .src{font-size:13px;color:var(--muted);margin:18px 0 0;padding-left:18px}
 .src li{margin-bottom:4px}
 footer{color:var(--muted);font-size:12.5px;padding:30px 0 50px}
+
+.grp ul{padding-left:0;padding-inline-start:18px}
+.src{padding-left:0;padding-inline-start:18px}
+.flag{border-left:1px solid var(--line);border-inline-start:4px solid #c08a1e}
+header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+#lang{font:600 14px var(--f);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--primary);cursor:pointer;white-space:nowrap;margin-top:4px}
+html[dir="rtl"] body{line-height:1.7}
+html[dir="rtl"] .tbl .r>div{text-align:start}
+html[dir="rtl"] #edbar{right:auto;left:12px}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
-  <h1>Energy Sector Structures</h1>
-  <p>Government institutions, state-owned companies and key players, country by country · as of Nov 2026</p>
+  <div><h1 id="t1">Energy Sector Structures</h1>
+  <p id="t2">Government institutions, state-owned companies and key players, country by country · as of Nov 2026</p></div>
+  <button id="lang" type="button">عربي</button>
 </header>
 </div>
 <nav class="tabs" aria-label="Countries"><div class="wrap"><div class="row" role="tablist" id="tabs"></div></div></nav>
@@ -277,39 +287,1064 @@ ksa:{
   src:[["Aramco state transfer to PIF, 82.19% (Business Recorder/AFP)","https://www.brecorder.com/news/40292495"],["Aramco ownership 2026 profile","https://vision2030.pages.dev/institutions/aramco/"],["Saudi power sector structure (Oxford Business Group)","https://oxfordbusinessgroup.com/reports/saudi-arabia/2025-report/energy-utilities/power-move-the-sector-is-transforming-through-the-expansion-of-renewables-improved-water-efficiency-and-steps-towards-privatisation-overview/"],["SEC renamed Saudi Energy (Saudipedia)","https://saudipedia.com/fr/saudi-energy"],["SPPC nationalised (Arab News)","https://arabnews.pk/node/2139186"],["SPPC and ACWA ownership (GlobalDeal)","https://globaldeal.io/finder/segments/saudi-arabia-renewable-energy"]]
 }
 };
+const C_AR = {
+ "oman": {
+  "name": "عُمان",
+  "model": "نموذج تقوده الحكومة ويرتكز على الاستثمار",
+  "modelText": "تتولى وزارة الطاقة والمعادن رسم السياسات والتنظيم، بينما تمتلك الدولة أصولها في قطاع الطاقة عبر جهتين. فشركة طاقة عُمان (EO)، المملوكة للحكومة بالكامل والمؤسسة عن طريق وزارة المالية، تحوز الموارد الأساسية في قطاع الاستكشاف والإنتاج: 60% من الامتياز رقم 6 (الذي تشغّله شركة تنمية نفط عُمان)، وامتياز الغاز في الامتياز رقم 6، وشركة هيدروجين عُمان (هايدروم). أما جهاز الاستثمار العُماني، وهو صندوق الثروة السيادي، فيمتلك مجموعة أوكيو للطاقة المتكاملة.",
+  "top": [
+   "حكومة سلطنة عُمان",
+   "جلالة السلطان · مجلس الوزراء"
+  ],
+  "inst": [
+   [
+    "وزارة المالية",
+    "السياسة المالية؛ مالكة طاقة عُمان والشركة المتكاملة للغاز",
+    ""
+   ],
+   [
+    "وزارة الطاقة والمعادن",
+    "سياسة الطاقة والترخيص وتنظيم قطاع الاستكشاف والإنتاج",
+    ""
+   ],
+   [
+    "جهاز الاستثمار العُماني",
+    "استثمار أصول الدولة وملكيتها",
+    "inv"
+   ],
+   [
+    "هيئة تنظيم الخدمات العامة",
+    "منظِّم قطاعي الكهرباء والمياه",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "تحت جهاز الاستثمار العُماني",
+    "tag": "own",
+    "items": [
+     [
+      "مجموعة أوكيو",
+      "100%"
+     ],
+     [
+      "مجموعة نماء (الكهرباء والمياه)",
+      "100%"
+     ]
+    ]
+   },
+   {
+    "t": "تحت وزارة المالية",
+    "tag": "own",
+    "items": [
+     [
+      "طاقة عُمان (EO)",
+      "100% حكومية"
+     ],
+     [
+      "الشركة المتكاملة للغاز (IGC)",
+      "100% حكومية"
+     ]
+    ]
+   },
+   {
+    "t": "تحت طاقة عُمان",
+    "tag": "own",
+    "items": [
+     [
+      "تنمية نفط عُمان",
+      "60%"
+     ],
+     [
+      "هايدروم (الهيدروجين)",
+      "100%"
+     ]
+    ]
+   },
+   {
+    "t": "تحت أوكيو – مدرجة في بورصة مسقط",
+    "tag": "own",
+    "items": [
+     [
+      "أوكيو للاستكشاف والإنتاج (OQEP)",
+      "75%"
+     ],
+     [
+      "أوكيو لشبكات الغاز (OQGN)",
+      "51%"
+     ],
+     [
+      "أوكيو للصناعات الأساسية (OQBI)",
+      "51%"
+     ],
+     [
+      "أبراج لخدمات الطاقة",
+      "51%"
+     ],
+     [
+      "شركة النفط العُمانية للتسويق (OOMCO)",
+      "49%"
+     ],
+     [
+      "شركة مسندم للطاقة",
+      "42%"
+     ],
+     [
+      "شركة مسقط للغازات",
+      "32.6%"
+     ]
+    ]
+   },
+   {
+    "t": "تحت أوكيو – شركات رئيسية أخرى",
+    "tag": "own",
+    "items": [
+     [
+      "أوكيو للمصافي والصناعات البترولية (OQRPI)",
+      "100% · مصفاتا صحار وميناء الفحل"
+     ],
+     [
+      "أوكيو للطاقة البديلة",
+      "100%"
+     ],
+     [
+      "مصفاة الدقم (OQ8)",
+      "50% بالشراكة مع البترول الكويتية العالمية"
+     ],
+     [
+      "مرسى للغاز الطبيعي المسال (صحار)",
+      "20% بالشراكة مع توتال إنرجيز"
+     ]
+    ]
+   },
+   {
+    "t": "حصة حكومية",
+    "tag": "own",
+    "items": [
+     [
+      "الشركة العُمانية للغاز الطبيعي المسال",
+      "51% للحكومة عبر وزارة الطاقة والمعادن"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "شركة تنمية نفط عُمان (PDO)",
+   "60% طاقة عُمان | 34% شل | 4% توتال إنرجيز | 2% PTTEP",
+   "مشغّل الامتياز رقم 6، أكبر امتياز للنفط والغاز في عُمان"
+  ],
+  "note": "يرأس وزير الطاقة والمعادن مجلسي إدارة طاقة عُمان وهايدروم دون أن تمتلكهما الوزارة.",
+  "A": [
+   [
+    "وزارة المالية",
+    "تدير المالية العامة والموازنة، وتمثل جانب الملكية في طاقة عُمان والشركة المتكاملة للغاز، ويرأس وزير المالية مجلس إدارة جهاز الاستثمار العُماني."
+   ],
+   [
+    "وزارة الطاقة والمعادن",
+    "تضع سياسات النفط والغاز والتعدين، وتمنح الامتيازات، وتنظم قطاع الاستكشاف والإنتاج. ويرأس وزيرها مجلسي إدارة طاقة عُمان وهايدروم."
+   ],
+   [
+    "جهاز الاستثمار العُماني",
+    "صندوق الثروة السيادي، ويمتلك معظم الشركات الحكومية منذ عام 2020، ومنها أوكيو ونماء."
+   ],
+   [
+    "هيئة تنظيم الخدمات العامة",
+    "تنظم قطاع الكهرباء وأجزاء من قطاع المياه."
+   ]
+  ],
+  "B": [
+   [
+    "مجموعة أوكيو",
+    "شركة الطاقة الوطنية: التكرير، وشبكة الغاز، والبتروكيماويات، والاستكشاف والإنتاج عبر أوكيو للاستكشاف والإنتاج، والطاقة المتجددة.",
+    "100% جهاز الاستثمار العُماني"
+   ],
+   [
+    "طاقة عُمان (تنمية طاقة عُمان سابقاً)",
+    "تحوز حصص الدولة الأساسية في الاستكشاف والإنتاج: 60% من نفط الامتياز رقم 6، و100% من غاز الامتياز رقم 6، و100% من هايدروم.",
+    "100% حكومية (عبر وزارة المالية)"
+   ],
+   [
+    "شركة تنمية نفط عُمان (PDO)",
+    "أكبر منتج للنفط والغاز، ومشغّل الامتياز رقم 6.",
+    "طاقة عُمان 60%، شل 34%، توتال إنرجيز 4%، PTTEP 2%"
+   ],
+   [
+    "الشركة المتكاملة للغاز (IGC)",
+    "المشتري والبائع الوحيد للغاز الطبيعي، وتزوّد نحو 130 عميلاً والشركة العُمانية للغاز الطبيعي المسال.",
+    "100% حكومية (وزارة المالية)"
+   ],
+   [
+    "الشركة العُمانية للغاز الطبيعي المسال",
+    "مصدّر الغاز الطبيعي المسال في صور، بما في ذلك قلهات للغاز المسال.",
+    "الحكومة 51%، شل 30%، توتال إنرجيز 5.54%، وآخرون"
+   ],
+   [
+    "هايدروم",
+    "تخصص الأراضي وتدير جولات المزايدة لمشاريع الهيدروجين الأخضر.",
+    "100% طاقة عُمان"
+   ],
+   [
+    "مجموعة نماء",
+    "الكهرباء والمياه: المشتري الوحيد (نماء لشراء الطاقة والمياه)، والنقل، والتوزيع، والتزويد.",
+    "100% جهاز الاستثمار العُماني"
+   ]
+  ],
+  "Cc": [
+   [
+    "شل",
+    "34% من تنمية نفط عُمان، و30% من العُمانية للغاز المسال، ومشغّل غاز الامتياز رقم 10."
+   ],
+   [
+    "بي بي",
+    "مشغّل الامتياز رقم 61 (خزان وغزير)، ويغطي نحو ثلث الطلب على الغاز في عُمان."
+   ],
+   [
+    "توتال إنرجيز",
+    "80% من مرسى للغاز المسال في صحار، وحصص في تنمية نفط عُمان والعُمانية للغاز المسال."
+   ],
+   [
+    "أوكسيدنتال (أوكسي)",
+    "مشغّل الامتيازات 9 و53 (مخيزنة) و65."
+   ],
+   [
+    "البترول الكويتية العالمية",
+    "شريك بنسبة 50% في مصفاة الدقم (OQ8)."
+   ],
+   [
+    "PTTEP وبتروناس",
+    "شريكان في الامتياز رقم 61 (20% و10%)، وتملك PTTEP أيضاً 2% من تنمية نفط عُمان."
+   ]
+  ],
+  "flag": "",
+  "src": [
+   [
+    "EO (formerly EDO) – About us",
+    "https://edoman.om/about-us/"
+   ],
+   [
+    "Energy Oman launches new corporate identity (Muscat Daily, Aug 2026)",
+    "https://www.muscatdaily.com/2026/08/10/energy-oman-launches-new-corporate-identity/"
+   ],
+   [
+    "Fitch on EO (then EDO) and OQ (Oman Observer)",
+    "https://www.omanobserver.om/ampArticle/1181210"
+   ],
+   [
+    "IGC role (Oman Observer)",
+    "https://www.omanobserver.om/article/1156398/business/energy/igc-unveils-new-gas-application-portal-for-oman-customers"
+   ],
+   [
+    "Oman LNG shareholders (TotalEnergies)",
+    "https://totalenergies.com/node/23021"
+   ],
+   [
+    "Oman LNG 4th train, MEM stake (MEED)",
+    "https://guest.meed.com/oman-lng-to-add-fourth-train-at-qalhat-complex"
+   ],
+   [
+    "Block 61 (Oman Observer)",
+    "https://www.omanobserver.om/ampArticle/1190559"
+   ],
+   [
+    "OQ portfolio – listed companies and stakes (OQ)",
+    "https://oq.com/en/about-oq/company"
+   ],
+   [
+    "OQRPI record 2025 operating year (Oman Observer)",
+    "https://www.omanobserver.om/article/1183211/business/energy/oqrpi-records-landmark-operating-year-in-2025"
+   ],
+   [
+    "Marsa LNG 80/20 (MEED)",
+    "https://guest.meed.com/totalenergies-and-oq-break-ground-on-marsa-lng-project"
+   ],
+   [
+    "Nama owned by OIA (Oman Observer)",
+    "https://www.omanobserver.om/article/1138685/business/energy/nama-restructuring-to-streamline-power-distribution-and-supply-services"
+   ]
+  ]
+ },
+ "usa": {
+  "name": "أمريكا",
+  "model": "نموذج لا مركزي يقوده القطاع الخاص",
+  "modelText": "تهيمن الشركات الخاصة على إنتاج النفط والاستثمار فيه، بينما تتقاسم المؤسسات الاتحادية ومؤسسات الولايات مسؤوليات رسم السياسات والتنظيم.",
+  "top": [
+   "الولايات المتحدة الأمريكية",
+   "الحكومة الاتحادية · 50 ولاية"
+  ],
+  "inst": [
+   [
+    "وزارة الطاقة",
+    "سياسة الطاقة، والأبحاث، والاحتياطي النفطي الاستراتيجي",
+    ""
+   ],
+   [
+    "وزارة الداخلية (DOI)",
+    "تؤجّر الأراضي الاتحادية والمناطق البحرية",
+    ""
+   ],
+   [
+    "هيئة FERC",
+    "خطوط الأنابيب، وسوق الكهرباء بالجملة، ومحطات الغاز المسال",
+    "reg"
+   ],
+   [
+    "جهات تنظيم الولايات",
+    "مثل هيئة السكك الحديدية في تكساس، وهيئات المرافق",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "مملوكة اتحادياً",
+    "tag": "own",
+    "items": [
+     [
+      "هيئة وادي تينيسي",
+      "مؤسسة اتحادية"
+     ],
+     [
+      "إدارة بونفيل للطاقة",
+      "تابعة لوزارة الطاقة"
+     ],
+     [
+      "الاحتياطي النفطي الاستراتيجي",
+      "تديره وزارة الطاقة"
+     ]
+    ]
+   },
+   {
+    "t": "مملوكة للمستثمرين",
+    "tag": "pvt",
+    "items": [
+     [
+      "إكسون موبيل، شيفرون",
+      "شركات كبرى متكاملة"
+     ],
+     [
+      "كونوكو فيليبس، EOG، أوكسي",
+      "منتجون"
+     ],
+     [
+      "شينير",
+      "مصدّر غاز مسال"
+     ],
+     [
+      "نكست إيرا، ديوك",
+      "شركات مرافق"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "لا توجد شركة نفط وطنية",
+   "الإنتاج بيد القطاع الخاص",
+   "في الأراضي الخاصة يملك أصحابها الثروات المعدنية عادةً، وفي الأراضي الاتحادية والمناطق البحرية تؤجّر وزارة الداخلية المساحات مقابل إتاوات"
+  ],
+  "note": "تنظم الجهات الاتحادية الأنشطة العابرة للولايات، بينما تنظم كل ولاية الحفر وخدمات المرافق للمستهلكين داخل حدودها.",
+  "A": [
+   [
+    "وزارة الطاقة (DOE)",
+    "سياسة الطاقة الوطنية، ومختبرات الأبحاث، والاحتياطي النفطي الاستراتيجي، وموافقات تصدير الغاز المسال، وإدارات تسويق الكهرباء الاتحادية."
+   ],
+   [
+    "وزارة الداخلية (DOI)",
+    "تؤجّر الأراضي الاتحادية البرية (BLM) والمناطق البحرية (BOEM)، وتطبّق معايير السلامة البحرية (BSEE)."
+   ],
+   [
+    "اللجنة الاتحادية لتنظيم الطاقة (FERC)",
+    "جهة تنظيمية مستقلة لخطوط أنابيب الغاز بين الولايات، وسوق الكهرباء بالجملة، ومواقع محطات الغاز المسال."
+   ],
+   [
+    "EPA وNRC وPHMSA",
+    "الأنظمة البيئية (EPA)، والسلامة النووية (NRC)، وسلامة خطوط الأنابيب (PHMSA التابعة لوزارة النقل)."
+   ],
+   [
+    "جهات تنظيم الولايات",
+    "تصدر تصاريح الآبار وتحدد المسافات بينها (مثل هيئة السكك الحديدية في تكساس)، وتحدد أسعار الكهرباء والغاز للمستهلكين (هيئات المرافق في الولايات)."
+   ]
+  ],
+  "B": [
+   [
+    "هيئة وادي تينيسي (TVA)",
+    "منتج كهرباء مملوك اتحادياً يخدم تينيسي وأجزاء من ست ولايات مجاورة.",
+    "الحكومة الاتحادية الأمريكية"
+   ],
+   [
+    "إدارات تسويق الطاقة",
+    "تبيع الكهرباء المولّدة من السدود الاتحادية، مثل بونفيل في شمال غرب المحيط الهادئ.",
+    "الحكومة الاتحادية الأمريكية (وزارة الطاقة)"
+   ],
+   [
+    "الاحتياطي النفطي الاستراتيجي",
+    "مخزون طوارئ من النفط الخام في كهوف ملحية على ساحل خليج المكسيك.",
+    "الحكومة الاتحادية الأمريكية (وزارة الطاقة)"
+   ]
+  ],
+  "Cc": [
+   [
+    "إكسون موبيل",
+    "أكبر شركة نفط أمريكية: الاستكشاف والإنتاج، والتكرير، والكيماويات."
+   ],
+   [
+    "شيفرون",
+    "ثانية الشركات المتكاملة الكبرى، وتعمل أيضاً في المنطقة المقسومة بين السعودية والكويت."
+   ],
+   [
+    "كونوكو فيليبس",
+    "أكبر منتج مستقل، وانسحبت من مشروع في المياه العميقة في ماليزيا عام 2025."
+   ],
+   [
+    "شينير للطاقة",
+    "أكبر مصدّر أمريكي للغاز الطبيعي المسال."
+   ],
+   [
+    "نكست إيرا للطاقة",
+    "شركة مرافق كبرى ومطوّر لمشاريع الطاقة المتجددة."
+   ],
+   [
+    "كيندر مورغان",
+    "مشغّل رئيسي لخطوط أنابيب الغاز."
+   ]
+  ],
+  "flag": "",
+  "src": [
+   [
+    "DOE FY2026 budget hearing (govinfo)",
+    "https://www.govinfo.gov/content/pkg/CHRG-119shrg61238/html/CHRG-119shrg61238.htm"
+   ],
+   [
+    "FERC",
+    "https://ferc.gov/news-events/news/president-trump-names-david-rosner-chairman-ferc"
+   ]
+  ]
+ },
+ "uae": {
+  "name": "الإمارات",
+  "model": "موارد تملكها كل إمارة ضمن دولة اتحادية",
+  "modelText": "يعود النفط والغاز إلى كل إمارة لا إلى الاتحاد. وتشرف أبوظبي، التي تملك معظم الاحتياطيات، على أدنوك عبر المجلس الأعلى للشؤون المالية والاقتصادية. وتضع الوزارات الاتحادية السياسات الوطنية، بينما تدير دبي شركات الطاقة التابعة لها.",
+  "top": [
+   "دولة الإمارات العربية المتحدة",
+   "الحكومة الاتحادية · سبع إمارات"
+  ],
+  "inst": [
+   [
+    "وزارة الطاقة والبنية التحتية",
+    "سياسة الطاقة الاتحادية",
+    ""
+   ],
+   [
+    "المجلس الأعلى للشؤون المالية والاقتصادية (أبوظبي)",
+    "يشرف على أدنوك ومبادلة وجهاز أبوظبي للاستثمار وADQ",
+    "inv"
+   ],
+   [
+    "دائرة الطاقة في أبوظبي",
+    "منظِّم الكهرباء والمياه (أبوظبي)",
+    "reg"
+   ],
+   [
+    "المجلس الأعلى للطاقة في دبي",
+    "سياسة الطاقة في دبي",
+    ""
+   ]
+  ],
+  "groups": [
+   {
+    "t": "أبوظبي – النفط والغاز",
+    "tag": "own",
+    "items": [
+     [
+      "أدنوك",
+      "100% حكومة أبوظبي"
+     ],
+     [
+      "XRG (الذراع الدولية)",
+      "100% أدنوك"
+     ]
+    ]
+   },
+   {
+    "t": "أبوظبي – مرافق ADQ",
+    "tag": "own",
+    "items": [
+     [
+      "طاقة (TAQA)",
+      "أغلبية لـ ADQ"
+     ],
+     [
+      "EWEC (المشتري الوحيد)",
+      "ADQ"
+     ],
+     [
+      "مؤسسة الإمارات للطاقة النووية",
+      "100% ADQ"
+     ]
+    ]
+   },
+   {
+    "t": "أبوظبي – الطاقة النظيفة",
+    "tag": "own",
+    "items": [
+     [
+      "مصدر",
+      "طاقة 43، مبادلة 33، أدنوك 24"
+     ]
+    ]
+   },
+   {
+    "t": "دبي",
+    "tag": "own",
+    "items": [
+     [
+      "إينوك",
+      "حكومة دبي"
+     ],
+     [
+      "هيئة كهرباء ومياه دبي (مدرجة)",
+      "نحو 82% لحكومة دبي"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "XRG – الذراع الاستثمارية لأدنوك",
+   "أدنوك للغاز 86% | للتوزيع 77% | للحفر 78.5% | للإمداد والخدمات 78%",
+   "وتملك أيضاً 24.9% من OMV و50% من بروج الدولية (مع OMV)"
+  ],
+  "note": "حصص مصدر تخص أعمال الطاقة المتجددة، بينما تقود أدنوك أعمال الهيدروجين الأخضر.",
+  "A": [
+   [
+    "وزارة الطاقة والبنية التحتية (اتحادية)",
+    "سياسة الطاقة الوطنية والبنية التحتية، ووزيرها عضو في مجلس إدارة أدنوك."
+   ],
+   [
+    "المجلس الأعلى للشؤون المالية والاقتصادية (أبوظبي)",
+    "حلّ محل المجلس الأعلى للبترول عام 2020، ويعتمد استراتيجيات أدنوك ومبادلة وجهاز أبوظبي للاستثمار وADQ، ويعيّن مجلس إدارة أدنوك."
+   ],
+   [
+    "دائرة الطاقة (أبوظبي)",
+    "تنظم قطاعي الكهرباء والمياه في أبوظبي."
+   ],
+   [
+    "المجلس الأعلى للطاقة في دبي",
+    "يضع استراتيجية الطاقة في دبي ويشرف على هيئة كهرباء ومياه دبي وإينوك."
+   ],
+   [
+    "الهيئة الاتحادية للرقابة النووية",
+    "الجهة الاتحادية المنظِّمة للسلامة النووية في محطة براكة."
+   ]
+  ],
+  "B": [
+   [
+    "أدنوك",
+    "شركة النفط الوطنية في أبوظبي: امتيازات الاستكشاف والإنتاج مع شركاء أجانب، والغاز، والتكرير، والكيماويات.",
+    "100% حكومة أبوظبي"
+   ],
+   [
+    "XRG",
+    "شركة استثمار دولية، وتحوز منذ سبتمبر 2025 حصص أدنوك في شركاتها المدرجة.",
+    "100% أدنوك"
+   ],
+   [
+    "طاقة (TAQA)",
+    "توليد الكهرباء والمياه ونقلها وتوزيعها، وشريك في مشاريع المياه والكهرباء المستقلة في أبوظبي.",
+    "أغلبية لـ ADQ، ومدرجة في سوق أبوظبي للأوراق المالية"
+   ],
+   [
+    "شركة مياه وكهرباء الإمارات (EWEC)",
+    "المشتري الوحيد للكهرباء والمياه في أبوظبي.",
+    "ADQ"
+   ],
+   [
+    "مؤسسة الإمارات للطاقة النووية (ENEC)",
+    "تمتلك محطة براكة للطاقة النووية.",
+    "100% ADQ"
+   ],
+   [
+    "مصدر",
+    "مطوّر لمشاريع الطاقة المتجددة والهيدروجين الأخضر.",
+    "طاقة 43%، مبادلة 33%، أدنوك 24% (الطاقة المتجددة)"
+   ],
+   [
+    "إينوك",
+    "مجموعة دبي للتكرير وتجزئة الوقود والتجارة، وتمتلك دراغون أويل.",
+    "حكومة دبي"
+   ],
+   [
+    "هيئة كهرباء ومياه دبي (ديوا)",
+    "مرفق الكهرباء والمياه في دبي، وأُدرجت في سوق دبي المالي عام 2022.",
+    "نحو 82% لحكومة دبي"
+   ]
+  ],
+  "Cc": [
+   [
+    "توتال إنرجيز، بي بي، شل، إكسون موبيل",
+    "شركاء في امتيازات أدنوك البرية والبحرية."
+   ],
+   [
+    "OMV",
+    "مجموعة نمساوية، تملك 50% من بروج الدولية، وتملك XRG حصة 24.9% فيها."
+   ],
+   [
+    "بروج الدولية",
+    "شركة بولي أوليفينات تجمع بروج وبورياليس ونوفا كيميكالز، مملوكة مناصفة بين OMV وXRG."
+   ],
+   [
+    "دانة غاز",
+    "منتج غاز خاص مدرج، مقره الشارقة."
+   ]
+  ],
+  "flag": "",
+  "src": [
+   [
+    "Abu Dhabi merges SPC into SCFEA (S&P Global)",
+    "https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/122820-abu-dhabi-merges-supreme-petroleum-council-with-new-economic-body"
+   ],
+   [
+    "ADNOC board and SCFEA (The National)",
+    "https://thenational-the-national-prod.cdn.arcpublishing.com/business/energy/sheikh-khalifa-appoints-new-board-of-directors-for-adnoc-1.1174648"
+   ],
+   [
+    "ADNOC stakes transferred to XRG (AGBI)",
+    "https://www.agbi.com/oil-and-gas/2025/09/adnoc-transfers-stakes-in-adx-listed-units-to-xrg/"
+   ],
+   [
+    "Borouge International formed (Hydrocarbon Engineering)",
+    "https://www.hydrocarbonengineering.com/petrochemicals/01042026/omv-and-xrg-complete-transactions-to-create-borouge-international/"
+   ],
+   [
+    "Masdar shareholders (Arab News)",
+    "https://www.arabnews.pk/node/2212866/business-economy"
+   ],
+   [
+    "ENEC to ADQ (WAM)",
+    "https://www.wam.ae/en/article/hszrayka-abu-dhabi-transfers-ownership-enec-adq"
+   ],
+   [
+    "DEWA ownership (Forbes ME)",
+    "https://www.forbesmiddleeast.com/lists/100-most-valuable-companies-2026/dubai-electricity-and-water-authority-dewa/"
+   ]
+  ]
+ },
+ "malaysia": {
+  "name": "ماليزيا",
+  "model": "نموذج يتمحور حول شركة النفط الوطنية",
+  "modelText": "تتمتع بتروناس بدور قانوني فريد في ملكية الموارد النفطية وإدارتها، بينما يخضع قطاع الكهرباء لإطار مؤسسي منفصل.",
+  "top": [
+   "حكومة ماليزيا",
+   "رئيس الوزراء · مجلس الوزراء الاتحادي"
+  ],
+  "inst": [
+   [
+    "رئيس الوزراء",
+    "تتبع بتروناس رئيس الوزراء بموجب قانون تطوير البترول لعام 1974",
+    ""
+   ],
+   [
+    "وزارة المالية",
+    "المساهم الوحيد في بتروناس",
+    "inv"
+   ],
+   [
+    "وزارة PETRA",
+    "سياسة الكهرباء والمياه والتحول في قطاع الطاقة",
+    ""
+   ],
+   [
+    "هيئة الطاقة",
+    "تنظم الكهرباء والغاز المنقول بالأنابيب",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "اتحادي – البترول",
+    "tag": "own",
+    "items": [
+     [
+      "بتروناس",
+      "100% للحكومة الاتحادية"
+     ]
+    ]
+   },
+   {
+    "t": "تحت بتروناس",
+    "tag": "own",
+    "items": [
+     [
+      "بتروناس كاريغالي",
+      "الاستكشاف والإنتاج"
+     ],
+     [
+      "بتروناس للكيماويات، والغاز، وداغانغان",
+      "مدرجة"
+     ],
+     [
+      "MLNG",
+      "الغاز المسال في بينتولو"
+     ],
+     [
+      "جنتاري",
+      "الطاقة النظيفة"
+     ]
+    ]
+   },
+   {
+    "t": "الكهرباء",
+    "tag": "own",
+    "items": [
+     [
+      "تيناغا ناسيونال (TNB)",
+      "مرتبطة بالحكومة، مدرجة"
+     ]
+    ]
+   },
+   {
+    "t": "ولاية ساراواك",
+    "tag": "own",
+    "items": [
+     [
+      "بتروس",
+      "حكومة ساراواك؛ مجمّع الغاز"
+     ],
+     [
+      "ساراواك للطاقة",
+      "مرفق تابع لحكومة ساراواك"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "بتروناس – المالك والمدير والمشغّل",
+   "جميع حقوق البترول مُسندة إلى بتروناس بموجب قانون تطوير البترول لعام 1974",
+   "تمنح العقود لشركات النفط وتديرها، وتنتج عبر بتروناس كاريغالي"
+  ],
+  "note": "منذ 1 مارس 2025 أصبحت بتروس مجمّع الغاز في ساراواك للسوق المحلية، ويبقى الغاز المسال لدى بتروناس.",
+  "A": [
+   [
+    "رئيس الوزراء",
+    "بموجب قانون تطوير البترول لعام 1974 تخضع بتروناس لرئيس الوزراء، ويلزم إذنه لأنشطة التسويق والتوزيع."
+   ],
+   [
+    "وزارة المالية",
+    "قدّمت رأس المال التأسيسي لبتروناس، والحكومة الاتحادية مالكها الوحيد. ويشغل رئيس الوزراء حالياً منصب وزير المالية أيضاً."
+   ],
+   [
+    "وزارة التحول في الطاقة وتحويل قطاع المياه (PETRA)",
+    "منذ ديسمبر 2023: سياسة الكهرباء والمياه والتحول في الطاقة، بما في ذلك خطة PETRA الاستراتيجية 2026–2030."
+   ],
+   [
+    "هيئة الطاقة (سوروهانجايا تيناغا)",
+    "تنظم إمدادات الكهرباء والغاز المنقول بالأنابيب."
+   ],
+   [
+    "حكومة ولاية ساراواك",
+    "عيّنت بتروس مجمّعاً للغاز في الولاية بموجب مرسوم توزيع الغاز لعام 2016."
+   ]
+  ],
+  "B": [
+   [
+    "بتروناس",
+    "شركة النفط الوطنية، وتؤول إليها ملكية جميع الموارد البترولية في البر والبحر.",
+    "100% للحكومة الاتحادية"
+   ],
+   [
+    "بتروناس كاريغالي",
+    "ذراع بتروناس للاستكشاف والإنتاج.",
+    "بتروناس"
+   ],
+   [
+    "بتروناس للكيماويات، بتروناس للغاز، بتروناس داغانغان",
+    "وحدات مدرجة: البتروكيماويات، ومعالجة الغاز ونقله، وتجزئة الوقود.",
+    "أغلبية لبتروناس، ومدرجة في بورصة ماليزيا"
+   ],
+   [
+    "تيناغا ناسيونال (TNB)",
+    "مرفق الكهرباء الرئيسي في شبه الجزيرة الماليزية، مع استثمارات مخطط لها في الشبكة بقيمة 43 مليار رينغيت للفترة 2025–2027.",
+    "مرتبطة بالحكومة، وصناديق الاستثمار الحكومية هي المساهم الرئيسي"
+   ],
+   [
+    "بتروس – بترول ساراواك",
+    "شركة النفط التابعة لولاية ساراواك، والمجمّع الوحيد للغاز المحلي فيها باستثناء الغاز المسال.",
+    "حكومة ولاية ساراواك"
+   ]
+  ],
+  "Cc": [
+   [
+    "شل",
+    "منتج رئيسي في المياه البحرية لساراواك وصباح."
+   ],
+   [
+    "إكسون موبيل",
+    "منتج عريق في المياه البحرية لشبه الجزيرة الماليزية."
+   ],
+   [
+    "PTTEP",
+    "شركة النفط الوطنية التايلاندية، وتشغّل حقول غاز في المياه البحرية لساراواك."
+   ],
+   [
+    "كونوكو فيليبس",
+    "انسحبت في أبريل 2025 من مشروع في المياه العميقة بقيمة 13.7 مليار رينغيت، مشيرة إلى الغموض التنظيمي."
+   ]
+  ],
+  "flag": "كانت بتروناس وبتروس لا تزالان تضعان اللمسات الأخيرة على اتفاقهما التجاري في ديسمبر 2025، ولم يتسنَّ التأكد من توقيعه منذ ذلك الحين.",
+  "src": [
+   [
+    "Federal govt sole owner of Petronas (Bernama)",
+    "https://www.bernama.com/en/news.php/?id=2456814"
+   ],
+   [
+    "PDA 1974 text",
+    "https://policy.asiapacificenergy.org/sites/default/files/Petroleum%20Development%20Act%201974%20%282013%20Ed.%29.pdf"
+   ],
+   [
+    "Petronas founded with MOF capital (Petronas 50 Years)",
+    "https://issuu.com/bazuki/docs/petronas_50_years"
+   ],
+   [
+    "PETRA ministry (Wikipedia)",
+    "https://en.wikipedia.org/wiki/Ministry_of_Energy_Transition_and_Water_Transformation_(Malaysia)"
+   ],
+   [
+    "Petros gas aggregator (Malay Mail)",
+    "https://www.malaymail.com/news/malaysia/2025/05/21/pmo-petronas-to-maintain-role-under-pda-1974-petros-appointed-sarawak-gas-aggregator/177645"
+   ],
+   [
+    "Petros–Petronas talks, Dec 2025 (Sarawak MUT)",
+    "https://mut.sarawak.gov.my/web/subpage/news_view/768"
+   ],
+   [
+    "TNB grid investment (The Star)",
+    "https://www.thestar.com.my/business/business-news/2026/06/04/public-private-push-to-fuel-2050-net-zero-goals"
+   ]
+  ]
+ },
+ "ksa": {
+  "name": "السعودية",
+  "model": "نموذج يتمحور حول الدولة وبطل وطني واحد",
+  "modelText": "تنتج أرامكو معظم نفط المملكة وغازها وفق سياسات وزارة الطاقة، ويحوز صندوق الاستثمارات العامة بشكل متزايد حصص الدولة في أرامكو وقطاعي الكهرباء والطاقة المتجددة.",
+  "top": [
+   "المملكة العربية السعودية",
+   "الملك · مجلس الوزراء"
+  ],
+  "inst": [
+   [
+    "وزارة الطاقة",
+    "سياسات النفط والغاز والكهرباء والطاقة المتجددة",
+    ""
+   ],
+   [
+    "صندوق الاستثمارات العامة",
+    "صندوق سيادي؛ حصص في أرامكو والكهرباء والطاقة المتجددة",
+    "inv"
+   ],
+   [
+    "وزارة المالية",
+    "مالكة الشركة السعودية لشراء الطاقة، المشتري الوحيد للكهرباء",
+    ""
+   ],
+   [
+    "هيئة تنظيم الكهرباء",
+    "منظِّم قطاع الكهرباء",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "ملكية حكومية مباشرة",
+    "tag": "own",
+    "items": [
+     [
+      "أرامكو السعودية",
+      "نحو 81.5%"
+     ],
+     [
+      "الشركة السعودية لشراء الطاقة (المشتري الوحيد)",
+      "100% للدولة"
+     ]
+    ]
+   },
+   {
+    "t": "تحت صندوق الاستثمارات العامة",
+    "tag": "own",
+    "items": [
+     [
+      "أرامكو السعودية",
+      "نحو 16%"
+     ],
+     [
+      "السعودية للطاقة (الكهرباء سابقاً)",
+      "نحو 74–75%"
+     ],
+     [
+      "أكوا باور",
+      "نحو 44%"
+     ]
+    ]
+   },
+   {
+    "t": "تحت أرامكو",
+    "tag": "own",
+    "items": [
+     [
+      "سابك",
+      "70%"
+     ],
+     [
+      "أرامكو السعودية للطاقة (SAPCO)",
+      "100%"
+     ],
+     [
+      "السعودية للطاقة (عبر SAPCO)",
+      "نحو 6.9%"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "أرامكو السعودية",
+   "الحكومة نحو 81.5% | صندوق الاستثمارات نحو 16% | التداول العام نحو 2.5%",
+   "تنتج معظم النفط والغاز السعودي، ومدرجة في تداول منذ 2019"
+  ],
+  "note": "تجمع حصة الصندوق في أرامكو بين الملكية المباشرة وشركات مملوكة له مثل سنابل.",
+  "A": [
+   [
+    "وزارة الطاقة",
+    "تضع سياسات النفط والغاز والتكرير والبتروكيماويات والكهرباء والطاقة المتجددة، وتدير خطط مشتريات الطاقة."
+   ],
+   [
+    "صندوق الاستثمارات العامة (PIF)",
+    "صندوق الثروة السيادي، تسلّم 16% من أرامكو من الدولة خلال 2022–2024، وهو أكبر مالك لشركة الكهرباء وأكوا باور."
+   ],
+   [
+    "وزارة المالية",
+    "تمتلك الشركة السعودية لشراء الطاقة التي انتقلت ملكيتها إلى الدولة من الشركة السعودية للكهرباء عام 2022."
+   ],
+   [
+    "هيئة تنظيم الكهرباء (SERA)",
+    "منظِّم قطاع الكهرباء، تأسست بعد فصل هيئة تنظيم المياه والكهرباء السابقة."
+   ],
+   [
+    "مدينة الملك عبدالله للطاقة الذرية والمتجددة",
+    "الجهة المعنية بسياسات الطاقة الذرية والمتجددة."
+   ]
+  ],
+  "B": [
+   [
+    "أرامكو السعودية",
+    "شركة النفط الوطنية: الاستكشاف والإنتاج، والتكرير، والكيماويات، والتجارة.",
+    "الحكومة نحو 81.5%، صندوق الاستثمارات نحو 16%، الجمهور نحو 2.5%"
+   ],
+   [
+    "سابك",
+    "البتروكيماويات، واشترتها أرامكو من صندوق الاستثمارات العامة عام 2020.",
+    "أرامكو 70%، مدرجة"
+   ],
+   [
+    "السعودية للطاقة (الشركة السعودية للكهرباء سابقاً)",
+    "المولّد الرئيسي ومالك الشبكة والموزّع، وتغيّر اسمها في فبراير 2026.",
+    "صندوق الاستثمارات نحو 74–75%، أرامكو نحو 6.9%، مدرجة"
+   ],
+   [
+    "الشركة السعودية لشراء الطاقة (SPPC)",
+    "المشتري الوحيد للكهرباء من المنتجين المستقلين، وتدير مناقصات الطاقة المتجددة.",
+    "الحكومة (انتقلت من الشركة السعودية للكهرباء عام 2022)"
+   ],
+   [
+    "أكوا باور",
+    "مطوّر لمشاريع الكهرباء والمياه والهيدروجين، وتقود معظم مشاريع الطاقة المتجددة التابعة للصندوق.",
+    "صندوق الاستثمارات نحو 44%، مدرجة"
+   ]
+  ],
+  "Cc": [
+   [
+    "شيفرون",
+    "تعمل مع الكويت في المنطقة المقسومة السعودية الكويتية."
+   ],
+   [
+    "صدارة للكيميائيات",
+    "مشروع مشترك للبتروكيماويات بين أرامكو وداو في الجبيل."
+   ],
+   [
+    "شركة نيوم للهيدروجين الأخضر",
+    "مشروع هيدروجين مشترك بين أكوا باور وإير برودكتس ونيوم."
+   ],
+   [
+    "معادن",
+    "مجموعة تعدين يسيطر عليها صندوق الاستثمارات العامة: الفوسفات والألمنيوم والذهب."
+   ]
+  ],
+  "flag": "تختلف المصادر في حصة الصندوق في السعودية للطاقة: 74.3% (أكسفورد بزنس غروب) و75.1% (سعوديبيديا، 2026)، لذا تعرض الصفحة النطاق.",
+  "src": [
+   [
+    "Aramco state transfer to PIF, 82.19% (Business Recorder/AFP)",
+    "https://www.brecorder.com/news/40292495"
+   ],
+   [
+    "Aramco ownership 2026 profile",
+    "https://vision2030.pages.dev/institutions/aramco/"
+   ],
+   [
+    "Saudi power sector structure (Oxford Business Group)",
+    "https://oxfordbusinessgroup.com/reports/saudi-arabia/2025-report/energy-utilities/power-move-the-sector-is-transforming-through-the-expansion-of-renewables-improved-water-efficiency-and-steps-towards-privatisation-overview/"
+   ],
+   [
+    "SEC renamed Saudi Energy (Saudipedia)",
+    "https://saudipedia.com/fr/saudi-energy"
+   ],
+   [
+    "SPPC nationalised (Arab News)",
+    "https://arabnews.pk/node/2139186"
+   ],
+   [
+    "SPPC and ACWA ownership (GlobalDeal)",
+    "https://globaldeal.io/finder/segments/saudi-arabia-renewable-energy"
+   ]
+  ]
+ }
+};
+const UI = {"en": {"title": "Energy Sector Structures", "sub": "Government institutions, state-owned companies and key players, country by country · as of Nov 2026", "structure": "Structure", "commercial": "Commercial and operating companies", "hA": "A. Main government institutions", "hB": "B. National oil and state-owned companies", "hC": "C. Other important companies", "inst": "Institution", "role": "Role in the energy sector", "co": "Company", "does": "What it does", "pos": "Position in the sector", "own": "Owned by:", "check": "Check:", "sources": "Sources", "tag_own": "Ownership", "tag_pvt": "Private", "tag_reg": "Regulation"}, "ar": {"title": "هياكل قطاع الطاقة", "sub": "المؤسسات الحكومية والشركات المملوكة للدولة وأبرز الجهات الفاعلة، حسب الدولة · حتى نوفمبر 2026", "structure": "الهيكل", "commercial": "الشركات التجارية والتشغيلية", "hA": "أ. أبرز المؤسسات الحكومية", "hB": "ب. شركات النفط الوطنية والشركات المملوكة للدولة", "hC": "ج. شركات مهمة أخرى", "inst": "المؤسسة", "role": "دورها في قطاع الطاقة", "co": "الشركة", "does": "نشاطها", "pos": "موقعها في القطاع", "own": "الملكية:", "check": "ملاحظة:", "sources": "المصادر", "tag_own": "ملكية", "tag_pvt": "خاص", "tag_reg": "تنظيم"}};
 const ORDER=["oman","usa","uae","malaysia","ksa"];
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
 const TAGTXT={own:"Ownership",pvt:"Private",reg:"Regulation"};
+let LANG="en";
+try{const q=new URLSearchParams(location.search).get("lang");LANG=(q==="ar"||q==="en")?q:(localStorage.getItem("lang")||"en");}catch(e){}
+const DATA=()=>LANG==="ar"?C_AR:C;
+function applyLang(){const ar=LANG==="ar";document.documentElement.lang=ar?"ar":"en";document.documentElement.dir=ar?"rtl":"ltr";
+  document.getElementById("t1").textContent=UI[LANG].title;document.getElementById("t2").textContent=UI[LANG].sub;document.title=UI[LANG].title;
+  document.getElementById("lang").textContent=ar?"English":"عربي";}
+document.getElementById("lang").addEventListener("click",()=>{LANG=LANG==="ar"?"en":"ar";try{localStorage.setItem("lang",LANG)}catch(e){};applyLang();render(CUR);});
+applyLang();
 let CUR="oman";
 function render(id){
-  CUR=id; const d=C[id];
+  CUR=id; const d=DATA()[id], U=UI[LANG];
   const E=(p,v)=>`<span data-p="${p}">${esc(v)}</span>`;
   const inst=d.inst.map(([n,s,k],i)=>`<div class="box ${k}"><b>${E(`inst.${i}.0`,n)}</b><span>${E(`inst.${i}.1`,s)}</span></div>`).join("");
-  const grps=d.groups.map((g,gi)=>`<div class="grp"><h3>${E(`groups.${gi}.t`,g.t)}</h3><span class="tag ${g.tag}">${TAGTXT[g.tag]}</span><ul>${g.items.map(([a,b],j)=>`<li>${E(`groups.${gi}.items.${j}.0`,a)}${b?` <small>· ${E(`groups.${gi}.items.${j}.1`,b)}</small>`:""}</li>`).join("")}</ul></div>`).join("");
-  const table=(key,head,rows,three)=>`<div class="tbl"><div class="r h"><div>${head[0]}</div><div>${head[1]}</div></div>${rows.map((r,i)=>`<div class="r"><div class="n">${E(`${key}.${i}.0`,r[0])}</div><div>${E(`${key}.${i}.1`,r[1])}${three&&r[2]?`<span class="own">Owned by: ${E(`${key}.${i}.2`,r[2])}</span>`:""}</div></div>`).join("")}</div>`;
+  const grps=d.groups.map((g,gi)=>`<div class="grp"><h3>${E(`groups.${gi}.t`,g.t)}</h3><span class="tag ${g.tag}">${U["tag_"+g.tag]}</span><ul>${g.items.map(([a,b],j)=>`<li>${E(`groups.${gi}.items.${j}.0`,a)}${b?` <small>· ${E(`groups.${gi}.items.${j}.1`,b)}</small>`:""}</li>`).join("")}</ul></div>`).join("");
+  const table=(key,head,rows,three)=>`<div class="tbl"><div class="r h"><div>${head[0]}</div><div>${head[1]}</div></div>${rows.map((r,i)=>`<div class="r"><div class="n">${E(`${key}.${i}.0`,r[0])}</div><div>${E(`${key}.${i}.1`,r[1])}${three&&r[2]?`<span class="own">${U.own} ${E(`${key}.${i}.2`,r[2])}</span>`:""}</div></div>`).join("")}</div>`;
   document.getElementById("view").innerHTML=`
   <section class="model"><div class="c">${E("name",d.name)}</div><div class="t">${E("model",d.model)}</div><p>${E("modelText",d.modelText)}</p></section>
-  <h2>Structure</h2>
+  <h2>${U.structure}</h2>
   <div class="chart">
     <div class="box top"><b>${E("top.0",d.top[0])}</b><span>${E("top.1",d.top[1])}</span></div>
     <div class="arrow" aria-hidden="true">↓</div>
     <div class="inst">${inst}</div>
     <div class="divider"></div>
-    <div class="sub">Commercial and operating companies</div>
+    <div class="sub">${U.commercial}</div>
     <div class="groups">${grps}</div>
     <div class="arrow" aria-hidden="true">↓</div>
     <div class="box feat"><b>${E("feat.0",d.feat[0])}</b><span>${E("feat.1",d.feat[1])}</span><span>${E("feat.2",d.feat[2])}</span></div>
     <p class="note">${E("note",d.note)}</p>
   </div>
-  <h2>A. Main government institutions</h2>
-  ${table("A",["Institution","Role in the energy sector"],d.A,false)}
-  <h2>B. National oil and state-owned companies</h2>
-  ${table("B",["Company","What it does"],d.B,true)}
-  <h2>C. Other important companies</h2>
-  ${table("Cc",["Company","Position in the sector"],d.Cc,false)}
-  ${d.flag?`<div class="flag"><b>Check:</b> ${E("flag",d.flag)}</div>`:""}
+  <h2>${U.hA}</h2>
+  ${table("A",[U.inst,U.role],d.A,false)}
+  <h2>${U.hB}</h2>
+  ${table("B",[U.co,U.does],d.B,true)}
+  <h2>${U.hC}</h2>
+  ${table("Cc",[U.co,U.pos],d.Cc,false)}
+  ${d.flag?`<div class="flag"><b>${U.check}</b> ${E("flag",d.flag)}</div>`:""}
   <ol class="src">${d.src.map(([t,u],i)=>`<li><a href="${u}">${E(`src.${i}.0`,t)}</a></li>`).join("")}</ol>`;
-  document.querySelectorAll("#tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.id===id?"true":"false"));
+  document.querySelectorAll("#tabs button").forEach(b=>{b.textContent=DATA()[b.dataset.id].name;b.setAttribute("aria-selected",b.dataset.id===id?"true":"false");});
   if(window.EDITING) setEditable(true);
 }
 const tabs=document.getElementById("tabs");
@@ -336,18 +1371,18 @@ body.editing [data-p]:focus{outline:2px solid var(--accent);background:rgba(47,1
   if(!/[?&]edit\b/.test(location.search)) return;
   const bar=document.getElementById("edbar"), bT=document.getElementById("edT"), bS=document.getElementById("edS"), bC=document.getElementById("edC"), msg=document.getElementById("edmsg");
   bar.hidden=false;
-  const ORIG=JSON.stringify(C); let dirty=false;
+  const ORIG=JSON.stringify({en:C,ar:C_AR}); let dirty=false;
   const say=(t,ms)=>{msg.textContent=t;msg.style.display="block";clearTimeout(say.t);if(ms)say.t=setTimeout(()=>msg.style.display="none",ms);};
   const setPath=(obj,path,val)=>{const k=path.split(".");let o=obj;for(let i=0;i<k.length-1;i++)o=o[k[i]];o[k[k.length-1]]=val;};
   window.setEditable=on=>{document.body.classList.toggle("editing",on);
     document.querySelectorAll("#view [data-p]").forEach(el=>{el.contentEditable=on?"true":"false";
       if(on&&!el.dataset.w){el.dataset.w=1;
-        el.addEventListener("input",()=>{setPath(C[CUR],el.dataset.p,el.innerText.replace(/\n+/g," ").trim());dirty=true;});
+        el.addEventListener("input",()=>{setPath(DATA()[CUR],el.dataset.p,el.innerText.replace(/\n+/g," ").trim());dirty=true;});
         el.addEventListener("click",e=>{if(window.EDITING)e.preventDefault();});
         el.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();el.blur();}});}});};
-  const mode=on=>{window.EDITING=on;setEditable(on);bT.hidden=on;bS.hidden=!on;bC.hidden=!on;if(on)say("Tap any text to change it. Switch countries freely.",3500);};
+  const mode=on=>{window.EDITING=on;setEditable(on);bT.hidden=on;bS.hidden=!on;bC.hidden=!on;if(on)say(LANG==="ar"?"اضغط على أي نص لتعديله. يمكنك التنقل بين الدول.":"Tap any text to change it. Switch countries freely.",3500);};
   bT.onclick=()=>mode(true);
-  bC.onclick=()=>{if(dirty&&!confirm("Discard your changes?"))return;const o=JSON.parse(ORIG);Object.keys(o).forEach(k=>C[k]=o[k]);dirty=false;mode(false);render(CUR);};
+  bC.onclick=()=>{if(dirty&&!confirm("Discard your changes?"))return;const o=JSON.parse(ORIG);Object.keys(o.en).forEach(k=>C[k]=o.en[k]);Object.keys(o.ar).forEach(k=>C_AR[k]=o.ar[k]);dirty=false;mode(false);render(CUR);};
   const b64e=s=>{const b=new TextEncoder().encode(s);let r="";for(let i=0;i<b.length;i+=0x8000)r+=String.fromCharCode.apply(null,b.subarray(i,i+0x8000));return btoa(r);};
   const b64d=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g,"")),c=>c.charCodeAt(0)));
   bS.onclick=async()=>{
@@ -361,9 +1396,9 @@ body.editing [data-p]:focus{outline:2px solid var(--accent);background:rgba(47,1
       if(g.status===401||g.status===403||g.status===404){try{localStorage.removeItem("gh_edit_token");}catch(e){}throw new Error("Token not accepted. Tap Save again and paste a valid token.");}
       if(!g.ok) throw new Error("GitHub error "+g.status);
       const j=await g.json(); const src=b64d(j.content);
-      const a=src.indexOf("const C = {"), z=src.indexOf("\nconst ORDER=");
-      if(a<0||z<0) throw new Error("Couldn't find the data block in the file.");
-      const out=src.slice(0,a)+"const C = "+JSON.stringify(C,null,1)+";"+src.slice(z);
+      const a=src.indexOf("const C = {"), m=src.indexOf("\nconst C_AR = "), z=src.indexOf("\nconst UI = ");
+      if(a<0||m<0||z<0) throw new Error("Couldn't find the data block in the file.");
+      const out=src.slice(0,a)+"const C = "+JSON.stringify(C,null,1)+";"+"\nconst C_AR = "+JSON.stringify(C_AR,null,1)+";"+src.slice(z);
       const p=await fetch(api,{method:"PUT",headers:H,body:JSON.stringify({message:"Edit text on page",content:b64e(out),sha:j.sha,branch:BRANCH})});
       if(!p.ok) throw new Error("Save failed ("+p.status+")");
       dirty=false; mode(false); say("Saved ✓ Live for everyone in about 1 minute.",5000);
