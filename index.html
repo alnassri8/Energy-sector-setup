@@ -58,6 +58,7 @@ header p{margin:6px 0 0;color:var(--muted);font-size:14px}
 .tabs{position:sticky;top:0;z-index:4;background:var(--bg);padding:12px 0}
 .tabs .row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
 .tabs button{font:inherit;font-size:15px;font-weight:600;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;white-space:nowrap;min-height:42px}
+.tabs .glabel{align-self:center;font-size:12px;font-weight:600;color:var(--muted);white-space:nowrap;padding:0 4px 0 10px;text-transform:uppercase;letter-spacing:.04em}
 .tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 .model{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:6px 0 18px}
 .model .c{font-size:30px;font-weight:700;color:var(--accent);line-height:1.15}
@@ -2514,6 +2515,386 @@ const C = {
     "https://timesca.com/tengiz-karachaganak-and-kashagan-kazakhstan-asserts-contract-stability-amid-lawsuits-exceeding-170-billion/"
    ]
   ]
+ },
+ "nigeria": {
+  "name": "Nigeria",
+  "model": "Commercial NOC with separate upstream and downstream regulators",
+  "modelText": "NNPC Ltd is the state-owned national oil company, run as a commercial company under the Petroleum Industry Act 2021 and preparing for a possible IPO. Two regulators split oversight: NUPRC for upstream and NMDPRA for midstream and downstream.",
+  "top": [
+   "Federal Republic of Nigeria",
+   "President · Federal Executive Council"
+  ],
+  "inst": [
+   [
+    "Ministry of Petroleum Resources",
+    "Sector policy",
+    ""
+   ],
+   [
+    "NUPRC",
+    "Upstream regulator",
+    "reg"
+   ],
+   [
+    "NMDPRA",
+    "Midstream and downstream regulator",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "State oil company",
+    "tag": "own",
+    "items": [
+     [
+      "NNPC Ltd",
+      "state-owned; IPO date not set"
+     ]
+    ]
+   },
+   {
+    "t": "NNPC stake",
+    "tag": "own",
+    "items": [
+     [
+      "Dangote Petroleum Refinery",
+      "7.25%"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "NNPC Ltd",
+   "Federal Government of Nigeria | Group CEO: Bashir Bayo Ojulari",
+   "Commercial company under the Petroleum Industry Act 2021"
+  ],
+  "note": "",
+  "A": [
+   [
+    "Ministry of Petroleum Resources",
+    "Sets petroleum policy. Minister of State for Petroleum (Oil): Heineken Lokpobiri."
+   ],
+   [
+    "NUPRC – Nigerian Upstream Petroleum Regulatory Commission",
+    "Regulates exploration and production. CEO Oritsemeyiwa Eyesan, confirmed by the Senate in 2026."
+   ],
+   [
+    "NMDPRA – Nigerian Midstream and Downstream Petroleum Regulatory Authority",
+    "Regulates refining, gas and fuel supply. CEO Saidu Aliyu Mohammed."
+   ]
+  ],
+  "B": [
+   [
+    "NNPC Ltd",
+    "Integrated oil and gas company: exploration, refining, pipelines, trading and retail.",
+    "Federal Government of Nigeria"
+   ]
+  ],
+  "Cc": [
+   [
+    "Dangote Petroleum Refinery",
+    "650,000 bpd refinery in Lagos; NNPC holds 7.25%; launched a $1.6bn IPO in 2026."
+   ]
+  ],
+  "flag": "Reports differ on NNPC's stake in Dangote: most 2026 sources, including Dangote, say 7.25%; one says 20%.",
+  "src": [
+   [
+    "New NUPRC and NMDPRA heads confirmed (AllAfrica, Jan 2026)",
+    "https://allafrica.com/stories/202601070217.html"
+   ],
+   [
+    "Ojulari, NNPC GCEO (Nigerian News Direct, Feb 2026)",
+    "https://nigeriannewsdirect.com/amp/nnpc-ltd-nmdpra-strengthen-partnership-to-drive-energy-security-gas-expansion/"
+   ],
+   [
+    "Minister of State Lokpobiri (The Tide, Jan 2026)",
+    "https://www.thetidenewsonline.com/2026/01/collective-national-prosperity-is-our-driving-force-nnpcl/"
+   ],
+   [
+    "NNPC IPO plans; Dangote $1.6bn IPO (Nairametrics, Oct 2026)",
+    "https://nairametrics.com/2026/10/14/nnpc-advances-ipo-plans-addresses-governance-financial-reporting-gaps/"
+   ],
+   [
+    "NNPC 7.25% of Dangote (Ecofin, Feb 2026)",
+    "https://www.ecofinagency.com/news-finances/2302-53163-dangote-sets-ipo-timeline-for-its-20b-nigerian-refinery-eyes-retail-investors"
+   ]
+  ]
+ },
+ "mexico": {
+  "name": "Mexico",
+  "model": "State-led model centred on the Energy Ministry",
+  "modelText": "The Energy Ministry (SENER) sets policy and binding sector planning, and the National Energy Commission (CNE) works as the regulator alongside it. Pemex is the state oil company.",
+  "top": [
+   "United Mexican States",
+   "President · Federal Government"
+  ],
+  "inst": [
+   [
+    "SENER",
+    "Energy policy and planning",
+    ""
+   ],
+   [
+    "CNE",
+    "Energy regulator; issues permits",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "State oil company",
+    "tag": "own",
+    "items": [
+     [
+      "Pemex",
+      "state-owned"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "Pemex – Petróleos Mexicanos",
+   "State of Mexico | CEO: Juan Carlos Carpio (since May 2026)",
+   "Former Pemex CFO; replaced Víctor Rodríguez Padilla"
+  ],
+  "note": "",
+  "A": [
+   [
+    "SENER – Secretaría de Energía",
+    "Sets energy policy and binding planning. Energy Secretary Luz Elena González."
+   ],
+   [
+    "CNE – Comisión Nacional de Energía",
+    "Regulator that issues permits and rules, in coordination with SENER."
+   ]
+  ],
+  "B": [
+   [
+    "Pemex – Petróleos Mexicanos",
+    "National oil company: exploration, production and refining.",
+    "State of Mexico"
+   ]
+  ],
+  "Cc": [],
+  "flag": "",
+  "src": [
+   [
+    "Pemex CEO resigns; Carpio named (Bloomberg, May 2026)",
+    "https://www.bloomberg.com/news/articles/2026-05-15/pemex-ceo-resigns-sheinbaum-names-cfo-as-new-leader"
+   ],
+   [
+    "SENER decree signed by Luz Elena González (DOF, Sep 2026)",
+    "https://sidof.segob.gob.mx/notas/docFuente/5798361"
+   ],
+   [
+    "CNE rules in coordination with SENER (Chambers, Apr 2026)",
+    "https://chambers.com/articles/cne-publishes-provisions-on-the-criteria-that-the-cenace-must-observe-in-the-application-of-reliabil"
+   ]
+  ]
+ },
+ "egypt": {
+  "name": "Egypt",
+  "model": "Ministry-led model with state holding companies",
+  "modelText": "The Ministry of Petroleum and Mineral Resources oversees state holding companies: EGPC for oil, EGAS for gas and Ganope for Upper Egypt and the Red Sea. Foreign partners such as Eni produce through joint ventures, and Egypt imports LNG to cover demand.",
+  "top": [
+   "Arab Republic of Egypt",
+   "President · Cabinet"
+  ],
+  "inst": [
+   [
+    "Ministry of Petroleum and Mineral Resources",
+    "Policy; oversees state holding companies",
+    ""
+   ]
+  ],
+  "groups": [
+   {
+    "t": "State holding companies",
+    "tag": "own",
+    "items": [
+     [
+      "EGPC",
+      "oil"
+     ],
+     [
+      "EGAS",
+      "natural gas"
+     ],
+     [
+      "Ganope",
+      "Upper Egypt and Red Sea"
+     ]
+    ]
+   },
+   {
+    "t": "Joint ventures with Eni",
+    "tag": "own",
+    "items": [
+     [
+      "Petrobel",
+      "operates Zohr"
+     ],
+     [
+      "Agiba Petroleum",
+      "Western Desert"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "Zohr gas field",
+   "Operated by Petrobel (Eni and EGPC)",
+   "About 1.2 bcf/d of Egypt's roughly 6 bcf/d gas output (Jan 2026)"
+  ],
+  "note": "",
+  "A": [
+   [
+    "Ministry of Petroleum and Mineral Resources",
+    "Sets policy and appoints heads of state companies. Minister Karim Badawi."
+   ],
+   [
+    "EGAS – Egyptian Natural Gas Holding Company",
+    "State gas company: licensing rounds, gas development and LNG imports. Executive MD Sayed Selim (since Feb 2026)."
+   ],
+   [
+    "Ganope – South Valley Egyptian Petroleum Holding Co.",
+    "Upper Egypt and Red Sea areas. Chairman Samir Raslan (since May 2026)."
+   ]
+  ],
+  "B": [
+   [
+    "EGPC – Egyptian General Petroleum Corporation",
+    "State oil company and partner in oil joint ventures such as Agiba.",
+    "State of Egypt"
+   ],
+   [
+    "EGAS",
+    "State gas company.",
+    "State of Egypt"
+   ]
+  ],
+  "Cc": [
+   [
+    "Eni",
+    "Operator of Zohr through Petrobel; investing about $8bn in new wells at Zohr and Nargis."
+   ],
+   [
+    "QatarEnergy",
+    "Agreed to supply up to 24 LNG cargoes to Egypt in summer 2026."
+   ]
+  ],
+  "flag": "Gas imports rose 36% year on year in Q1 2026, so supply figures change quickly.",
+  "src": [
+   [
+    "Badawi appoints new EGAS head (Egypt Oil & Gas, 2026)",
+    "https://egyptoil-gas.com/news/badawi-appoints-new-egas-ceo-names-senior-advisor"
+   ],
+   [
+    "New Ganope chairman, May 2026 (Egypt Oil & Gas)",
+    "https://egyptoil-gas.com/news/badawi-names-new-petroleum-leaders-after-retirement-of-ragaee-bahaa/"
+   ],
+   [
+    "Zohr output, Jan 2026 (Ahram Online)",
+    "https://english.ahram.org.eg/News/561219.aspx"
+   ],
+   [
+    "Eni $8bn at Zohr and Nargis (NewsBase, 2026)",
+    "https://newsbase.com/story/egypt-accelerates-upstream-lng-and-renewables-drive-under-2026-energy-strategy-427861"
+   ],
+   [
+    "Agiba is Eni–EGPC (Euronews, May 2026)",
+    "https://www.euronews.com/2026/05/27/egypt-is-having-a-great-year-for-gas-discoveries-yet-struggles-to-meet-domestic-energy-dem"
+   ],
+   [
+    "Gas imports +36% in Q1 2026 (Zawya)",
+    "https://www.zawya.com/en/business/energy/egypts-natural-gas-imports-rise-36-yoy-in-q1-2026-jodi-o9slzqy4"
+   ],
+   [
+    "QatarEnergy LNG cargoes to EGAS (ME Observer, Jan 2026)",
+    "https://meobserver.news/energy/2026/01/05/egypt-charts-a-stable-energy-path-in-2026/"
+   ]
+  ]
+ },
+ "venezuela": {
+  "name": "Venezuela",
+  "model": "State-owned PDVSA, opened to private operators in 2026",
+  "modelText": "In January 2026, after the US captured Nicolás Maduro, acting President Delcy Rodríguez signed a reform of the Hydrocarbons Law. Private and foreign companies can now run oilfields and sell oil under contracts approved by the oil ministry, while the reserves stay state-owned.",
+  "top": [
+   "Bolivarian Republic of Venezuela",
+   "Acting President Delcy Rodríguez"
+  ],
+  "inst": [
+   [
+    "Ministry of Hydrocarbons",
+    "Approves oil contracts",
+    ""
+   ]
+  ],
+  "groups": [
+   {
+    "t": "State oil company",
+    "tag": "own",
+    "items": [
+     [
+      "PDVSA",
+      "state-owned"
+     ]
+    ]
+   },
+   {
+    "t": "Under the 2026 reform",
+    "tag": "pvt",
+    "items": [
+     [
+      "Private operators",
+      "contracts approved by the ministry"
+     ],
+     [
+      "Existing joint ventures",
+      "under review"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "PDVSA – Petróleos de Venezuela",
+   "State of Venezuela | President: Héctor Obregón",
+   "Targeting at least 18% higher oil output in 2026"
+  ],
+  "note": "",
+  "A": [
+   [
+    "Ministry of Hydrocarbons",
+    "Approves contracts under the 2026 law. Minister Paula Henao, appointed March 2026."
+   ]
+  ],
+  "B": [
+   [
+    "PDVSA – Petróleos de Venezuela",
+    "National oil company; no longer the mandatory majority partner in every project.",
+    "State of Venezuela"
+   ]
+  ],
+  "Cc": [],
+  "flag": "The political and sanctions situation is changing fast; check before presenting.",
+  "src": [
+   [
+    "Hydrocarbons Law reform enacted (Mondaq / HSF Kramer, Feb 2026)",
+    "https://webiis08.mondaq.com/contracts-and-commercial-law/1741724/venezuela-approves-landmark-reform-opening-its-hydrocarbons-sector-to-foreign-companies"
+   ],
+   [
+    "Reform lets private firms produce and sell oil (Daily Times, Jan 2026)",
+    "https://dailytimes.com.pk/1443760/venezuela-opens-oil-sector-to-private-firms-in-historic-overhaul/"
+   ],
+   [
+    "New oil minister Paula Henao (The Standard / AFP, Mar 2026)",
+    "https://www.thestandard.ke/business/amp/america/article/2001542864/venezuela-interim-president-names-new-oil-minister"
+   ],
+   [
+    "PDVSA chief Obregón, 18% output target (AFP via ARY, Jan 2026)",
+    "https://arynews.tv/venezuela-eyes-2026-oil-boost-interim-leader-opposition-talks"
+   ]
+  ]
  }
 };
 const C_AR = {
@@ -4905,10 +5286,391 @@ const C_AR = {
     "https://timesca.com/tengiz-karachaganak-and-kashagan-kazakhstan-asserts-contract-stability-amid-lawsuits-exceeding-170-billion/"
    ]
   ]
+ },
+ "nigeria": {
+  "name": "نيجيريا",
+  "model": "شركة نفط وطنية تجارية مع جهتين تنظيميتين منفصلتين",
+  "modelText": "شركة النفط الوطنية النيجيرية (NNPC) مملوكة للدولة، وتعمل شركةً تجارية بموجب قانون صناعة البترول لعام 2021، وتستعد لطرح عام محتمل. وتتقاسم الرقابة جهتان: NUPRC للاستكشاف والإنتاج، وNMDPRA للأنشطة الوسيطة واللاحقة.",
+  "top": [
+   "جمهورية نيجيريا الاتحادية",
+   "الرئيس · المجلس التنفيذي الاتحادي"
+  ],
+  "inst": [
+   [
+    "وزارة الموارد البترولية",
+    "سياسة القطاع",
+    ""
+   ],
+   [
+    "NUPRC",
+    "منظِّم الاستكشاف والإنتاج",
+    "reg"
+   ],
+   [
+    "NMDPRA",
+    "منظِّم الأنشطة الوسيطة واللاحقة",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "شركة النفط الحكومية",
+    "tag": "own",
+    "items": [
+     [
+      "NNPC",
+      "مملوكة للدولة؛ موعد الطرح العام لم يُحدد"
+     ]
+    ]
+   },
+   {
+    "t": "حصة NNPC",
+    "tag": "own",
+    "items": [
+     [
+      "مصفاة دانغوتي",
+      "7.25%"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "شركة النفط الوطنية النيجيرية (NNPC)",
+   "الحكومة الاتحادية النيجيرية | الرئيس التنفيذي: بشير بايو أوجولاري",
+   "شركة تجارية بموجب قانون صناعة البترول لعام 2021"
+  ],
+  "note": "",
+  "A": [
+   [
+    "وزارة الموارد البترولية",
+    "تضع السياسة البترولية، ووزير الدولة لشؤون البترول (النفط) هو هاينكن لوكبوبيري."
+   ],
+   [
+    "NUPRC – هيئة تنظيم قطاع الاستكشاف والإنتاج",
+    "تنظم الاستكشاف والإنتاج، ورئيستها التنفيذية أوريتسيميوا إيسان، وأقرها مجلس الشيوخ في 2026."
+   ],
+   [
+    "NMDPRA – هيئة تنظيم الأنشطة الوسيطة واللاحقة",
+    "تنظم التكرير والغاز وإمدادات الوقود، ورئيسها التنفيذي سعيدو علي محمد."
+   ]
+  ],
+  "B": [
+   [
+    "شركة النفط الوطنية النيجيرية (NNPC)",
+    "شركة نفط وغاز متكاملة: الاستكشاف والتكرير والأنابيب والتجارة والتجزئة.",
+    "الحكومة الاتحادية النيجيرية"
+   ]
+  ],
+  "Cc": [
+   [
+    "مصفاة دانغوتي",
+    "مصفاة بطاقة 650 ألف برميل يومياً في لاغوس، تملك NNPC منها 7.25%، وأطلقت طرحاً عاماً بقيمة 1.6 مليار دولار في 2026."
+   ]
+  ],
+  "flag": "تختلف التقارير في حصة NNPC في دانغوتي: معظم مصادر 2026، ومنها دانغوتي نفسه، تذكر 7.25%، ومصدر واحد يذكر 20%.",
+  "src": [
+   [
+    "New NUPRC and NMDPRA heads confirmed (AllAfrica, Jan 2026)",
+    "https://allafrica.com/stories/202601070217.html"
+   ],
+   [
+    "Ojulari, NNPC GCEO (Nigerian News Direct, Feb 2026)",
+    "https://nigeriannewsdirect.com/amp/nnpc-ltd-nmdpra-strengthen-partnership-to-drive-energy-security-gas-expansion/"
+   ],
+   [
+    "Minister of State Lokpobiri (The Tide, Jan 2026)",
+    "https://www.thetidenewsonline.com/2026/01/collective-national-prosperity-is-our-driving-force-nnpcl/"
+   ],
+   [
+    "NNPC IPO plans; Dangote $1.6bn IPO (Nairametrics, Oct 2026)",
+    "https://nairametrics.com/2026/10/14/nnpc-advances-ipo-plans-addresses-governance-financial-reporting-gaps/"
+   ],
+   [
+    "NNPC 7.25% of Dangote (Ecofin, Feb 2026)",
+    "https://www.ecofinagency.com/news-finances/2302-53163-dangote-sets-ipo-timeline-for-its-20b-nigerian-refinery-eyes-retail-investors"
+   ]
+  ]
+ },
+ "mexico": {
+  "name": "المكسيك",
+  "model": "نموذج تقوده الدولة ويتمحور حول وزارة الطاقة",
+  "modelText": "تضع وزارة الطاقة (SENER) السياسات والتخطيط الملزم للقطاع، وتعمل اللجنة الوطنية للطاقة (CNE) جهةً تنظيمية إلى جانبها. وبيمكس هي شركة النفط الحكومية.",
+  "top": [
+   "الولايات المتحدة المكسيكية",
+   "الرئيسة · الحكومة الاتحادية"
+  ],
+  "inst": [
+   [
+    "وزارة الطاقة (SENER)",
+    "سياسات الطاقة والتخطيط",
+    ""
+   ],
+   [
+    "اللجنة الوطنية للطاقة (CNE)",
+    "منظِّم الطاقة وإصدار التصاريح",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "شركة النفط الحكومية",
+    "tag": "own",
+    "items": [
+     [
+      "بيمكس",
+      "مملوكة للدولة"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "بيمكس (Petróleos Mexicanos)",
+   "دولة المكسيك | الرئيس التنفيذي: خوان كارلوس كاربيو (منذ مايو 2026)",
+   "المدير المالي السابق لبيمكس، خلفاً لفيكتور رودريغيز باديا"
+  ],
+  "note": "",
+  "A": [
+   [
+    "وزارة الطاقة (SENER)",
+    "تضع سياسات الطاقة والتخطيط الملزم، ووزيرة الطاقة هي لوث إيلينا غونزاليث."
+   ],
+   [
+    "اللجنة الوطنية للطاقة (CNE)",
+    "جهة تنظيمية تصدر التصاريح واللوائح بالتنسيق مع وزارة الطاقة."
+   ]
+  ],
+  "B": [
+   [
+    "بيمكس",
+    "شركة النفط الوطنية: الاستكشاف والإنتاج والتكرير.",
+    "دولة المكسيك"
+   ]
+  ],
+  "Cc": [],
+  "flag": "",
+  "src": [
+   [
+    "Pemex CEO resigns; Carpio named (Bloomberg, May 2026)",
+    "https://www.bloomberg.com/news/articles/2026-05-15/pemex-ceo-resigns-sheinbaum-names-cfo-as-new-leader"
+   ],
+   [
+    "SENER decree signed by Luz Elena González (DOF, Sep 2026)",
+    "https://sidof.segob.gob.mx/notas/docFuente/5798361"
+   ],
+   [
+    "CNE rules in coordination with SENER (Chambers, Apr 2026)",
+    "https://chambers.com/articles/cne-publishes-provisions-on-the-criteria-that-the-cenace-must-observe-in-the-application-of-reliabil"
+   ]
+  ]
+ },
+ "egypt": {
+  "name": "مصر",
+  "model": "نموذج تقوده الوزارة مع شركات قابضة حكومية",
+  "modelText": "تشرف وزارة البترول والثروة المعدنية على الشركات القابضة الحكومية: الهيئة المصرية العامة للبترول للنفط، والشركة القابضة للغازات الطبيعية (إيجاس) للغاز، وجنوب الوادي القابضة للبترول (جانوب) لصعيد مصر والبحر الأحمر. وينتج شركاء أجانب مثل إيني عبر مشروعات مشتركة، وتستورد مصر الغاز المسال لتلبية الطلب.",
+  "top": [
+   "جمهورية مصر العربية",
+   "الرئيس · مجلس الوزراء"
+  ],
+  "inst": [
+   [
+    "وزارة البترول والثروة المعدنية",
+    "السياسات والإشراف على الشركات القابضة",
+    ""
+   ]
+  ],
+  "groups": [
+   {
+    "t": "الشركات القابضة الحكومية",
+    "tag": "own",
+    "items": [
+     [
+      "الهيئة المصرية العامة للبترول",
+      "النفط"
+     ],
+     [
+      "إيجاس",
+      "الغاز الطبيعي"
+     ],
+     [
+      "جانوب",
+      "صعيد مصر والبحر الأحمر"
+     ]
+    ]
+   },
+   {
+    "t": "المشروعات المشتركة مع إيني",
+    "tag": "own",
+    "items": [
+     [
+      "بتروبل",
+      "تشغّل حقل ظهر"
+     ],
+     [
+      "شركة عجيبة للبترول",
+      "الصحراء الغربية"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "حقل ظهر للغاز",
+   "تشغّله بتروبل (إيني والهيئة المصرية العامة للبترول)",
+   "نحو 1.2 مليار قدم مكعبة يومياً من إنتاج مصر البالغ نحو 6 مليارات (يناير 2026)"
+  ],
+  "note": "",
+  "A": [
+   [
+    "وزارة البترول والثروة المعدنية",
+    "تضع السياسات وتعيّن قيادات الشركات الحكومية، والوزير هو كريم بدوي."
+   ],
+   [
+    "إيجاس – الشركة القابضة للغازات الطبيعية",
+    "شركة الغاز الحكومية: جولات المزايدة وتنمية الغاز واستيراد الغاز المسال، والعضو المنتدب التنفيذي سيد سليم (منذ فبراير 2026)."
+   ],
+   [
+    "جانوب – شركة جنوب الوادي المصرية القابضة للبترول",
+    "مناطق صعيد مصر والبحر الأحمر، ورئيسها سمير رسلان (منذ مايو 2026)."
+   ]
+  ],
+  "B": [
+   [
+    "الهيئة المصرية العامة للبترول",
+    "شركة النفط الحكومية، وشريك في مشروعات نفطية مشتركة مثل عجيبة.",
+    "دولة مصر"
+   ],
+   [
+    "إيجاس",
+    "شركة الغاز الحكومية.",
+    "دولة مصر"
+   ]
+  ],
+  "Cc": [
+   [
+    "إيني",
+    "مشغّل حقل ظهر عبر بتروبل، وتستثمر نحو 8 مليارات دولار في آبار جديدة في ظهر ونرجس."
+   ],
+   [
+    "قطر للطاقة",
+    "اتفقت على توريد ما يصل إلى 24 شحنة غاز مسال لمصر في صيف 2026."
+   ]
+  ],
+  "flag": "ارتفعت واردات الغاز 36% على أساس سنوي في الربع الأول من 2026، لذا تتغير أرقام الإمدادات بسرعة.",
+  "src": [
+   [
+    "Badawi appoints new EGAS head (Egypt Oil & Gas, 2026)",
+    "https://egyptoil-gas.com/news/badawi-appoints-new-egas-ceo-names-senior-advisor"
+   ],
+   [
+    "New Ganope chairman, May 2026 (Egypt Oil & Gas)",
+    "https://egyptoil-gas.com/news/badawi-names-new-petroleum-leaders-after-retirement-of-ragaee-bahaa/"
+   ],
+   [
+    "Zohr output, Jan 2026 (Ahram Online)",
+    "https://english.ahram.org.eg/News/561219.aspx"
+   ],
+   [
+    "Eni $8bn at Zohr and Nargis (NewsBase, 2026)",
+    "https://newsbase.com/story/egypt-accelerates-upstream-lng-and-renewables-drive-under-2026-energy-strategy-427861"
+   ],
+   [
+    "Agiba is Eni–EGPC (Euronews, May 2026)",
+    "https://www.euronews.com/2026/05/27/egypt-is-having-a-great-year-for-gas-discoveries-yet-struggles-to-meet-domestic-energy-dem"
+   ],
+   [
+    "Gas imports +36% in Q1 2026 (Zawya)",
+    "https://www.zawya.com/en/business/energy/egypts-natural-gas-imports-rise-36-yoy-in-q1-2026-jodi-o9slzqy4"
+   ],
+   [
+    "QatarEnergy LNG cargoes to EGAS (ME Observer, Jan 2026)",
+    "https://meobserver.news/energy/2026/01/05/egypt-charts-a-stable-energy-path-in-2026/"
+   ]
+  ]
+ },
+ "venezuela": {
+  "name": "فنزويلا",
+  "model": "PDVSA المملوكة للدولة مع فتح القطاع للمشغّلين الخاصين في 2026",
+  "modelText": "في يناير 2026، وبعد أن احتجزت الولايات المتحدة نيكولاس مادورو، وقّعت الرئيسة بالإنابة ديلسي رودريغيز تعديلاً لقانون المحروقات. وأصبح بإمكان الشركات الخاصة والأجنبية تشغيل الحقول وبيع النفط بموجب عقود توافق عليها وزارة النفط، مع بقاء الاحتياطيات ملكاً للدولة.",
+  "top": [
+   "جمهورية فنزويلا البوليفارية",
+   "الرئيسة بالإنابة ديلسي رودريغيز"
+  ],
+  "inst": [
+   [
+    "وزارة المحروقات",
+    "الموافقة على عقود النفط",
+    ""
+   ]
+  ],
+  "groups": [
+   {
+    "t": "شركة النفط الحكومية",
+    "tag": "own",
+    "items": [
+     [
+      "PDVSA",
+      "مملوكة للدولة"
+     ]
+    ]
+   },
+   {
+    "t": "بموجب تعديل 2026",
+    "tag": "pvt",
+    "items": [
+     [
+      "المشغّلون الخاصون",
+      "عقود توافق عليها الوزارة"
+     ],
+     [
+      "المشروعات المشتركة القائمة",
+      "قيد المراجعة"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "شركة النفط الفنزويلية (PDVSA)",
+   "دولة فنزويلا | الرئيس: هيكتور أوبريغون",
+   "تستهدف زيادة إنتاج النفط 18% على الأقل في 2026"
+  ],
+  "note": "",
+  "A": [
+   [
+    "وزارة المحروقات",
+    "توافق على العقود بموجب قانون 2026، والوزيرة هي باولا إيناو، وعُيّنت في مارس 2026."
+   ]
+  ],
+  "B": [
+   [
+    "شركة النفط الفنزويلية (PDVSA)",
+    "شركة النفط الوطنية، ولم تعد الشريك صاحب الأغلبية الإلزامية في كل مشروع.",
+    "دولة فنزويلا"
+   ]
+  ],
+  "Cc": [],
+  "flag": "الوضع السياسي والعقوبات يتغيران بسرعة، لذا تحقق قبل العرض.",
+  "src": [
+   [
+    "Hydrocarbons Law reform enacted (Mondaq / HSF Kramer, Feb 2026)",
+    "https://webiis08.mondaq.com/contracts-and-commercial-law/1741724/venezuela-approves-landmark-reform-opening-its-hydrocarbons-sector-to-foreign-companies"
+   ],
+   [
+    "Reform lets private firms produce and sell oil (Daily Times, Jan 2026)",
+    "https://dailytimes.com.pk/1443760/venezuela-opens-oil-sector-to-private-firms-in-historic-overhaul/"
+   ],
+   [
+    "New oil minister Paula Henao (The Standard / AFP, Mar 2026)",
+    "https://www.thestandard.ke/business/amp/america/article/2001542864/venezuela-interim-president-names-new-oil-minister"
+   ],
+   [
+    "PDVSA chief Obregón, 18% output target (AFP via ARY, Jan 2026)",
+    "https://arynews.tv/venezuela-eyes-2026-oil-boost-interim-leader-opposition-talks"
+   ]
+  ]
  }
 };
-const UI = {"en": {"title": "Energy Sector Structures", "sub": "Government institutions, state-owned companies and key players, country by country · as of Nov 2026", "structure": "Structure", "commercial": "Commercial and operating companies", "hA": "A. Main government institutions", "hB": "B. National oil and state-owned companies", "hC": "C. Other important companies", "inst": "Institution", "role": "Role in the energy sector", "co": "Company", "does": "What it does", "pos": "Position in the sector", "own": "Owned by:", "check": "Check:", "sources": "Sources", "tag_own": "Ownership", "tag_pvt": "Private", "tag_reg": "Regulation"}, "ar": {"title": "هيكلة قطاع الطاقة", "sub": "المؤسسات الحكومية والشركات المملوكة للدولة وأبرز الجهات الفاعلة، حسب الدولة · حتى نوفمبر 2026", "structure": "الهيكلة", "commercial": "الشركات التجارية والتشغيلية", "hA": "أ. أبرز المؤسسات الحكومية", "hB": "ب. شركات النفط الوطنية والشركات المملوكة للدولة", "hC": "ج. شركات مهمة أخرى", "inst": "المؤسسة", "role": "دورها في قطاع الطاقة", "co": "الشركة", "does": "نشاطها", "pos": "موقعها في القطاع", "own": "الملكية:", "check": "ملاحظة:", "sources": "المصادر", "tag_own": "ملكية", "tag_pvt": "خاص", "tag_reg": "تنظيم"}};
-const ORDER=["oman","usa","uae","malaysia","ksa","kuwait","qatar","iraq","libya","algeria","angola","botswana","kazakhstan"];
+const UI = {"en": {"title": "Energy Sector Structures", "sub": "Government institutions, state-owned companies and key players, country by country · as of Nov 2026", "structure": "Structure", "commercial": "Commercial and operating companies", "hA": "A. Main government institutions", "hB": "B. National oil and state-owned companies", "hC": "C. Other important companies", "inst": "Institution", "role": "Role in the energy sector", "co": "Company", "does": "What it does", "pos": "Position in the sector", "own": "Owned by:", "check": "Check:", "sources": "Sources", "tag_own": "Ownership", "tag_pvt": "Private", "tag_reg": "Regulation", "g_me": "Middle East", "g_af": "Africa", "g_as": "Asia", "g_am": "Americas"}, "ar": {"title": "هيكلة قطاع الطاقة", "sub": "المؤسسات الحكومية والشركات المملوكة للدولة وأبرز الجهات الفاعلة، حسب الدولة · حتى نوفمبر 2026", "structure": "الهيكلة", "commercial": "الشركات التجارية والتشغيلية", "hA": "أ. أبرز المؤسسات الحكومية", "hB": "ب. شركات النفط الوطنية والشركات المملوكة للدولة", "hC": "ج. شركات مهمة أخرى", "inst": "المؤسسة", "role": "دورها في قطاع الطاقة", "co": "الشركة", "does": "نشاطها", "pos": "موقعها في القطاع", "own": "الملكية:", "check": "ملاحظة:", "sources": "المصادر", "tag_own": "ملكية", "tag_pvt": "خاص", "tag_reg": "تنظيم", "g_me": "الشرق الأوسط", "g_af": "أفريقيا", "g_as": "آسيا", "g_am": "الأمريكتان"}};
+const GROUPS=[["g_me",["oman","uae","qatar","ksa","kuwait","iraq"]],["g_af",["egypt","libya","algeria","nigeria","angola","botswana"]],["g_as",["kazakhstan","malaysia"]],["g_am",["usa","venezuela","mexico"]]];
+const ORDER=GROUPS.flatMap(g=>g[1]);
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
 const TAGTXT={own:"Ownership",pvt:"Private",reg:"Regulation"};
 let LANG="en";
@@ -4940,21 +5702,22 @@ function render(id){
     <div class="box feat"><b>${E("feat.0",d.feat[0])}</b><span>${E("feat.1",d.feat[1])}</span><span>${E("feat.2",d.feat[2])}</span></div>
     <p class="note">${E("note",d.note)}</p>
   </div>
-  <h2><span data-u="hA">${esc(U.hA)}</span></h2>
-  ${table("A",[U.inst,U.role],d.A,false)}
-  <h2><span data-u="hB">${esc(U.hB)}</span></h2>
+  ${d.A.length?`<h2><span data-u="hA">${esc(U.hA)}</span></h2>
+  ${table("A",[U.inst,U.role],d.A,false)}`:""}
+  ${d.B.length?`<h2><span data-u="hB">${esc(U.hB)}</span></h2>
   ${table("B",[U.co,U.does],d.B,true)}
-  <h2><span data-u="hC">${esc(U.hC)}</span></h2>
-  ${table("Cc",[U.co,U.pos],d.Cc,false)}
+`:""}  ${d.Cc.length?`<h2><span data-u="hC">${esc(U.hC)}</span></h2>
+  ${table("Cc",[U.co,U.pos],d.Cc,false)}`:""}
   ${d.flag?`<div class="flag"><b>${U.check}</b> ${E("flag",d.flag)}</div>`:""}
   <ol class="src">${d.src.map(([t,u],i)=>`<li><a href="${u}">${E(`src.${i}.0`,t)}</a></li>`).join("")}</ol>`;
+  document.querySelectorAll("#tabs .glabel").forEach(s=>s.textContent=U[s.dataset.g]);
   document.querySelectorAll("#tabs button").forEach(b=>{b.textContent=DATA()[b.dataset.id].name;b.setAttribute("aria-selected",b.dataset.id===id?"true":"false");});
   try{document.querySelector("#tabs button[aria-selected=true]").scrollIntoView({inline:"nearest",block:"nearest"});}catch(e){}
   if(window.EDITING) setEditable(true);
 }
 const tabs=document.getElementById("tabs");
-ORDER.forEach(id=>{const b=document.createElement("button");b.type="button";b.role="tab";b.dataset.id=id;b.textContent=C[id].name;
-  b.addEventListener("click",()=>{render(id);try{history.replaceState(null,"","#"+id)}catch(e){location.hash=id}});tabs.appendChild(b);});
+GROUPS.forEach(([gk,ids])=>{const s=document.createElement("span");s.className="glabel";s.dataset.g=gk;tabs.appendChild(s);ids.forEach(id=>{const b=document.createElement("button");b.type="button";b.role="tab";b.dataset.id=id;b.textContent=C[id].name;
+  b.addEventListener("click",()=>{render(id);try{history.replaceState(null,"","#"+id)}catch(e){location.hash=id}});tabs.appendChild(b);});});
 function fromHash(){const h=(location.hash||"").slice(1);render(C[h]?h:"oman");}
 window.addEventListener("hashchange",fromHash);fromHash();
 </script>
@@ -5001,7 +5764,7 @@ body.editing [data-p]:focus{outline:2px solid var(--accent);background:rgba(47,1
       if(g.status===401||g.status===403||g.status===404){try{localStorage.removeItem("gh_edit_token");}catch(e){}throw new Error("Token not accepted. Tap Save again and paste a valid token.");}
       if(!g.ok) throw new Error("GitHub error "+g.status);
       const j=await g.json(); const src=b64d(j.content);
-      const a=src.indexOf("const C = {"), m=src.indexOf("\nconst C_AR = "), z=src.indexOf("\nconst ORDER=");
+      const a=src.indexOf("const C = {"), m=src.indexOf("\nconst C_AR = "), z=src.indexOf("\nconst GROUPS=");
       if(a<0||m<0||z<0) throw new Error("Couldn't find the data block in the file.");
       const out=src.slice(0,a)+"const C = "+JSON.stringify(C,null,1)+";"+"\nconst C_AR = "+JSON.stringify(C_AR,null,1)+";"+"\nconst UI = "+JSON.stringify(UI)+";"+src.slice(z);
       const p=await fetch(api,{method:"PUT",headers:H,body:JSON.stringify({message:"Edit text on page",content:b64e(out),sha:j.sha,branch:BRANCH})});
