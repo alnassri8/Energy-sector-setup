@@ -116,8 +116,8 @@ html[dir="rtl"] #edbar{right:auto;left:12px}
 <body>
 <div class="wrap">
 <header>
-  <div><h1 id="t1">Energy Sector Structures</h1>
-  <p id="t2">Government institutions, state-owned companies and key players, country by country · as of Nov 2026</p></div>
+  <div><h1 id="t1" data-u="title">Energy Sector Structures</h1>
+  <p id="t2" data-u="sub">Government institutions, state-owned companies and key players, country by country · as of Nov 2026</p></div>
   <button id="lang" type="button">عربي</button>
 </header>
 </div>
@@ -1324,23 +1324,23 @@ function render(id){
   const table=(key,head,rows,three)=>`<div class="tbl"><div class="r h"><div>${head[0]}</div><div>${head[1]}</div></div>${rows.map((r,i)=>`<div class="r"><div class="n">${E(`${key}.${i}.0`,r[0])}</div><div>${E(`${key}.${i}.1`,r[1])}${three&&r[2]?`<span class="own">${U.own} ${E(`${key}.${i}.2`,r[2])}</span>`:""}</div></div>`).join("")}</div>`;
   document.getElementById("view").innerHTML=`
   <section class="model"><div class="c">${E("name",d.name)}</div><div class="t">${E("model",d.model)}</div><p>${E("modelText",d.modelText)}</p></section>
-  <h2>${U.structure}</h2>
+  <h2><span data-u="structure">${esc(U.structure)}</span></h2>
   <div class="chart">
     <div class="box top"><b>${E("top.0",d.top[0])}</b><span>${E("top.1",d.top[1])}</span></div>
     <div class="arrow" aria-hidden="true">↓</div>
     <div class="inst">${inst}</div>
     <div class="divider"></div>
-    <div class="sub">${U.commercial}</div>
+    <div class="sub"><span data-u="commercial">${esc(U.commercial)}</span></div>
     <div class="groups">${grps}</div>
     <div class="arrow" aria-hidden="true">↓</div>
     <div class="box feat"><b>${E("feat.0",d.feat[0])}</b><span>${E("feat.1",d.feat[1])}</span><span>${E("feat.2",d.feat[2])}</span></div>
     <p class="note">${E("note",d.note)}</p>
   </div>
-  <h2>${U.hA}</h2>
+  <h2><span data-u="hA">${esc(U.hA)}</span></h2>
   ${table("A",[U.inst,U.role],d.A,false)}
-  <h2>${U.hB}</h2>
+  <h2><span data-u="hB">${esc(U.hB)}</span></h2>
   ${table("B",[U.co,U.does],d.B,true)}
-  <h2>${U.hC}</h2>
+  <h2><span data-u="hC">${esc(U.hC)}</span></h2>
   ${table("Cc",[U.co,U.pos],d.Cc,false)}
   ${d.flag?`<div class="flag"><b>${U.check}</b> ${E("flag",d.flag)}</div>`:""}
   <ol class="src">${d.src.map(([t,u],i)=>`<li><a href="${u}">${E(`src.${i}.0`,t)}</a></li>`).join("")}</ol>`;
@@ -1371,18 +1371,18 @@ body.editing [data-p]:focus{outline:2px solid var(--accent);background:rgba(47,1
   if(!/[?&]edit\b/.test(location.search)) return;
   const bar=document.getElementById("edbar"), bT=document.getElementById("edT"), bS=document.getElementById("edS"), bC=document.getElementById("edC"), msg=document.getElementById("edmsg");
   bar.hidden=false;
-  const ORIG=JSON.stringify({en:C,ar:C_AR}); let dirty=false;
+  const ORIG=JSON.stringify({en:C,ar:C_AR,ui:UI}); let dirty=false;
   const say=(t,ms)=>{msg.textContent=t;msg.style.display="block";clearTimeout(say.t);if(ms)say.t=setTimeout(()=>msg.style.display="none",ms);};
   const setPath=(obj,path,val)=>{const k=path.split(".");let o=obj;for(let i=0;i<k.length-1;i++)o=o[k[i]];o[k[k.length-1]]=val;};
   window.setEditable=on=>{document.body.classList.toggle("editing",on);
-    document.querySelectorAll("#view [data-p]").forEach(el=>{el.contentEditable=on?"true":"false";
+    document.querySelectorAll("#view [data-p],[data-u]").forEach(el=>{el.contentEditable=on?"true":"false";
       if(on&&!el.dataset.w){el.dataset.w=1;
-        el.addEventListener("input",()=>{setPath(DATA()[CUR],el.dataset.p,el.innerText.replace(/\n+/g," ").trim());dirty=true;});
+        el.addEventListener("input",()=>{const v=el.innerText.replace(/\n+/g," ").trim();if(el.dataset.u)UI[LANG][el.dataset.u]=v;else setPath(DATA()[CUR],el.dataset.p,v);dirty=true;});
         el.addEventListener("click",e=>{if(window.EDITING)e.preventDefault();});
         el.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();el.blur();}});}});};
   const mode=on=>{window.EDITING=on;setEditable(on);bT.hidden=on;bS.hidden=!on;bC.hidden=!on;if(on)say(LANG==="ar"?"اضغط على أي نص لتعديله. يمكنك التنقل بين الدول.":"Tap any text to change it. Switch countries freely.",3500);};
   bT.onclick=()=>mode(true);
-  bC.onclick=()=>{if(dirty&&!confirm("Discard your changes?"))return;const o=JSON.parse(ORIG);Object.keys(o.en).forEach(k=>C[k]=o.en[k]);Object.keys(o.ar).forEach(k=>C_AR[k]=o.ar[k]);dirty=false;mode(false);render(CUR);};
+  bC.onclick=()=>{if(dirty&&!confirm("Discard your changes?"))return;const o=JSON.parse(ORIG);Object.keys(o.en).forEach(k=>C[k]=o.en[k]);Object.keys(o.ar).forEach(k=>C_AR[k]=o.ar[k]);Object.keys(o.ui).forEach(k=>UI[k]=o.ui[k]);applyLang();dirty=false;mode(false);render(CUR);};
   const b64e=s=>{const b=new TextEncoder().encode(s);let r="";for(let i=0;i<b.length;i+=0x8000)r+=String.fromCharCode.apply(null,b.subarray(i,i+0x8000));return btoa(r);};
   const b64d=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g,"")),c=>c.charCodeAt(0)));
   bS.onclick=async()=>{
@@ -1396,9 +1396,9 @@ body.editing [data-p]:focus{outline:2px solid var(--accent);background:rgba(47,1
       if(g.status===401||g.status===403||g.status===404){try{localStorage.removeItem("gh_edit_token");}catch(e){}throw new Error("Token not accepted. Tap Save again and paste a valid token.");}
       if(!g.ok) throw new Error("GitHub error "+g.status);
       const j=await g.json(); const src=b64d(j.content);
-      const a=src.indexOf("const C = {"), m=src.indexOf("\nconst C_AR = "), z=src.indexOf("\nconst UI = ");
+      const a=src.indexOf("const C = {"), m=src.indexOf("\nconst C_AR = "), z=src.indexOf("\nconst ORDER=");
       if(a<0||m<0||z<0) throw new Error("Couldn't find the data block in the file.");
-      const out=src.slice(0,a)+"const C = "+JSON.stringify(C,null,1)+";"+"\nconst C_AR = "+JSON.stringify(C_AR,null,1)+";"+src.slice(z);
+      const out=src.slice(0,a)+"const C = "+JSON.stringify(C,null,1)+";"+"\nconst C_AR = "+JSON.stringify(C_AR,null,1)+";"+"\nconst UI = "+JSON.stringify(UI)+";"+src.slice(z);
       const p=await fetch(api,{method:"PUT",headers:H,body:JSON.stringify({message:"Edit text on page",content:b64e(out),sha:j.sha,branch:BRANCH})});
       if(!p.ok) throw new Error("Save failed ("+p.status+")");
       dirty=false; mode(false); say("Saved ✓ Live for everyone in about 1 minute.",5000);
