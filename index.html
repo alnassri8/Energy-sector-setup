@@ -3,246 +3,317 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OQ Listed Companies — OQEP · OQGN · OQBI</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<title>Energy Sector Structures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#1b2a44; --navy:#1e3358; --primary:#1e3a6e; --accent:#2f6fd6;
-    --s1:#4f6f96; --s2:#2a7fc4; --s3:#1f5f8b; --muted:#5b6880;
-    --t1:#e7eef8; --t2:#d4e5fa; --t3:#dfe7f1; --bg:#dfe4eb; --paper:#fdfeff;
-    --up:#1f7a4d; --down:#b23b3b;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-  header{background:var(--navy);color:#fff;padding:22px 20px 18px}
-  header h1{margin:0;font-size:22px;font-weight:700}
-  header p{margin:6px 0 0;color:#c9d6ea;font-size:13px}
-  .wrap{max-width:1200px;margin:0 auto;padding:16px}
-  .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
-  .tabs,.pills{display:flex;gap:6px;flex-wrap:wrap}
-  button{font:inherit;border:1px solid var(--s1);background:var(--paper);color:var(--primary);padding:7px 14px;border-radius:999px;cursor:pointer;font-size:13px}
-  button.on{background:var(--primary);color:#fff;border-color:var(--primary)}
-  .spacer{flex:1}
-  .grid{display:grid;gap:12px}
-  .kpis{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
-  .two{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
-  .card{background:var(--paper);border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(27,42,68,.08)}
-  .card h3{margin:0 0 10px;font-size:14px;color:var(--primary)}
-  .kpi .l{font-size:12px;color:var(--muted)}
-  .kpi .v{font-size:24px;font-weight:700;margin-top:4px}
-  .kpi .d{font-size:12px;margin-top:3px;color:var(--muted)}
-  .pos{color:var(--up)} .neg{color:var(--down)}
-  .chart{position:relative;height:280px}
-  table{width:100%;border-collapse:collapse;font-size:13px}
-  th,td{padding:8px 6px;text-align:right;border-bottom:1px solid var(--t3)}
-  th:first-child,td:first-child{text-align:left}
-  th{color:var(--muted);font-weight:600;cursor:pointer;user-select:none}
-  tr:hover td{background:var(--t1)}
-  .tag{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
-  .hl{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-  .hl .card{border-left:4px solid var(--accent)}
-  .hl .m{font-size:12px;color:var(--muted)} .hl .x{font-size:20px;font-weight:700;margin:4px 0}
-  .hl .n{font-size:12px;color:var(--s1)}
-  .sec{display:none} .sec.on{display:grid}
-  footer{font-size:11px;color:var(--muted);padding:18px 16px 30px;max-width:1200px;margin:0 auto}
+:root{
+  /* Layout: country switcher, then per country a stacked structure chart and three reference tables (A institutions, B state companies, C other companies). CFA-notebook navy palette, light + dark. */
+  --ink:#1b2a44; --muted:#5b6880; --bg:#dfe4eb; --paper:#fdfeff; --line:#cfd8e6;
+  --navy:#1e3358; --primary:#1e3a6e; --accent:#2f6fd6;
+  --gov:#d4e5fa; --gov-ink:#1b2a44;
+  --inv:#dcefe6; --inv-ink:#1d4a37;
+  --reg:#e7eef8;
+  --feat:#f1ead9; --feat-ink:#3b3220;
+  --tag-own-bg:#e1f2e8; --tag-own:#1f7a4d;
+  --tag-reg-bg:#e7eef8; --tag-reg:#1e3a6e;
+  --tag-pvt-bg:#f3ecdc; --tag-pvt:#7a5a12;
+  --f:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ink:#e6ecf5; --muted:#9aa8bf; --bg:#0d1420; --paper:#141d2c; --line:#26334a;
+  --navy:#9fc0f0; --primary:#9fc0f0; --accent:#5b93ea;
+  --gov:#1f3456; --gov-ink:#e6ecf5;
+  --inv:#173a2d; --inv-ink:#d4f0e2;
+  --reg:#1a2740;
+  --feat:#3a3222; --feat-ink:#f3ead6;
+  --tag-own-bg:#143a26; --tag-own:#7fd6a6;
+  --tag-reg-bg:#1a2c4c; --tag-reg:#a9c6f2;
+  --tag-pvt-bg:#3b3019; --tag-pvt:#e3c27a;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --ink:#e6ecf5; --muted:#9aa8bf; --bg:#0d1420; --paper:#141d2c; --line:#26334a;
+  --navy:#9fc0f0; --primary:#9fc0f0; --accent:#5b93ea;
+  --gov:#1f3456; --gov-ink:#e6ecf5;
+  --inv:#173a2d; --inv-ink:#d4f0e2;
+  --reg:#1a2740;
+  --feat:#3a3222; --feat-ink:#f3ead6;
+  --tag-own-bg:#143a26; --tag-own:#7fd6a6;
+  --tag-reg-bg:#1a2c4c; --tag-reg:#a9c6f2;
+  --tag-pvt-bg:#3b3019; --tag-pvt:#e3c27a;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.5}
+a{color:var(--accent)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+header{padding:28px 0 6px}
+header h1{margin:0;font-size:28px;line-height:1.2;color:var(--navy);text-wrap:balance}
+header p{margin:6px 0 0;color:var(--muted);font-size:14px}
+.tabs{position:sticky;top:0;z-index:4;background:var(--bg);padding:12px 0}
+.tabs .row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.tabs button{font:inherit;font-size:15px;font-weight:600;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;white-space:nowrap;min-height:42px}
+.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.model{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:6px 0 18px}
+.model .c{font-size:30px;font-weight:700;color:var(--accent);line-height:1.15}
+.model .t{font-size:18px;font-weight:600;margin:4px 0 6px}
+.model p{margin:0;color:var(--ink);max-width:70ch}
+h2{font-size:21px;margin:26px 0 12px;color:var(--navy);text-wrap:balance}
+/* structure chart */
+.chart{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.box{border-radius:12px;padding:14px 12px;text-align:center}
+.box b{display:block;font-size:19px;line-height:1.25}
+.box span{display:block;font-size:13.5px;line-height:1.35;margin-top:3px;opacity:.85}
+.top{background:var(--gov);color:var(--gov-ink)}
+.top b{font-size:22px}
+.arrow{text-align:center;color:var(--muted);font-size:18px;line-height:1}
+.inst{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.inst .box{background:var(--gov);color:var(--gov-ink)}
+.inst .box.inv{background:var(--inv);color:var(--inv-ink)}
+.inst .box.reg{background:var(--reg);color:var(--ink);border:1px dashed var(--line)}
+.divider{border-top:1px solid var(--line);margin:6px 0 2px}
+.sub{text-align:center;font-weight:600;font-size:17px;margin:2px 0}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.grp{border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.grp h3{margin:0 0 6px;font-size:17px}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;margin-bottom:6px}
+.tag.own{background:var(--tag-own-bg);color:var(--tag-own)}
+.tag.reg{background:var(--tag-reg-bg);color:var(--tag-reg)}
+.tag.pvt{background:var(--tag-pvt-bg);color:var(--tag-pvt)}
+.grp ul{margin:0;padding-left:18px}
+.grp li{margin:3px 0;font-size:15px}
+.grp li small{color:var(--muted);font-size:13px}
+.feat{background:var(--feat);color:var(--feat-ink)}
+.note{font-size:13px;color:var(--muted);text-align:center;margin:2px 0 0}
+/* tables */
+.tbl{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tbl .r{display:grid;grid-template-columns:minmax(120px,34%) 1fr;gap:14px;padding:12px 16px;border-top:1px solid var(--line)}
+.tbl .r:first-child{border-top:0}
+.tbl .r.h{background:var(--reg);font-weight:600;font-size:14px;color:var(--primary)}
+.tbl .n{font-weight:600}
+.tbl .own{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+@media (max-width:520px){.tbl .r{grid-template-columns:1fr;gap:4px}.tbl .r.h{display:none}}
+.flag{background:var(--paper);border:1px solid var(--line);border-left:4px solid #c08a1e;border-radius:10px;padding:10px 14px;font-size:14px;margin-top:14px}
+.src{font-size:13px;color:var(--muted);margin:18px 0 0;padding-left:18px}
+.src li{margin-bottom:4px}
+footer{color:var(--muted);font-size:12.5px;padding:30px 0 50px}
 </style>
 </head>
 <body>
-<header>
-  <h1>OQ Listed Companies</h1>
-  <p>OQEP · OQGN · OQBI on the Muscat Stock Exchange · prices as of 3 Nov 2026 · values in RO</p>
-</header>
-
 <div class="wrap">
-  <div class="bar">
-    <div class="tabs" id="tabs">
-      <button data-t="overview" class="on">Overview</button>
-      <button data-t="profit">Profit</button>
-      <button data-t="price">Share price</button>
-      <button data-t="ops">Operations</button>
-    </div>
-    <div class="spacer"></div>
-    <div class="pills" id="pills"></div>
-  </div>
-
-  <!-- OVERVIEW -->
-  <section class="grid sec on" id="s-overview">
-    <div class="grid kpis" id="kpis"></div>
-    <div class="grid two">
-      <div class="card"><h3>Market cap vs OQ's stake value (RO m)</h3><div class="chart"><canvas id="cMcap"></canvas></div></div>
-      <div class="card"><h3>Return since IPO</h3><div class="chart"><canvas id="cIpo"></canvas></div></div>
-    </div>
-    <div class="card"><h3>Valuation snapshot <span style="font-weight:400;color:var(--muted);font-size:12px">(tap a header to sort)</span></h3><div style="overflow-x:auto"><table id="tbl"></table></div></div>
-  </section>
-
-  <!-- PROFIT -->
-  <section class="grid sec" id="s-profit">
-    <div class="card"><h3>Quarterly net profit (RO m)</h3><div class="chart" style="height:320px"><canvas id="cQ"></canvas></div></div>
-    <div class="grid two">
-      <div class="card"><h3>Annual revenue (RO m)</h3><div class="chart"><canvas id="cRev"></canvas></div></div>
-      <div class="card"><h3>Annual net profit &amp; margin</h3><div class="chart"><canvas id="cNp"></canvas></div></div>
-    </div>
-  </section>
-
-  <!-- PRICE -->
-  <section class="grid sec" id="s-price">
-    <div class="card"><h3>Share price (RO) — sampled closes</h3><div class="chart" style="height:340px"><canvas id="cPx"></canvas></div></div>
-    <div class="card"><h3>Price indexed to IPO = 100</h3><div class="chart" style="height:300px"><canvas id="cIdx"></canvas></div></div>
-  </section>
-
-  <!-- OPS -->
-  <section class="grid sec" id="s-ops">
-    <div class="hl" id="hl"></div>
-  </section>
+<header>
+  <h1>Energy Sector Structures</h1>
+  <p>Government institutions, state-owned companies and key players, country by country · as of Nov 2026</p>
+</header>
 </div>
-
-<footer>
-  Sources: Muscat Stock Exchange filings via Argaam; StockAnalysis.com income statements and quotes; company press releases (2025–26).
-  Quarterly profit is derived from cumulative filings. Price series are sampled dates from news and quote pages, not a daily series.
-  Public information only; not investment advice.
-</footer>
+<nav class="tabs" aria-label="Countries"><div class="wrap"><div class="row" role="tablist" id="tabs"></div></div></nav>
+<main class="wrap" id="view" aria-live="polite"></main>
+<footer class="wrap">Educational reference, not investment advice. Ownership figures are the latest the cited sources disclose; where sources disagree, the page says so.</footer>
 
 <script>
-/* ===== DATA — edit numbers here ===== */
-const SNAPSHOT = [
-  {ticker:"OQEP",name:"OQ Exploration & Production",segment:"Upstream oil & gas",price:0.462,shares_m:7970,ipo_price:0.39,ipo_date:"2024-10-28",oq_stake:0.75,ttm_np_m:354.09,div_ps_bz:33.7,div_basis:"2026 base dividend RO 230.7m + H1-26 PLD RO 38.45m"},
-  {ticker:"OQGN",name:"OQ Gas Networks",segment:"Regulated gas transmission",price:0.212,shares_m:4330.62,ipo_price:0.14,ipo_date:"2023-10-24",oq_stake:0.51,ttm_np_m:51.84,div_ps_bz:11.2,div_basis:"Two half-year dividends of 5.6 bz"},
-  {ticker:"OQBI",name:"OQ Base Industries",segment:"Methanol, ammonia & LPG",price:0.221,shares_m:3459.49,ipo_price:0.111,ipo_date:"2024-12-15",oq_stake:0.51,ttm_np_m:75.2,div_ps_bz:9.93,div_basis:"2025 dividends: 5.0 bz (H1) + 4.93 bz (Q4)"}
-];
-const QUARTERS = ["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"];
-const QUARTERLY = {
-  OQEP:[74.87,91.14,69.35,57.83,71.87,125.0,99.39],
-  OQGN:[12.64,12.76,13.7,12.14,13.5,13.6,12.6],
-  OQBI:[12.8,10.52,9.02,13.74,16.87,26.43,18.15]
+const C = {
+oman:{
+  name:"Oman",
+  model:"Government-led, investment-oriented model",
+  modelText:"The government separates energy policymaking (MEM), fiscal management (MOF) and state investment ownership (OIA), with companies such as OQ and EDO operating commercially.",
+  top:["Government of Oman","His Majesty the Sultan · Council of Ministers"],
+  inst:[["MOF","Fiscal policy; owner of EDO and IGC",""],["MEM","Energy policy, licensing and upstream regulation",""],["OIA","State investment and ownership","inv"],["APSR","Power and water regulator","reg"]],
+  groups:[
+    {t:"Under OIA",tag:"own",items:[["OQ Group","100%"],["Nama Group (power & water)","100%"]]},
+    {t:"Under MOF",tag:"own",items:[["Energy Development Oman (EDO)","100% govt"],["Integrated Gas Company (IGC)","100% govt"]]},
+    {t:"Under EDO",tag:"own",items:[["PDO","60%"],["Hydrom (hydrogen)","100%"]]},
+    {t:"Under OQ",tag:"own",items:[["OQEP (upstream, listed)","51%"],["OQ Gas Networks (listed)","majority"],["OQ8 Duqm Refinery","50% with KPI"],["OQ Alternative Energy","100%"]]},
+    {t:"Government stake",tag:"own",items:[["Oman LNG","51% govt, held via MEM"]]}
+  ],
+  feat:["PDO – Petroleum Development Oman","60% EDO | 34% Shell | 4% TotalEnergies | 2% PTTEP","Operator of Block 6, Oman's largest oil and gas concession"],
+  note:"MEM chairs the boards of EDO and Hydrom but does not own them.",
+  A:[["MOF – Ministry of Finance","Manages public finances and the budget. Sits on the ownership side of EDO and IGC, and the Finance Minister chairs OIA."],
+     ["MEM – Ministry of Energy and Minerals","Sets oil, gas and mining policy, awards concessions and regulates upstream. Its minister chairs EDO and Hydrom."],
+     ["OIA – Oman Investment Authority","Sovereign wealth fund. Has owned most state companies, including OQ and Nama, since 2020."],
+     ["APSR – Authority for Public Services Regulation","Regulates electricity and parts of the water sector."]],
+  B:[["OQ Group","National energy company: refining, gas grid, petrochemicals, upstream through OQEP, renewables.","100% OIA"],
+     ["EDO – Energy Development Oman","Holds the state's core upstream stakes: 60% of Block 6 oil, 100% of Block 6 gas, 100% of Hydrom.","100% government (MOF side)"],
+     ["PDO – Petroleum Development Oman","Largest oil and gas producer; operates Block 6.","EDO 60%, Shell 34%, TotalEnergies 4%, PTTEP 2%"],
+     ["IGC – Integrated Gas Company","Single buyer and seller of natural gas; supplies about 130 customers and Oman LNG.","100% government (MOF)"],
+     ["Oman LNG","LNG exporter at Sur, including Qalhat LNG.","Govt 51%, Shell 30%, TotalEnergies 5.54%, others"],
+     ["Hydrom","Allocates land and runs auctions for green hydrogen projects.","100% EDO"],
+     ["Nama Group","Power and water: single buyer (Nama PWP), transmission, distribution, supply.","100% OIA"]],
+  Cc:[["Shell","34% of PDO, 30% of Oman LNG, operator of Block 10 gas."],
+      ["bp","Operator of Block 61 (Khazzan and Ghazeer), about a third of Oman's gas demand."],
+      ["TotalEnergies","80% of Marsa LNG at Sohar; stakes in PDO and Oman LNG."],
+      ["Occidental (Oxy)","Operator of Blocks 9, 53 (Mukhaizna) and 65."],
+      ["Kuwait Petroleum International","50% partner in the OQ8 Duqm refinery."],
+      ["PTTEP and Petronas","Partners in Block 61 (20% and 10%); PTTEP also holds 2% of PDO."]],
+  flag:"",
+  src:[["EDO – About us","https://edoman.om/about-us/"],["Fitch on EDO and OQ (Oman Observer)","https://www.omanobserver.om/ampArticle/1181210"],["IGC role (Oman Observer)","https://www.omanobserver.om/article/1156398/business/energy/igc-unveils-new-gas-application-portal-for-oman-customers"],["Oman LNG shareholders (TotalEnergies)","https://totalenergies.com/node/23021"],["Oman LNG 4th train, MEM stake (MEED)","https://guest.meed.com/oman-lng-to-add-fourth-train-at-qalhat-complex"],["Block 61 (Oman Observer)","https://www.omanobserver.om/ampArticle/1190559"],["Nama owned by OIA (Oman Observer)","https://www.omanobserver.om/article/1138685/business/energy/nama-restructuring-to-streamline-power-distribution-and-supply-services"]]
+},
+usa:{
+  name:"USA",
+  model:"Decentralised, private-sector-driven model",
+  modelText:"Private companies dominate petroleum production and investment, while federal and state institutions divide policymaking and regulatory responsibilities.",
+  top:["United States","Federal government · 50 states"],
+  inst:[["DOE","Energy policy, research, Strategic Petroleum Reserve",""],["Interior (DOI)","Leases federal land and offshore acreage",""],["FERC","Pipelines, wholesale power, LNG terminals","reg"],["State regulators","e.g. Texas Railroad Commission, utility commissions","reg"]],
+  groups:[
+    {t:"Federally owned",tag:"own",items:[["Tennessee Valley Authority","federal corporation"],["Bonneville Power Administration","under DOE"],["Strategic Petroleum Reserve","run by DOE"]]},
+    {t:"Investor-owned",tag:"pvt",items:[["ExxonMobil, Chevron","integrated majors"],["ConocoPhillips, EOG, Oxy","producers"],["Cheniere","LNG exporter"],["NextEra, Duke","utilities"]]}
+  ],
+  feat:["No national oil company","Production is private","On private land, landowners usually own the minerals; on federal land and offshore, Interior leases acreage for royalties"],
+  note:"Federal agencies regulate interstate activity; states regulate drilling and retail utilities within their borders.",
+  A:[["DOE – Department of Energy","National energy policy, research labs, the Strategic Petroleum Reserve, LNG export approvals, and federal power marketing administrations."],
+     ["DOI – Department of the Interior","Leases federal onshore land (BLM) and offshore acreage (BOEM), and enforces offshore safety (BSEE)."],
+     ["FERC – Federal Energy Regulatory Commission","Independent regulator of interstate gas pipelines, wholesale electricity, and LNG terminal siting."],
+     ["EPA, NRC, PHMSA","Environmental rules (EPA), nuclear safety (NRC), pipeline safety (PHMSA, under Transportation)."],
+     ["State regulators","Permit wells and spacing (e.g. Texas Railroad Commission) and set retail power and gas rates (state utility commissions)."]],
+  B:[["Tennessee Valley Authority (TVA)","Federally owned power producer serving Tennessee and parts of six neighbouring states.","US federal government"],
+     ["Power Marketing Administrations","Sell power from federal dams, e.g. Bonneville in the Pacific Northwest.","US federal government (DOE)"],
+     ["Strategic Petroleum Reserve","Emergency crude stocks in salt caverns on the Gulf Coast.","US federal government (DOE)"]],
+  Cc:[["ExxonMobil","Largest US oil major; upstream, refining and chemicals."],
+      ["Chevron","Second integrated major; also operates in the Saudi–Kuwaiti Partitioned Zone."],
+      ["ConocoPhillips","Largest independent producer; exited a Malaysian deepwater project in 2025."],
+      ["Cheniere Energy","Largest US LNG exporter."],
+      ["NextEra Energy","Large utility and renewables developer."],
+      ["Kinder Morgan","Major gas pipeline operator."]],
+  flag:"",
+  src:[["DOE FY2026 budget hearing (govinfo)","https://www.govinfo.gov/content/pkg/CHRG-119shrg61238/html/CHRG-119shrg61238.htm"],["FERC","https://ferc.gov/news-events/news/president-trump-names-david-rosner-chairman-ferc"]]
+},
+uae:{
+  name:"UAE",
+  model:"Emirate-owned resources inside a federation",
+  modelText:"Oil and gas belong to each emirate, not the federation. Abu Dhabi, which holds most reserves, governs ADNOC through its Supreme Council for Financial and Economic Affairs. Federal ministries set national policy, and Dubai runs its own energy companies.",
+  top:["United Arab Emirates","Federal government · seven emirates"],
+  inst:[["Ministry of Energy & Infrastructure","Federal energy policy",""],["Abu Dhabi SCFEA","Oversees ADNOC, Mubadala, ADIA, ADQ","inv"],["Abu Dhabi Dept of Energy","Power and water regulator (Abu Dhabi)","reg"],["Dubai Supreme Council of Energy","Dubai energy policy",""]],
+  groups:[
+    {t:"Abu Dhabi – oil & gas",tag:"own",items:[["ADNOC","100% Abu Dhabi govt"],["XRG (international arm)","100% ADNOC"]]},
+    {t:"Abu Dhabi – ADQ utilities",tag:"own",items:[["TAQA","majority ADQ"],["EWEC (single buyer)","ADQ"],["ENEC (nuclear)","100% ADQ"]]},
+    {t:"Abu Dhabi – clean energy",tag:"own",items:[["Masdar","TAQA 43, Mubadala 33, ADNOC 24"]]},
+    {t:"Dubai",tag:"own",items:[["ENOC","Dubai govt"],["DEWA (listed)","~82% Dubai govt"]]}
+  ],
+  feat:["XRG – ADNOC's investment arm","ADNOC Gas 86% | Distribution 77% | Drilling 78.5% | L&S 78%","Also holds 24.9% of OMV and 50% of Borouge International (with OMV)"],
+  note:"Masdar shares are for its renewables business; ADNOC leads the green hydrogen business.",
+  A:[["Ministry of Energy & Infrastructure (federal)","National energy policy and infrastructure; its minister sits on ADNOC's board."],
+     ["Supreme Council for Financial and Economic Affairs (Abu Dhabi)","Took over the Supreme Petroleum Council in 2020. Approves strategy for ADNOC, Mubadala, ADIA and ADQ, and appoints ADNOC's board."],
+     ["Department of Energy (Abu Dhabi)","Regulates electricity and water in Abu Dhabi."],
+     ["Dubai Supreme Council of Energy","Sets energy strategy for Dubai and oversees DEWA and ENOC."],
+     ["FANR","Federal nuclear safety regulator for the Barakah plant."]],
+  B:[["ADNOC","National oil company of Abu Dhabi; upstream concessions with foreign partners, gas, refining, chemicals.","100% Government of Abu Dhabi"],
+     ["XRG","International investment company; also holds ADNOC's stakes in its listed units since Sep 2025.","100% ADNOC"],
+     ["TAQA","Power and water generation, transmission and distribution; partner in Abu Dhabi IWPPs.","Majority ADQ; listed on ADX"],
+     ["EWEC","Single buyer of power and water in Abu Dhabi.","ADQ"],
+     ["ENEC","Owns the Barakah nuclear plant.","100% ADQ"],
+     ["Masdar","Renewables and green hydrogen developer.","TAQA 43%, Mubadala 33%, ADNOC 24% (renewables)"],
+     ["ENOC","Dubai's refining, fuel retail and trading group; owns Dragon Oil.","Government of Dubai"],
+     ["DEWA","Dubai's electricity and water utility; listed on DFM in 2022.","~82% Government of Dubai"]],
+  Cc:[["TotalEnergies, bp, Shell, ExxonMobil","Partners in ADNOC's onshore and offshore concessions."],
+      ["OMV","Austrian group; 50% of Borouge International, 24.9% owned by XRG."],
+      ["Borouge International","Polyolefins company combining Borouge, Borealis and NOVA Chemicals; 50/50 OMV and XRG."],
+      ["Dana Gas","Sharjah-based listed private gas producer."]],
+  flag:"",
+  src:[["Abu Dhabi merges SPC into SCFEA (S&P Global)","https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/122820-abu-dhabi-merges-supreme-petroleum-council-with-new-economic-body"],["ADNOC board and SCFEA (The National)","https://thenational-the-national-prod.cdn.arcpublishing.com/business/energy/sheikh-khalifa-appoints-new-board-of-directors-for-adnoc-1.1174648"],["ADNOC stakes transferred to XRG (AGBI)","https://www.agbi.com/oil-and-gas/2025/09/adnoc-transfers-stakes-in-adx-listed-units-to-xrg/"],["Borouge International formed (Hydrocarbon Engineering)","https://www.hydrocarbonengineering.com/petrochemicals/01042026/omv-and-xrg-complete-transactions-to-create-borouge-international/"],["Masdar shareholders (Arab News)","https://www.arabnews.pk/node/2212866/business-economy"],["ENEC to ADQ (WAM)","https://www.wam.ae/en/article/hszrayka-abu-dhabi-transfers-ownership-enec-adq"],["DEWA ownership (Forbes ME)","https://www.forbesmiddleeast.com/lists/100-most-valuable-companies-2026/dubai-electricity-and-water-authority-dewa/"]]
+},
+malaysia:{
+  name:"Malaysia",
+  model:"National oil company-centred model",
+  modelText:"PETRONAS has a unique statutory role in petroleum resource ownership and management, while electricity is governed through a separate institutional framework.",
+  top:["Government of Malaysia","Prime Minister · Federal Cabinet"],
+  inst:[["Prime Minister","Petronas reports to the PM under the PDA 1974",""],["Ministry of Finance","Sole shareholder of Petronas","inv"],["PETRA ministry","Electricity, water and energy transition policy",""],["Energy Commission","Regulates electricity and piped gas","reg"]],
+  groups:[
+    {t:"Federal – petroleum",tag:"own",items:[["Petronas","100% federal govt"]]},
+    {t:"Under Petronas",tag:"own",items:[["Petronas Carigali","upstream"],["Petronas Chemicals, Gas, Dagangan","listed"],["MLNG","LNG at Bintulu"],["Gentari","clean energy"]]},
+    {t:"Electricity",tag:"own",items:[["Tenaga Nasional (TNB)","government-linked, listed"]]},
+    {t:"Sarawak state",tag:"own",items:[["Petros","Sarawak govt; gas aggregator"],["Sarawak Energy","Sarawak govt utility"]]}
+  ],
+  feat:["Petronas – owner, manager and operator","All petroleum rights vested in Petronas by the PDA 1974","Awards and manages contracts with oil companies, and produces through Petronas Carigali"],
+  note:"Since 1 Mar 2025, Petros is Sarawak's gas aggregator for the domestic market. LNG stays with Petronas.",
+  A:[["Prime Minister","Under the Petroleum Development Act 1974, Petronas answers to the PM, and the PM's permission is needed for downstream marketing and distribution."],
+     ["Ministry of Finance","Provided Petronas's founding capital; the federal government is its sole owner. The PM is currently also Finance Minister."],
+     ["PETRA – Ministry of Energy Transition and Water Transformation","Since Dec 2023: electricity, water and energy transition policy, including the 2026–2030 PETRA Strategic Plan."],
+     ["Energy Commission (Suruhanjaya Tenaga)","Regulates electricity and piped gas supply."],
+     ["Sarawak state government","Appointed Petros as the state's gas aggregator under its 2016 gas distribution ordinance."]],
+  B:[["Petronas","National oil company; vested with ownership of all petroleum, onshore and offshore.","100% federal government"],
+     ["Petronas Carigali","Petronas's upstream exploration and production arm.","Petronas"],
+     ["Petronas Chemicals, Petronas Gas, Petronas Dagangan","Listed units: petrochemicals, gas processing and transport, fuel retail.","Majority Petronas; listed on Bursa Malaysia"],
+     ["Tenaga Nasional (TNB)","Main power utility in Peninsular Malaysia; grid investment of RM43bn planned for 2025–2027.","Government-linked; state investment funds are the main shareholders"],
+     ["Petros – Petroleum Sarawak","Sarawak's state oil company; sole domestic gas aggregator in Sarawak, excluding LNG.","Sarawak state government"]],
+  Cc:[["Shell","Major producer offshore Sarawak and Sabah."],
+      ["ExxonMobil","Long-standing producer off Peninsular Malaysia."],
+      ["PTTEP","Thai NOC with operated gas fields offshore Sarawak."],
+      ["ConocoPhillips","Withdrew from a RM13.7bn deepwater project in Apr 2025, citing regulatory uncertainty."]],
+  flag:"Petronas and Petros were still finalising their commercial agreement in Dec 2025. I couldn't confirm whether it has been signed since.",
+  src:[["Federal govt sole owner of Petronas (Bernama)","https://www.bernama.com/en/news.php/?id=2456814"],["PDA 1974 text","https://policy.asiapacificenergy.org/sites/default/files/Petroleum%20Development%20Act%201974%20%282013%20Ed.%29.pdf"],["Petronas founded with MOF capital (Petronas 50 Years)","https://issuu.com/bazuki/docs/petronas_50_years"],["PETRA ministry (Wikipedia)","https://en.wikipedia.org/wiki/Ministry_of_Energy_Transition_and_Water_Transformation_(Malaysia)"],["Petros gas aggregator (Malay Mail)","https://www.malaymail.com/news/malaysia/2025/05/21/pmo-petronas-to-maintain-role-under-pda-1974-petros-appointed-sarawak-gas-aggregator/177645"],["Petros–Petronas talks, Dec 2025 (Sarawak MUT)","https://mut.sarawak.gov.my/web/subpage/news_view/768"],["TNB grid investment (The Star)","https://www.thestar.com.my/business/business-news/2026/06/04/public-private-push-to-fuel-2050-net-zero-goals"]]
+},
+ksa:{
+  name:"KSA",
+  model:"State-centred, single-champion model",
+  modelText:"Aramco produces nearly all of the kingdom's oil and gas under Ministry of Energy policy. The Public Investment Fund increasingly holds the state's stakes across Aramco, power and renewables.",
+  top:["Kingdom of Saudi Arabia","King · Council of Ministers"],
+  inst:[["Ministry of Energy","Oil, gas, power and renewables policy",""],["PIF","Sovereign fund; stakes in Aramco, power, renewables","inv"],["Ministry of Finance","Owner of SPPC, the power single buyer",""],["SERA","Electricity regulator","reg"]],
+  groups:[
+    {t:"Government direct",tag:"own",items:[["Saudi Aramco","~81.5%"],["SPPC (single buyer)","100% state"]]},
+    {t:"Under PIF",tag:"own",items:[["Saudi Aramco","~16%"],["Saudi Energy (ex-SEC)","~74–75%"],["ACWA Power","~44%"]]},
+    {t:"Under Aramco",tag:"own",items:[["SABIC","70%"],["Saudi Aramco Power (SAPCO)","100%"],["Saudi Energy (via SAPCO)","~6.9%"]]}
+  ],
+  feat:["Saudi Aramco","Govt ~81.5% | PIF ~16% | public float ~2.5%","Produces nearly all Saudi oil and gas; listed on Tadawul since 2019"],
+  note:"PIF's Aramco stake combines direct holdings and PIF-owned companies such as Sanabil.",
+  A:[["Ministry of Energy","Sets policy for oil, gas, refining, petrochemicals, electricity and renewables; runs energy procurement plans."],
+     ["PIF – Public Investment Fund","Sovereign wealth fund; received 16% of Aramco from the state in 2022–2024 and is the largest owner of the power utility and ACWA Power."],
+     ["Ministry of Finance","Owns the Saudi Power Procurement Company, which the state took over from SEC in 2022."],
+     ["SERA – Saudi Electricity Regulatory Authority","Electricity regulator; formed from the split of the former Water and Electricity Regulatory Authority (WERA)."],
+     ["K.A.CARE","Agency for atomic and renewable energy policy."]],
+  B:[["Saudi Aramco","National oil company: upstream, refining, chemicals, trading.","Govt ~81.5%, PIF ~16%, public ~2.5%"],
+     ["SABIC","Petrochemicals; bought by Aramco from PIF in 2020.","Aramco 70%; listed"],
+     ["Saudi Energy (formerly Saudi Electricity Co.)","Main generator, grid owner and distributor; renamed Feb 2026.","PIF ~74–75%, Aramco ~6.9%; listed"],
+     ["SPPC – Saudi Power Procurement Company","Single buyer of electricity from IPPs; runs renewable tenders.","Government (taken over from SEC, 2022)"],
+     ["ACWA Power","Power, water and hydrogen developer; leads most PIF renewable projects.","PIF ~44%; listed"]],
+  Cc:[["Chevron","Operates with Kuwait in the Saudi–Kuwaiti Partitioned Zone."],
+      ["Sadara Chemical","Aramco–Dow petrochemical joint venture at Jubail."],
+      ["NEOM Green Hydrogen Co.","Hydrogen joint venture of ACWA Power, Air Products and NEOM."],
+      ["Ma'aden","PIF-controlled mining group; phosphate, aluminium and gold."]],
+  flag:"Sources differ on PIF's stake in Saudi Energy: 74.3% (Oxford Business Group) and 75.1% (Saudipedia, 2026). The page shows the range.",
+  src:[["Aramco state transfer to PIF, 82.19% (Business Recorder/AFP)","https://www.brecorder.com/news/40292495"],["Aramco ownership 2026 profile","https://vision2030.pages.dev/institutions/aramco/"],["Saudi power sector structure (Oxford Business Group)","https://oxfordbusinessgroup.com/reports/saudi-arabia/2025-report/energy-utilities/power-move-the-sector-is-transforming-through-the-expansion-of-renewables-improved-water-efficiency-and-steps-towards-privatisation-overview/"],["SEC renamed Saudi Energy (Saudipedia)","https://saudipedia.com/fr/saudi-energy"],["SPPC nationalised (Arab News)","https://arabnews.pk/node/2139186"],["SPPC and ACWA ownership (GlobalDeal)","https://globaldeal.io/finder/segments/saudi-arabia-renewable-energy"]]
+}
 };
-const ANNUAL = {
-  OQEP:{2023:[1063,620.17],2024:[1264,321.34],2025:[1179,278.04]},
-  OQGN:{2022:[149.82,45.6],2023:[161.7,55.51],2024:[146.86,47.8],2025:[207.0,51.24]},
-  OQBI:{2021:[154.22,41.23],2022:[215.64,61.9],2023:[196.22,47.51],2024:[234.84,40.41],2025:[225.97,47.68]}
-}; // year: [revenue, net profit]
-const PRICES = {
-  OQGN:[["2023-10-24",0.14],["2024-12-04",0.133],["2025-02-27",0.13],["2026-03-05",0.237],["2026-07-30",0.2],["2026-08-31",0.23],["2026-09-29",0.218],["2026-11-03",0.212]],
-  OQEP:[["2024-10-28",0.39],["2024-12-04",0.349],["2026-03-02",0.484],["2026-03-24",0.468],["2026-07-30",0.44],["2026-08-31",0.48],["2026-10-01",0.478],["2026-11-03",0.462]],
-  OQBI:[["2024-12-15",0.111],["2025-09-16",0.143],["2025-12-31",0.184],["2026-03-24",0.273],["2026-04-28",0.31],["2026-06-17",0.254],["2026-08-31",0.26],["2026-09-30",0.26],["2026-11-03",0.221]]
-};
-const HIGHLIGHTS = [
-  ["OQEP","Production (H1 2026)","228.2 kboepd","+2.7% YoY; 53% oil / 47% gas"],
-  ["OQEP","EBITDA (H1 2026)","RO 554.9m","+10.6% YoY"],
-  ["OQEP","Net debt / EBITDA","0.16x","End of H1 2026"],
-  ["OQEP","2030 production goal","~300 kboepd","Domestic growth + acquisitions"],
-  ["OQGN","Pipeline network","4,368 km","End-2025; 4,717 km planned by 2027"],
-  ["OQGN","Network availability (Q2 2026)","99.9%","Record 139.4m SCM dispatched on 3 Jun 2026"],
-  ["OQGN","Net debt / adj. EBITDA","3.85x","Q1 2026"],
-  ["OQGN","Sukuk programme","US$1bn","Set up Oct 2026"],
-  ["OQBI","Nameplate capacity","1,816 ktpa","Methanol, ammonia & LPG, Salalah Free Zone"],
-  ["OQBI","Revenue (H1 2026)","RO 163.4m","+45.4% YoY"],
-  ["OQBI","2025 record output","343k t NH₃ / 366k t LPG","All plants above 100% capacity"],
-  ["OQBI","Share price, 6 months","-30%","Peak ~0.31 in Apr 2026"]
-];
-const COLORS = {OQEP:"#1e3a6e",OQGN:"#2a7fc4",OQBI:"#4f6f96"};
-/* ===== END DATA ===== */
-
-const T = SNAPSHOT.map(s=>s.ticker);
-let active = new Set(T);
-const charts = {};
-const fmt = (n,d=1)=>n.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
-const calc = s => {
-  const mcap = s.price*s.shares_m;
-  return {...s, mcap, stakeVal:mcap*s.oq_stake, pe:mcap/s.ttm_np_m,
-          yld:(s.div_ps_bz/1000)/s.price, ipoRet:s.price/s.ipo_price-1};
-};
-const ROWS = SNAPSHOT.map(calc);
-
-Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
-Chart.defaults.color = "#5b6880";
-Chart.defaults.plugins.legend.labels.boxWidth = 12;
-
-/* pills */
-const pills = document.getElementById("pills");
-const allBtn = document.createElement("button"); allBtn.textContent="All"; allBtn.className="on";
-allBtn.onclick=()=>{active=new Set(T);render();}; pills.appendChild(allBtn);
-T.forEach(t=>{const b=document.createElement("button");b.textContent=t;b.dataset.k=t;
-  b.onclick=()=>{ if(active.size===T.length){active=new Set([t]);}
-    else if(active.has(t)){ if(active.size>1) active.delete(t);} else active.add(t);
-    render(); }; pills.appendChild(b);});
-
-/* tabs */
-document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{
-  document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("on",x===b));
-  document.querySelectorAll(".sec").forEach(s=>s.classList.toggle("on",s.id==="s-"+b.dataset.t));
-  Object.values(charts).forEach(c=>c.resize());
-});
-
-function mk(id,cfg){ if(charts[id]) charts[id].destroy(); charts[id]=new Chart(document.getElementById(id),cfg); }
-const sel = () => ROWS.filter(r=>active.has(r.ticker));
-
-function renderKpis(){
-  const r=sel(); const mcap=r.reduce((a,x)=>a+x.mcap,0), stake=r.reduce((a,x)=>a+x.stakeVal,0),
-        np=r.reduce((a,x)=>a+x.ttm_np_m,0);
-  const best=[...r].sort((a,b)=>b.yld-a.yld)[0];
-  const k=[
-    ["Combined market cap",`RO ${fmt(mcap,0)}m`,`${r.length} compan${r.length>1?"ies":"y"}`],
-    ["OQ's stake value",`RO ${fmt(stake,0)}m`,`${fmt(stake/mcap*100,0)}% of market cap`],
-    ["Trailing-12M net profit",`RO ${fmt(np,0)}m`,`Blended P/E ${fmt(mcap/np,1)}x`],
-    ["Highest dividend yield",`${fmt(best.yld*100,1)}%`,best.ticker]
-  ];
-  document.getElementById("kpis").innerHTML=k.map(([l,v,d])=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join("");
+const ORDER=["oman","usa","uae","malaysia","ksa"];
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+const TAGTXT={own:"Ownership",pvt:"Private",reg:"Regulation"};
+function render(id){
+  const d=C[id];
+  const inst=d.inst.map(([n,s,k])=>`<div class="box ${k}"><b>${esc(n)}</b><span>${esc(s)}</span></div>`).join("");
+  const grps=d.groups.map(g=>`<div class="grp"><h3>${esc(g.t)}</h3><span class="tag ${g.tag}">${TAGTXT[g.tag]}</span><ul>${g.items.map(([a,b])=>`<li>${esc(a)}${b?` <small>· ${esc(b)}</small>`:""}</li>`).join("")}</ul></div>`).join("");
+  const table=(head,rows,three)=>`<div class="tbl"><div class="r h"><div>${head[0]}</div><div>${head[1]}</div></div>${rows.map(r=>`<div class="r"><div class="n">${esc(r[0])}</div><div>${esc(r[1])}${three&&r[2]?`<span class="own">Owned by: ${esc(r[2])}</span>`:""}</div></div>`).join("")}</div>`;
+  document.getElementById("view").innerHTML=`
+  <section class="model"><div class="c">${esc(d.name)}</div><div class="t">${esc(d.model)}</div><p>${esc(d.modelText)}</p></section>
+  <h2>Structure</h2>
+  <div class="chart">
+    <div class="box top"><b>${esc(d.top[0])}</b><span>${esc(d.top[1])}</span></div>
+    <div class="arrow" aria-hidden="true">↓</div>
+    <div class="inst">${inst}</div>
+    <div class="divider"></div>
+    <div class="sub">Commercial and operating companies</div>
+    <div class="groups">${grps}</div>
+    <div class="arrow" aria-hidden="true">↓</div>
+    <div class="box feat"><b>${esc(d.feat[0])}</b><span>${esc(d.feat[1])}</span><span>${esc(d.feat[2])}</span></div>
+    <p class="note">${esc(d.note)}</p>
+  </div>
+  <h2>A. Main government institutions</h2>
+  ${table(["Institution","Role in the energy sector"],d.A,false)}
+  <h2>B. National oil and state-owned companies</h2>
+  ${table(["Company","What it does"],d.B,true)}
+  <h2>C. Other important companies</h2>
+  ${table(["Company","Position in the sector"],d.Cc,false)}
+  ${d.flag?`<div class="flag"><b>Check:</b> ${esc(d.flag)}</div>`:""}
+  <ol class="src">${d.src.map(([t,u])=>`<li><a href="${u}">${esc(t)}</a></li>`).join("")}</ol>`;
+  document.querySelectorAll("#tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.id===id?"true":"false"));
 }
-
-let sortKey="mcap", sortDir=-1;
-function renderTable(){
-  const cols=[["ticker","Company"],["price","Price (RO)"],["mcap","Mkt cap (RO m)"],["pe","P/E (x)"],["yld","Div yield"],["ipoRet","vs IPO"],["oq_stake","OQ stake"]];
-  const r=[...sel()].sort((a,b)=>(a[sortKey]>b[sortKey]?1:-1)*sortDir);
-  const cell=(c,x)=>({ticker:`<span class="tag" style="background:${COLORS[x.ticker]}"></span><b>${x.ticker}</b> <span style="color:var(--muted)">${x.segment}</span>`,
-    price:x.price.toFixed(3),mcap:fmt(x.mcap,0),pe:fmt(x.pe,1),yld:fmt(x.yld*100,1)+"%",
-    ipoRet:`<span class="${x.ipoRet>=0?"pos":"neg"}">${x.ipoRet>=0?"+":""}${fmt(x.ipoRet*100,0)}%</span>`,
-    oq_stake:fmt(x.oq_stake*100,0)+"%"})[c];
-  const tbl=document.getElementById("tbl");
-  tbl.innerHTML=`<tr>${cols.map(([k,l])=>`<th data-k="${k}">${l}${sortKey===k?(sortDir<0?" ▾":" ▴"):""}</th>`).join("")}</tr>`+
-    r.map(x=>`<tr>${cols.map(([k])=>`<td>${cell(k,x)}</td>`).join("")}</tr>`).join("");
-  tbl.querySelectorAll("th").forEach(th=>th.onclick=()=>{const k=th.dataset.k; sortDir=(sortKey===k)?-sortDir:-1; sortKey=k; renderTable();});
-}
-
-function renderCharts(){
-  const r=sel(), tk=r.map(x=>x.ticker);
-  mk("cMcap",{type:"bar",data:{labels:tk,datasets:[
-    {label:"Market cap",data:r.map(x=>+x.mcap.toFixed(0)),backgroundColor:"#d4e5fa",borderColor:"#2f6fd6",borderWidth:1},
-    {label:"OQ stake value",data:r.map(x=>+x.stakeVal.toFixed(0)),backgroundColor:tk.map(t=>COLORS[t])}]},
-    options:{maintainAspectRatio:false,plugins:{tooltip:{callbacks:{label:c=>`${c.dataset.label}: RO ${fmt(c.raw,0)}m`}}}}});
-  mk("cIpo",{type:"bar",data:{labels:tk,datasets:[{label:"Return since IPO",data:r.map(x=>+(x.ipoRet*100).toFixed(1)),
-    backgroundColor:r.map(x=>x.ipoRet>=0?"#2a7fc4":"#b23b3b")}]},
-    options:{indexAxis:"y",maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const x=r[c.dataIndex];return `${c.raw}% (IPO ${x.ipo_price} → ${x.price})`;}}}},
-      scales:{x:{ticks:{callback:v=>v+"%"}}}}});
-  mk("cQ",{type:"bar",data:{labels:QUARTERS,datasets:tk.map(t=>({label:t,data:QUARTERLY[t],backgroundColor:COLORS[t]}))},
-    options:{maintainAspectRatio:false,interaction:{mode:"index",intersect:false},plugins:{tooltip:{callbacks:{label:c=>`${c.dataset.label}: RO ${fmt(c.raw,2)}m`}}}}});
-  const years=[...new Set(tk.flatMap(t=>Object.keys(ANNUAL[t])))].sort();
-  mk("cRev",{type:"bar",data:{labels:years,datasets:tk.map(t=>({label:t,data:years.map(y=>ANNUAL[t][y]?.[0]??null),backgroundColor:COLORS[t]}))},
-    options:{maintainAspectRatio:false,interaction:{mode:"index",intersect:false}}});
-  mk("cNp",{data:{labels:years,datasets:[
-    ...tk.map(t=>({type:"bar",label:t+" profit",data:years.map(y=>ANNUAL[t][y]?.[1]??null),backgroundColor:COLORS[t],yAxisID:"y"})),
-    ...tk.map(t=>({type:"line",label:t+" margin",data:years.map(y=>ANNUAL[t][y]?+(ANNUAL[t][y][1]/ANNUAL[t][y][0]*100).toFixed(1):null),
-      borderColor:COLORS[t],borderDash:[5,4],pointRadius:3,yAxisID:"y1",spanGaps:true}))]},
-    options:{maintainAspectRatio:false,interaction:{mode:"index",intersect:false},
-      scales:{y:{title:{display:true,text:"RO m"}},y1:{position:"right",grid:{drawOnChartArea:false},ticks:{callback:v=>v+"%"}}}}});
-  mk("cPx",{type:"line",data:{datasets:tk.map(t=>({label:t,data:PRICES[t].map(([d,c])=>({x:d,y:c})),borderColor:COLORS[t],backgroundColor:COLORS[t],tension:.25,pointRadius:4}))},
-    options:{maintainAspectRatio:false,scales:{x:{type:"time",time:{unit:"quarter"}},y:{title:{display:true,text:"RO"}}},
-      plugins:{tooltip:{callbacks:{label:c=>`${c.dataset.label}: RO ${c.raw.y.toFixed(3)}`}}}}});
-  mk("cIdx",{type:"line",data:{datasets:tk.map(t=>{const b=PRICES[t][0][1];return {label:t,data:PRICES[t].map(([d,c])=>({x:d,y:+(c/b*100).toFixed(1)})),borderColor:COLORS[t],backgroundColor:COLORS[t],tension:.25,pointRadius:3};})},
-    options:{maintainAspectRatio:false,scales:{x:{type:"time",time:{unit:"quarter"}}}}});
-}
-
-function renderHl(){
-  document.getElementById("hl").innerHTML=HIGHLIGHTS.filter(h=>active.has(h[0])).map(([t,m,v,n])=>
-    `<div class="card" style="border-left-color:${COLORS[t]}"><div class="m"><b>${t}</b> · ${m}</div><div class="x">${v}</div><div class="n">${n}</div></div>`).join("");
-}
-
-function render(){
-  allBtn.classList.toggle("on",active.size===T.length);
-  pills.querySelectorAll("button[data-k]").forEach(b=>b.classList.toggle("on",active.size<T.length&&active.has(b.dataset.k)));
-  renderKpis(); renderTable(); renderCharts(); renderHl();
-}
-render();
+const tabs=document.getElementById("tabs");
+ORDER.forEach(id=>{const b=document.createElement("button");b.type="button";b.role="tab";b.dataset.id=id;b.textContent=C[id].name;
+  b.addEventListener("click",()=>{render(id);try{history.replaceState(null,"","#"+id)}catch(e){location.hash=id}});tabs.appendChild(b);});
+function fromHash(){const h=(location.hash||"").slice(1);render(C[h]?h:"oman");}
+window.addEventListener("hashchange",fromHash);fromHash();
 </script>
 </body>
 </html>

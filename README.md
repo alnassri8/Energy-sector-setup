@@ -1,5 +1,5 @@
-# OQ Listed Companies Dashboard
+# Energy Sector Structures
 
-Interactive dashboard for OQEP, OQGN and OQBI (Muscat Stock Exchange).
+Interactive map of how the energy sector is organised by country: institutions, state companies and other players.
 
-All numbers live in the `DATA` block near the top of the `<script>` in `index.html`. Edit them there and commit; the live page updates in about a minute.
+Everything is in `index.html`. Edit it on GitHub (pencil icon -> Commit changes); the live page updates in about a minute.
