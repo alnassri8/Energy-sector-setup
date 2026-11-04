@@ -58,6 +58,15 @@ header p{margin:6px 0 0;color:var(--muted);font-size:14px}
 .tabs{position:sticky;top:0;z-index:4;background:var(--bg);padding:12px 0}
 .tabs .row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
 .tabs button{font:inherit;font-size:15px;font-weight:600;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;white-space:nowrap;min-height:42px}
+.tabs .row+.row{margin-top:8px}
+.tabs .cont{font:inherit;font-size:14px;font-weight:600;padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:var(--paper);color:var(--primary);cursor:pointer;white-space:nowrap;min-height:40px;display:flex;align-items:center;gap:6px}
+.tabs .cont .n{font-size:11px;font-weight:700;background:var(--gov);color:var(--gov-ink);border-radius:999px;padding:1px 7px}
+.tabs .cont i{font-style:normal;font-size:12px;color:var(--muted)}
+.tabs .cont[aria-expanded="true"]{background:var(--primary);color:#fff;border-color:var(--primary)}
+.tabs .cont[aria-expanded="true"] i,.tabs .cont[aria-expanded="true"] .n{color:#fff;background:rgba(255,255,255,.2)}
+.tabs .cont.has:not([aria-expanded="true"]){border-color:var(--accent)}
+#tabs[hidden]{display:none}
+#conts{flex-wrap:wrap}
 .tabs .glabel{align-self:center;font-size:12px;font-weight:600;color:var(--muted);white-space:nowrap;padding:0 4px 0 10px;text-transform:uppercase;letter-spacing:.04em}
 .tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 .model{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:6px 0 18px}
@@ -122,7 +131,7 @@ html[dir="rtl"] #edbar{right:auto;left:12px}
   <button id="lang" type="button">عربي</button>
 </header>
 </div>
-<nav class="tabs" aria-label="Countries"><div class="wrap"><div class="row" role="tablist" id="tabs"></div></div></nav>
+<nav class="tabs" aria-label="Countries"><div class="wrap"><div class="row" id="conts"></div><div class="row" role="tablist" id="tabs"></div></div></nav>
 <main class="wrap" id="view" aria-live="polite"></main>
 
 <script>
@@ -2893,6 +2902,256 @@ const C = {
    [
     "PDVSA chief Obregón, 18% output target (AFP via ARY, Jan 2026)",
     "https://arynews.tv/venezuela-eyes-2026-oil-boost-interim-leader-opposition-talks"
+   ]
+  ]
+ },
+ "australia": {
+  "name": "Australia",
+  "model": "Private-sector producers under federal and state rules",
+  "modelText": "Australia has no national oil company. Private companies such as Woodside, Santos and Chevron produce oil, gas and LNG, while the federal government sets resources and energy policy and runs offshore regulators. In May 2026 the government announced a national scheme reserving 20% of gas output for the domestic market.",
+  "top": [
+   "Commonwealth of Australia",
+   "Prime Minister · Federal Cabinet · States"
+  ],
+  "inst": [
+   [
+    "Minister for Resources",
+    "Madeleine King",
+    ""
+   ],
+   [
+    "Minister for Climate Change and Energy",
+    "Chris Bowen",
+    ""
+   ],
+   [
+    "NOPSEMA",
+    "Offshore safety and environment regulator",
+    "reg"
+   ],
+   [
+    "AEMO",
+    "Electricity and gas market operator",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "Commonwealth-owned",
+    "tag": "own",
+    "items": [
+     [
+      "Snowy Hydro",
+      "100% federal government"
+     ]
+    ]
+   },
+   {
+    "t": "Main producers",
+    "tag": "pvt",
+    "items": [
+     [
+      "Woodside Energy",
+      "LNG"
+     ],
+     [
+      "Santos",
+      "gas and LNG"
+     ],
+     [
+      "Chevron",
+      "LNG, Western Australia"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "National gas reservation scheme",
+   "Announced May 2026 by Resources Minister Madeleine King",
+   "Reserves 20% of gas output for domestic use, mainly to secure east-coast supply"
+  ],
+  "note": "",
+  "A": [
+   [
+    "Minister for Resources",
+    "Oil, gas and minerals policy. Madeleine King, reappointed May 2025."
+   ],
+   [
+    "Minister for Climate Change and Energy",
+    "Energy policy; shareholder minister for Snowy Hydro. Chris Bowen."
+   ],
+   [
+    "NOPSEMA",
+    "Regulates safety and environmental management of offshore petroleum."
+   ],
+   [
+    "AEMO – Australian Energy Market Operator",
+    "Operates the main electricity and gas markets; its governance is under review in 2026."
+   ]
+  ],
+  "B": [
+   [
+    "Snowy Hydro",
+    "Hydro generation and energy retail; building Snowy 2.0.",
+    "100% Commonwealth of Australia"
+   ]
+  ],
+  "Cc": [
+   [
+    "Woodside Energy",
+    "Largest Australian LNG producer."
+   ],
+   [
+    "Chevron",
+    "Major LNG producer in Western Australia."
+   ],
+   [
+    "Santos",
+    "Gas and LNG producer, including Gladstone LNG in Queensland."
+   ]
+  ],
+  "flag": "Western Australia already has its own 15% gas reservation; how the new national 20% scheme applies there is still being worked out.",
+  "src": [
+   [
+    "National 20% gas reservation; WA concerns (OE Digital/Reuters, May 2026)",
+    "https://www.oedigital.com/amp/news/539645-export-curbs-should-not-harm-australia-s-biggest-lng-producing-state"
+   ],
+   [
+    "Minister Madeleine King (Department of Industry)",
+    "https://www.minister.industry.gov.au/ministers/king"
+   ],
+   [
+    "Snowy Hydro board appointed by Bowen and Gallagher (RenewEconomy, 2026)",
+    "https://reneweconomy.com.au/breaking-former-liberal-leader-appointed-to-snowy-hydro-board-as-market-awaits-another-snowy-2-0-reset/amp/"
+   ],
+   [
+    "AEMO governance review (AGL, Mar 2026)",
+    "https://www.agl.com.au/about-agl/news-centre/2026/march/agl-response-to-aemo-governance-review"
+   ]
+  ]
+ },
+ "newzealand": {
+  "name": "New Zealand",
+  "model": "Crown-owned resources, private producers, part-state power companies",
+  "modelText": "Petroleum belongs to the Crown and is permitted by New Zealand Petroleum and Minerals within the Ministry of Business, Innovation and Employment (MBIE). The government reversed the offshore exploration ban and granted the first new offshore permit in July 2026. Three of the four big power companies are 51% government-owned.",
+  "top": [
+   "New Zealand",
+   "Prime Minister · Cabinet"
+  ],
+  "inst": [
+   [
+    "Minister for Resources",
+    "Shane Jones",
+    ""
+   ],
+   [
+    "Energy Minister",
+    "Simeon Brown",
+    ""
+   ],
+   [
+    "NZ Petroleum and Minerals (MBIE)",
+    "Petroleum and mineral permits",
+    "reg"
+   ],
+   [
+    "Electricity Authority",
+    "Electricity market regulator",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "51% Crown-owned (listed)",
+    "tag": "own",
+    "items": [
+     [
+      "Meridian Energy",
+      "51%"
+     ],
+     [
+      "Mercury NZ",
+      "51%"
+     ],
+     [
+      "Genesis Energy",
+      "51%"
+     ]
+    ]
+   },
+   {
+    "t": "Private",
+    "tag": "pvt",
+    "items": [
+     [
+      "Contact Energy",
+      "no Crown stake"
+     ],
+     [
+      "EnZed Energy",
+      "first new offshore permit, Jul 2026"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "Offshore exploration reopened",
+   "First new offshore permit granted July 2026",
+   "12-year permit to EnZed Energy in the offshore Taranaki Basin"
+  ],
+  "note": "",
+  "A": [
+   [
+    "Minister for Resources",
+    "Petroleum and minerals policy and permits. Shane Jones."
+   ],
+   [
+    "Energy Minister",
+    "Electricity and energy policy. Simeon Brown."
+   ],
+   [
+    "NZ Petroleum and Minerals (MBIE)",
+    "Runs permit rounds and manages Crown minerals."
+   ],
+   [
+    "Electricity Authority",
+    "Regulates the electricity market."
+   ]
+  ],
+  "B": [
+   [
+    "Meridian, Mercury, Genesis",
+    "Electricity generators and retailers; listed, with a legislated 51% Crown stake.",
+    "51% New Zealand Government"
+   ]
+  ],
+  "Cc": [
+   [
+    "Contact Energy",
+    "Fourth major generator-retailer; no government shareholding."
+   ],
+   [
+    "EnZed Energy",
+    "Australian company holding the first new offshore exploration permit."
+   ]
+  ],
+  "flag": "Labour has said it would reinstate the exploration ban if elected, while honouring existing permits; check the November 2026 election result.",
+  "src": [
+   [
+    "First offshore permit since ban reversal (Business Today / Reuters, Jul 2026)",
+    "https://www.businesstoday.com.my/2026/07/29/new-zealand-reopens-offshore-energy-hunt-with-first-petroleum-permit-since-ban-reversal/"
+   ],
+   [
+    "Permit via NZ Petroleum and Minerals process (Offshore Technology, Jul 2026)",
+    "https://www.offshore-technology.com/newsletters/new-zealand-first-offshore-petroleum-permit"
+   ],
+   [
+    "Labour plans to reimpose ban (KY Free Press / AAP, 2026)",
+    "https://www.kyfreepress.com.au/world/aussie-firm-granted-petroleum-permit-after-nz-lifts-ban/"
+   ],
+   [
+    "Crown 51% of Mercury, Meridian, Genesis; Energy Minister Simeon Brown (interest.co.nz, 2026)",
+    "https://www.interest.co.nz/business/140148/majority-government-owned-gentailers-generated-nearly-600-million-dividend"
    ]
   ]
  }
@@ -5666,10 +5925,260 @@ const C_AR = {
     "https://arynews.tv/venezuela-eyes-2026-oil-boost-interim-leader-opposition-talks"
    ]
   ]
+ },
+ "australia": {
+  "name": "أستراليا",
+  "model": "منتجون من القطاع الخاص وفق أنظمة اتحادية وأنظمة الولايات",
+  "modelText": "لا توجد في أستراليا شركة نفط وطنية. وتنتج شركات خاصة مثل وودسايد وسانتوس وشيفرون النفط والغاز والغاز المسال، بينما تضع الحكومة الاتحادية سياسات الموارد والطاقة وتدير الجهات التنظيمية البحرية. وفي مايو 2026 أعلنت الحكومة نظاماً وطنياً يخصص 20% من إنتاج الغاز للسوق المحلية.",
+  "top": [
+   "كومنولث أستراليا",
+   "رئيس الوزراء · مجلس الوزراء الاتحادي · الولايات"
+  ],
+  "inst": [
+   [
+    "وزيرة الموارد",
+    "مادلين كينغ",
+    ""
+   ],
+   [
+    "وزير التغير المناخي والطاقة",
+    "كريس بوين",
+    ""
+   ],
+   [
+    "NOPSEMA",
+    "منظِّم السلامة والبيئة في المناطق البحرية",
+    "reg"
+   ],
+   [
+    "AEMO",
+    "مشغّل سوقي الكهرباء والغاز",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "مملوكة للحكومة الاتحادية",
+    "tag": "own",
+    "items": [
+     [
+      "سنوي هايدرو",
+      "100% للحكومة الاتحادية"
+     ]
+    ]
+   },
+   {
+    "t": "المنتجون الرئيسيون",
+    "tag": "pvt",
+    "items": [
+     [
+      "وودسايد للطاقة",
+      "الغاز المسال"
+     ],
+     [
+      "سانتوس",
+      "الغاز والغاز المسال"
+     ],
+     [
+      "شيفرون",
+      "الغاز المسال، غرب أستراليا"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "النظام الوطني لتخصيص الغاز",
+   "أعلنته وزيرة الموارد مادلين كينغ في مايو 2026",
+   "يخصص 20% من إنتاج الغاز للاستهلاك المحلي، أساساً لتأمين إمدادات الساحل الشرقي"
+  ],
+  "note": "",
+  "A": [
+   [
+    "وزيرة الموارد",
+    "سياسات النفط والغاز والمعادن، وهي مادلين كينغ، وأُعيد تعيينها في مايو 2025."
+   ],
+   [
+    "وزير التغير المناخي والطاقة",
+    "سياسات الطاقة، والوزير المسؤول عن ملكية سنوي هايدرو، وهو كريس بوين."
+   ],
+   [
+    "NOPSEMA – هيئة سلامة وبيئة البترول البحري",
+    "تنظم السلامة والإدارة البيئية لأنشطة البترول البحرية."
+   ],
+   [
+    "AEMO – مشغّل سوق الطاقة الأسترالي",
+    "يشغّل سوقي الكهرباء والغاز الرئيسيتين، وتخضع حوكمته للمراجعة في 2026."
+   ]
+  ],
+  "B": [
+   [
+    "سنوي هايدرو",
+    "توليد الكهرباء من الطاقة المائية وبيع الطاقة، وتبني مشروع سنوي 2.0.",
+    "100% لكومنولث أستراليا"
+   ]
+  ],
+  "Cc": [
+   [
+    "وودسايد للطاقة",
+    "أكبر منتج أسترالي للغاز المسال."
+   ],
+   [
+    "شيفرون",
+    "منتج رئيسي للغاز المسال في غرب أستراليا."
+   ],
+   [
+    "سانتوس",
+    "منتج للغاز والغاز المسال، ومنه مشروع غلادستون في كوينزلاند."
+   ]
+  ],
+  "flag": "لدى ولاية غرب أستراليا نظام خاص يخصص 15% من الغاز، ولم يتضح بعد كيف سيُطبَّق النظام الوطني الجديد (20%) فيها.",
+  "src": [
+   [
+    "National 20% gas reservation; WA concerns (OE Digital/Reuters, May 2026)",
+    "https://www.oedigital.com/amp/news/539645-export-curbs-should-not-harm-australia-s-biggest-lng-producing-state"
+   ],
+   [
+    "Minister Madeleine King (Department of Industry)",
+    "https://www.minister.industry.gov.au/ministers/king"
+   ],
+   [
+    "Snowy Hydro board appointed by Bowen and Gallagher (RenewEconomy, 2026)",
+    "https://reneweconomy.com.au/breaking-former-liberal-leader-appointed-to-snowy-hydro-board-as-market-awaits-another-snowy-2-0-reset/amp/"
+   ],
+   [
+    "AEMO governance review (AGL, Mar 2026)",
+    "https://www.agl.com.au/about-agl/news-centre/2026/march/agl-response-to-aemo-governance-review"
+   ]
+  ]
+ },
+ "newzealand": {
+  "name": "نيوزيلندا",
+  "model": "موارد مملوكة للتاج، ومنتجون خاصون، وشركات كهرباء مملوكة جزئياً للدولة",
+  "modelText": "البترول ملك للتاج، وتمنح تصاريحه هيئة البترول والمعادن النيوزيلندية التابعة لوزارة الأعمال والابتكار والتوظيف (MBIE). وألغت الحكومة حظر الاستكشاف البحري، ومنحت أول تصريح بحري جديد في يوليو 2026. وتملك الحكومة 51% من ثلاث من شركات الكهرباء الأربع الكبرى.",
+  "top": [
+   "نيوزيلندا",
+   "رئيس الوزراء · مجلس الوزراء"
+  ],
+  "inst": [
+   [
+    "وزير الموارد",
+    "شين جونز",
+    ""
+   ],
+   [
+    "وزير الطاقة",
+    "سيميون براون",
+    ""
+   ],
+   [
+    "هيئة البترول والمعادن (MBIE)",
+    "تصاريح البترول والمعادن",
+    "reg"
+   ],
+   [
+    "هيئة الكهرباء",
+    "منظِّم سوق الكهرباء",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "مملوكة للتاج بنسبة 51% (مدرجة)",
+    "tag": "own",
+    "items": [
+     [
+      "ميريديان للطاقة",
+      "51%"
+     ],
+     [
+      "ميركوري",
+      "51%"
+     ],
+     [
+      "جينيسيس للطاقة",
+      "51%"
+     ]
+    ]
+   },
+   {
+    "t": "القطاع الخاص",
+    "tag": "pvt",
+    "items": [
+     [
+      "كونتاكت للطاقة",
+      "لا حصة حكومية"
+     ],
+     [
+      "إنزيد للطاقة",
+      "أول تصريح بحري جديد، يوليو 2026"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "إعادة فتح الاستكشاف البحري",
+   "مُنح أول تصريح بحري جديد في يوليو 2026",
+   "تصريح لمدة 12 عاماً لشركة إنزيد للطاقة في حوض تاراناكي البحري"
+  ],
+  "note": "",
+  "A": [
+   [
+    "وزير الموارد",
+    "سياسات البترول والمعادن وتصاريحها، وهو شين جونز."
+   ],
+   [
+    "وزير الطاقة",
+    "سياسات الكهرباء والطاقة، وهو سيميون براون."
+   ],
+   [
+    "هيئة البترول والمعادن (MBIE)",
+    "تدير جولات التصاريح وموارد التاج المعدنية."
+   ],
+   [
+    "هيئة الكهرباء",
+    "تنظم سوق الكهرباء."
+   ]
+  ],
+  "B": [
+   [
+    "ميريديان وميركوري وجينيسيس",
+    "منتجة وبائعة للكهرباء، ومدرجة، وللتاج فيها حصة 51% بموجب القانون.",
+    "51% لحكومة نيوزيلندا"
+   ]
+  ],
+  "Cc": [
+   [
+    "كونتاكت للطاقة",
+    "رابع شركة كبرى لإنتاج الكهرباء وبيعها، ولا حصة للحكومة فيها."
+   ],
+   [
+    "إنزيد للطاقة",
+    "شركة أسترالية تحمل أول تصريح استكشاف بحري جديد."
+   ]
+  ],
+  "flag": "أعلن حزب العمال أنه سيعيد حظر الاستكشاف إن فاز مع احترام التصاريح القائمة، لذا تحقق من نتيجة انتخابات نوفمبر 2026.",
+  "src": [
+   [
+    "First offshore permit since ban reversal (Business Today / Reuters, Jul 2026)",
+    "https://www.businesstoday.com.my/2026/07/29/new-zealand-reopens-offshore-energy-hunt-with-first-petroleum-permit-since-ban-reversal/"
+   ],
+   [
+    "Permit via NZ Petroleum and Minerals process (Offshore Technology, Jul 2026)",
+    "https://www.offshore-technology.com/newsletters/new-zealand-first-offshore-petroleum-permit"
+   ],
+   [
+    "Labour plans to reimpose ban (KY Free Press / AAP, 2026)",
+    "https://www.kyfreepress.com.au/world/aussie-firm-granted-petroleum-permit-after-nz-lifts-ban/"
+   ],
+   [
+    "Crown 51% of Mercury, Meridian, Genesis; Energy Minister Simeon Brown (interest.co.nz, 2026)",
+    "https://www.interest.co.nz/business/140148/majority-government-owned-gentailers-generated-nearly-600-million-dividend"
+   ]
+  ]
  }
 };
-const UI = {"en": {"title": "Energy Sector Structures", "sub": "Government institutions, state-owned companies and key players, country by country · as of Nov 2026", "structure": "Structure", "commercial": "Commercial and operating companies", "hA": "A. Main government institutions", "hB": "B. National oil and state-owned companies", "hC": "C. Other important companies", "inst": "Institution", "role": "Role in the energy sector", "co": "Company", "does": "What it does", "pos": "Position in the sector", "own": "Owned by:", "check": "Check:", "sources": "Sources", "tag_own": "Ownership", "tag_pvt": "Private", "tag_reg": "Regulation", "g_me": "Middle East", "g_af": "Africa", "g_as": "Asia", "g_am": "Americas"}, "ar": {"title": "هيكلة قطاع الطاقة", "sub": "المؤسسات الحكومية والشركات المملوكة للدولة وأبرز الجهات الفاعلة، حسب الدولة · حتى نوفمبر 2026", "structure": "الهيكلة", "commercial": "الشركات التجارية والتشغيلية", "hA": "أ. أبرز المؤسسات الحكومية", "hB": "ب. شركات النفط الوطنية والشركات المملوكة للدولة", "hC": "ج. شركات مهمة أخرى", "inst": "المؤسسة", "role": "دورها في قطاع الطاقة", "co": "الشركة", "does": "نشاطها", "pos": "موقعها في القطاع", "own": "الملكية:", "check": "ملاحظة:", "sources": "المصادر", "tag_own": "ملكية", "tag_pvt": "خاص", "tag_reg": "تنظيم", "g_me": "الشرق الأوسط", "g_af": "أفريقيا", "g_as": "آسيا", "g_am": "الأمريكتان"}};
-const GROUPS=[["g_me",["oman","uae","qatar","ksa","kuwait","iraq"]],["g_af",["egypt","libya","algeria","nigeria","angola","botswana"]],["g_as",["kazakhstan","malaysia"]],["g_am",["usa","venezuela","mexico"]]];
+const UI = {"en": {"title": "Energy Sector Structures", "sub": "Government institutions, state-owned companies and key players, country by country · as of Nov 2026", "structure": "Structure", "commercial": "Commercial and operating companies", "hA": "A. Main government institutions", "hB": "B. National oil and state-owned companies", "hC": "C. Other important companies", "inst": "Institution", "role": "Role in the energy sector", "co": "Company", "does": "What it does", "pos": "Position in the sector", "own": "Owned by:", "check": "Check:", "sources": "Sources", "tag_own": "Ownership", "tag_pvt": "Private", "tag_reg": "Regulation", "g_af": "Africa", "g_as": "Asia", "g_oc": "Oceania", "g_na": "North America", "g_sa": "South America"}, "ar": {"title": "هيكلة قطاع الطاقة", "sub": "المؤسسات الحكومية والشركات المملوكة للدولة وأبرز الجهات الفاعلة، حسب الدولة · حتى نوفمبر 2026", "structure": "الهيكلة", "commercial": "الشركات التجارية والتشغيلية", "hA": "أ. أبرز المؤسسات الحكومية", "hB": "ب. شركات النفط الوطنية والشركات المملوكة للدولة", "hC": "ج. شركات مهمة أخرى", "inst": "المؤسسة", "role": "دورها في قطاع الطاقة", "co": "الشركة", "does": "نشاطها", "pos": "موقعها في القطاع", "own": "الملكية:", "check": "ملاحظة:", "sources": "المصادر", "tag_own": "ملكية", "tag_pvt": "خاص", "tag_reg": "تنظيم", "g_af": "أفريقيا", "g_as": "آسيا", "g_oc": "أوقيانوسيا", "g_na": "أمريكا الشمالية", "g_sa": "أمريكا الجنوبية"}};
+const GROUPS=[["g_as",["oman","uae","qatar","ksa","kuwait","iraq","kazakhstan","malaysia"]],["g_af",["egypt","libya","algeria","nigeria","angola","botswana"]],["g_oc",["australia","newzealand"]],["g_na",["usa","mexico"]],["g_sa",["venezuela"]]];
 const ORDER=GROUPS.flatMap(g=>g[1]);
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
 const TAGTXT={own:"Ownership",pvt:"Private",reg:"Regulation"};
@@ -5710,15 +6219,28 @@ function render(id){
   ${table("Cc",[U.co,U.pos],d.Cc,false)}`:""}
   ${d.flag?`<div class="flag"><b>${U.check}</b> ${E("flag",d.flag)}</div>`:""}
   <ol class="src">${d.src.map(([t,u],i)=>`<li><a href="${u}">${E(`src.${i}.0`,t)}</a></li>`).join("")}</ol>`;
-  document.querySelectorAll("#tabs .glabel").forEach(s=>s.textContent=U[s.dataset.g]);
+  document.querySelectorAll("#conts button").forEach(c=>{c.querySelector("b").textContent=U[c.dataset.g];c.classList.toggle("has",GROUP_OF[id]===c.dataset.g);});
+  showTabs();
   document.querySelectorAll("#tabs button").forEach(b=>{b.textContent=DATA()[b.dataset.id].name;b.setAttribute("aria-selected",b.dataset.id===id?"true":"false");});
   try{document.querySelector("#tabs button[aria-selected=true]").scrollIntoView({inline:"nearest",block:"nearest"});}catch(e){}
   if(window.EDITING) setEditable(true);
 }
-const tabs=document.getElementById("tabs");
-GROUPS.forEach(([gk,ids])=>{const s=document.createElement("span");s.className="glabel";s.dataset.g=gk;tabs.appendChild(s);ids.forEach(id=>{const b=document.createElement("button");b.type="button";b.role="tab";b.dataset.id=id;b.textContent=C[id].name;
-  b.addEventListener("click",()=>{render(id);try{history.replaceState(null,"","#"+id)}catch(e){location.hash=id}});tabs.appendChild(b);});});
-function fromHash(){const h=(location.hash||"").slice(1);render(C[h]?h:"oman");}
+const tabs=document.getElementById("tabs"), conts=document.getElementById("conts");
+const GROUP_OF={}; GROUPS.forEach(([g,ids])=>ids.forEach(i=>GROUP_OF[i]=g));
+let OPEN=null;
+function showTabs(){
+  tabs.querySelectorAll("button").forEach(b=>b.hidden=b.dataset.g!==OPEN);
+  tabs.hidden=!OPEN;
+  conts.querySelectorAll("button").forEach(c=>{const o=c.dataset.g===OPEN;c.setAttribute("aria-expanded",o?"true":"false");c.querySelector("i").textContent=o?"▴":"▾";});
+}
+GROUPS.forEach(([gk,ids])=>{
+  const c=document.createElement("button");c.type="button";c.className="cont";c.dataset.g=gk;
+  c.innerHTML='<b></b> <span class="n">'+ids.length+'</span> <i>▾</i>';
+  c.addEventListener("click",()=>{OPEN=OPEN===gk?null:gk;showTabs();});conts.appendChild(c);
+  ids.forEach(id=>{const b=document.createElement("button");b.type="button";b.role="tab";b.dataset.id=id;b.dataset.g=gk;b.textContent=C[id].name;
+    b.addEventListener("click",()=>{render(id);try{history.replaceState(null,"","#"+id)}catch(e){location.hash=id}});tabs.appendChild(b);});
+});
+function fromHash(){const h=(location.hash||"").slice(1);const id=C[h]?h:"oman";OPEN=GROUP_OF[id];render(id);}
 window.addEventListener("hashchange",fromHash);fromHash();
 </script>
 <style>
