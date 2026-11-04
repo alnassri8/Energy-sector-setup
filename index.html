@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OQ Listed Companies — OQEP · OQGN · OQBI</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<style>
+  :root{
+    --ink:#1b2a44; --navy:#1e3358; --primary:#1e3a6e; --accent:#2f6fd6;
+    --s1:#4f6f96; --s2:#2a7fc4; --s3:#1f5f8b; --muted:#5b6880;
+    --t1:#e7eef8; --t2:#d4e5fa; --t3:#dfe7f1; --bg:#dfe4eb; --paper:#fdfeff;
+    --up:#1f7a4d; --down:#b23b3b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+  header{background:var(--navy);color:#fff;padding:22px 20px 18px}
+  header h1{margin:0;font-size:22px;font-weight:700}
+  header p{margin:6px 0 0;color:#c9d6ea;font-size:13px}
+  .wrap{max-width:1200px;margin:0 auto;padding:16px}
+  .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+  .tabs,.pills{display:flex;gap:6px;flex-wrap:wrap}
+  button{font:inherit;border:1px solid var(--s1);background:var(--paper);color:var(--primary);padding:7px 14px;border-radius:999px;cursor:pointer;font-size:13px}
+  button.on{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .spacer{flex:1}
+  .grid{display:grid;gap:12px}
+  .kpis{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+  .two{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+  .card{background:var(--paper);border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(27,42,68,.08)}
+  .card h3{margin:0 0 10px;font-size:14px;color:var(--primary)}
+  .kpi .l{font-size:12px;color:var(--muted)}
+  .kpi .v{font-size:24px;font-weight:700;margin-top:4px}
+  .kpi .d{font-size:12px;margin-top:3px;color:var(--muted)}
+  .pos{color:var(--up)} .neg{color:var(--down)}
+  .chart{position:relative;height:280px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:8px 6px;text-align:right;border-bottom:1px solid var(--t3)}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--muted);font-weight:600;cursor:pointer;user-select:none}
+  tr:hover td{background:var(--t1)}
+  .tag{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+  .hl{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+  .hl .card{border-left:4px solid var(--accent)}
+  .hl .m{font-size:12px;color:var(--muted)} .hl .x{font-size:20px;font-weight:700;margin:4px 0}
+  .hl .n{font-size:12px;color:var(--s1)}
+  .sec{display:none} .sec.on{display:grid}
+  footer{font-size:11px;color:var(--muted);padding:18px 16px 30px;max-width:1200px;margin:0 auto}
+</style>
+</head>
+<body>
+<header>
+  <h1>OQ Listed Companies</h1>
+  <p>OQEP · OQGN · OQBI on the Muscat Stock Exchange · prices as of 3 Nov 2026 · values in RO</p>
+</header>
+
+<div class="wrap">
+  <div class="bar">
+    <div class="tabs" id="tabs">
+      <button data-t="overview" class="on">Overview</button>
+      <button data-t="profit">Profit</button>
+      <button data-t="price">Share price</button>
+      <button data-t="ops">Operations</button>
+    </div>
+    <div class="spacer"></div>
+    <div class="pills" id="pills"></div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section class="grid sec on" id="s-overview">
+    <div class="grid kpis" id="kpis"></div>
+    <div class="grid two">
+      <div class="card"><h3>Market cap vs OQ's stake value (RO m)</h3><div class="chart"><canvas id="cMcap"></canvas></div></div>
+      <div class="card"><h3>Return since IPO</h3><div class="chart"><canvas id="cIpo"></canvas></div></div>
+    </div>
+    <div class="card"><h3>Valuation snapshot <span style="font-weight:400;color:var(--muted);font-size:12px">(tap a header to sort)</span></h3><div style="overflow-x:auto"><table id="tbl"></table></div></div>
+  </section>
+
+  <!-- PROFIT -->
+  <section class="grid sec" id="s-profit">
+    <div class="card"><h3>Quarterly net profit (RO m)</h3><div class="chart" style="height:320px"><canvas id="cQ"></canvas></div></div>
+    <div class="grid two">
+      <div class="card"><h3>Annual revenue (RO m)</h3><div class="chart"><canvas id="cRev"></canvas></div></div>
+      <div class="card"><h3>Annual net profit &amp; margin</h3><div class="chart"><canvas id="cNp"></canvas></div></div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section class="grid sec" id="s-price">
+    <div class="card"><h3>Share price (RO) — sampled closes</h3><div class="chart" style="height:340px"><canvas id="cPx"></canvas></div></div>
+    <div class="card"><h3>Price indexed to IPO = 100</h3><div class="chart" style="height:300px"><canvas id="cIdx"></canvas></div></div>
+  </section>
+
+  <!-- OPS -->
+  <section class="grid sec" id="s-ops">
+    <div class="hl" id="hl"></div>
+  </section>
+</div>
+
+<footer>
+  Sources: Muscat Stock Exchange filings via Argaam; StockAnalysis.com income statements and quotes; company press releases (2025–26).
+  Quarterly profit is derived from cumulative filings. Price series are sampled dates from news and quote pages, not a daily series.
+  Public information only; not investment advice.
+</footer>
+
+<script>
+/* ===== DATA — edit numbers here ===== */
+const SNAPSHOT = [
+  {ticker:"OQEP",name:"OQ Exploration & Production",segment:"Upstream oil & gas",price:0.462,shares_m:7970,ipo_price:0.39,ipo_date:"2024-10-28",oq_stake:0.75,ttm_np_m:354.09,div_ps_bz:33.7,div_basis:"2026 base dividend RO 230.7m + H1-26 PLD RO 38.45m"},
+  {ticker:"OQGN",name:"OQ Gas Networks",segment:"Regulated gas transmission",price:0.212,shares_m:4330.62,ipo_price:0.14,ipo_date:"2023-10-24",oq_stake:0.51,ttm_np_m:51.84,div_ps_bz:11.2,div_basis:"Two half-year dividends of 5.6 bz"},
+  {ticker:"OQBI",name:"OQ Base Industries",segment:"Methanol, ammonia & LPG",price:0.221,shares_m:3459.49,ipo_price:0.111,ipo_date:"2024-12-15",oq_stake:0.51,ttm_np_m:75.2,div_ps_bz:9.93,div_basis:"2025 dividends: 5.0 bz (H1) + 4.93 bz (Q4)"}
+];
+const QUARTERS = ["2025-Q1","2025-Q2","2025-Q3","2025-Q4","2026-Q1","2026-Q2","2026-Q3"];
+const QUARTERLY = {
+  OQEP:[74.87,91.14,69.35,57.83,71.87,125.0,99.39],
+  OQGN:[12.64,12.76,13.7,12.14,13.5,13.6,12.6],
+  OQBI:[12.8,10.52,9.02,13.74,16.87,26.43,18.15]
+};
+const ANNUAL = {
+  OQEP:{2023:[1063,620.17],2024:[1264,321.34],2025:[1179,278.04]},
+  OQGN:{2022:[149.82,45.6],2023:[161.7,55.51],2024:[146.86,47.8],2025:[207.0,51.24]},
+  OQBI:{2021:[154.22,41.23],2022:[215.64,61.9],2023:[196.22,47.51],2024:[234.84,40.41],2025:[225.97,47.68]}
+}; // year: [revenue, net profit]
+const PRICES = {
+  OQGN:[["2023-10-24",0.14],["2024-12-04",0.133],["2025-02-27",0.13],["2026-03-05",0.237],["2026-07-30",0.2],["2026-08-31",0.23],["2026-09-29",0.218],["2026-11-03",0.212]],
+  OQEP:[["2024-10-28",0.39],["2024-12-04",0.349],["2026-03-02",0.484],["2026-03-24",0.468],["2026-07-30",0.44],["2026-08-31",0.48],["2026-10-01",0.478],["2026-11-03",0.462]],
+  OQBI:[["2024-12-15",0.111],["2025-09-16",0.143],["2025-12-31",0.184],["2026-03-24",0.273],["2026-04-28",0.31],["2026-06-17",0.254],["2026-08-31",0.26],["2026-09-30",0.26],["2026-11-03",0.221]]
+};
+const HIGHLIGHTS = [
+  ["OQEP","Production (H1 2026)","228.2 kboepd","+2.7% YoY; 53% oil / 47% gas"],
+  ["OQEP","EBITDA (H1 2026)","RO 554.9m","+10.6% YoY"],
+  ["OQEP","Net debt / EBITDA","0.16x","End of H1 2026"],
+  ["OQEP","2030 production goal","~300 kboepd","Domestic growth + acquisitions"],
+  ["OQGN","Pipeline network","4,368 km","End-2025; 4,717 km planned by 2027"],
+  ["OQGN","Network availability (Q2 2026)","99.9%","Record 139.4m SCM dispatched on 3 Jun 2026"],
+  ["OQGN","Net debt / adj. EBITDA","3.85x","Q1 2026"],
+  ["OQGN","Sukuk programme","US$1bn","Set up Oct 2026"],
+  ["OQBI","Nameplate capacity","1,816 ktpa","Methanol, ammonia & LPG, Salalah Free Zone"],
+  ["OQBI","Revenue (H1 2026)","RO 163.4m","+45.4% YoY"],
+  ["OQBI","2025 record output","343k t NH₃ / 366k t LPG","All plants above 100% capacity"],
+  ["OQBI","Share price, 6 months","-30%","Peak ~0.31 in Apr 2026"]
+];
+const COLORS = {OQEP:"#1e3a6e",OQGN:"#2a7fc4",OQBI:"#4f6f96"};
+/* ===== END DATA ===== */
+
+const T = SNAPSHOT.map(s=>s.ticker);
+let active = new Set(T);
+const charts = {};
+const fmt = (n,d=1)=>n.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+const calc = s => {
+  const mcap = s.price*s.shares_m;
+  return {...s, mcap, stakeVal:mcap*s.oq_stake, pe:mcap/s.ttm_np_m,
+          yld:(s.div_ps_bz/1000)/s.price, ipoRet:s.price/s.ipo_price-1};
+};
+const ROWS = SNAPSHOT.map(calc);
+
+Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
+Chart.defaults.color = "#5b6880";
+Chart.defaults.plugins.legend.labels.boxWidth = 12;
+
+/* pills */
+const pills = document.getElementById("pills");
+const allBtn = document.createElement("button"); allBtn.textContent="All"; allBtn.className="on";
+allBtn.onclick=()=>{active=new Set(T);render();}; pills.appendChild(allBtn);
+T.forEach(t=>{const b=document.createElement("button");b.textContent=t;b.dataset.k=t;
+  b.onclick=()=>{ if(active.size===T.length){active=new Set([t]);}
+    else if(active.has(t)){ if(active.size>1) active.delete(t);} else active.add(t);
+    render(); }; pills.appendChild(b);});
+
+/* tabs */
+document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("on",x===b));
+  document.querySelectorAll(".sec").forEach(s=>s.classList.toggle("on",s.id==="s-"+b.dataset.t));
+  Object.values(charts).forEach(c=>c.resize());
+});
+
+function mk(id,cfg){ if(charts[id]) charts[id].destroy(); charts[id]=new Chart(document.getElementById(id),cfg); }
+const sel = () => ROWS.filter(r=>active.has(r.ticker));
+
+function renderKpis(){
+  const r=sel(); const mcap=r.reduce((a,x)=>a+x.mcap,0), stake=r.reduce((a,x)=>a+x.stakeVal,0),
+        np=r.reduce((a,x)=>a+x.ttm_np_m,0);
+  const best=[...r].sort((a,b)=>b.yld-a.yld)[0];
+  const k=[
+    ["Combined market cap",`RO ${fmt(mcap,0)}m`,`${r.length} compan${r.length>1?"ies":"y"}`],
+    ["OQ's stake value",`RO ${fmt(stake,0)}m`,`${fmt(stake/mcap*100,0)}% of market cap`],
+    ["Trailing-12M net profit",`RO ${fmt(np,0)}m`,`Blended P/E ${fmt(mcap/np,1)}x`],
+    ["Highest dividend yield",`${fmt(best.yld*100,1)}%`,best.ticker]
+  ];
+  document.getElementById("kpis").innerHTML=k.map(([l,v,d])=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join("");
+}
+
+let sortKey="mcap", sortDir=-1;
+function renderTable(){
+  const cols=[["ticker","Company"],["price","Price (RO)"],["mcap","Mkt cap (RO m)"],["pe","P/E (x)"],["yld","Div yield"],["ipoRet","vs IPO"],["oq_stake","OQ stake"]];
+  const r=[...sel()].sort((a,b)=>(a[sortKey]>b[sortKey]?1:-1)*sortDir);
+  const cell=(c,x)=>({ticker:`<span class="tag" style="background:${COLORS[x.ticker]}"></span><b>${x.ticker}</b> <span style="color:var(--muted)">${x.segment}</span>`,
+    price:x.price.toFixed(3),mcap:fmt(x.mcap,0),pe:fmt(x.pe,1),yld:fmt(x.yld*100,1)+"%",
+    ipoRet:`<span class="${x.ipoRet>=0?"pos":"neg"}">${x.ipoRet>=0?"+":""}${fmt(x.ipoRet*100,0)}%</span>`,
+    oq_stake:fmt(x.oq_stake*100,0)+"%"})[c];
+  const tbl=document.getElementById("tbl");
+  tbl.innerHTML=`<tr>${cols.map(([k,l])=>`<th data-k="${k}">${l}${sortKey===k?(sortDir<0?" ▾":" ▴"):""}</th>`).join("")}</tr>`+
+    r.map(x=>`<tr>${cols.map(([k])=>`<td>${cell(k,x)}</td>`).join("")}</tr>`).join("");
+  tbl.querySelectorAll("th").forEach(th=>th.onclick=()=>{const k=th.dataset.k; sortDir=(sortKey===k)?-sortDir:-1; sortKey=k; renderTable();});
+}
+
+function renderCharts(){
+  const r=sel(), tk=r.map(x=>x.ticker);
+  mk("cMcap",{type:"bar",data:{labels:tk,datasets:[
+    {label:"Market cap",data:r.map(x=>+x.mcap.toFixed(0)),backgroundColor:"#d4e5fa",borderColor:"#2f6fd6",borderWidth:1},
+    {label:"OQ stake value",data:r.map(x=>+x.stakeVal.toFixed(0)),backgroundColor:tk.map(t=>COLORS[t])}]},
+    options:{maintainAspectRatio:false,plugins:{tooltip:{callbacks:{label:c=>`${c.dataset.label}: RO ${fmt(c.raw,0)}m`}}}}});
+  mk("cIpo",{type:"bar",data:{labels:tk,datasets:[{label:"Return since IPO",data:r.map(x=>+(x.ipoRet*100).toFixed(1)),
+    backgroundColor:r.map(x=>x.ipoRet>=0?"#2a7fc4":"#b23b3b")}]},
+    options:{indexAxis:"y",maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const x=r[c.dataIndex];return `${c.raw}% (IPO ${x.ipo_price} → ${x.price})`;}}}},
+      scales:{x:{ticks:{callback:v=>v+"%"}}}}});
+  mk("cQ",{type:"bar",data:{labels:QUARTERS,datasets:tk.map(t=>({label:t,data:QUARTERLY[t],backgroundColor:COLORS[t]}))},
+    options:{maintainAspectRatio:false,interaction:{mode:"index",intersect:false},plugins:{tooltip:{callbacks:{label:c=>`${c.dataset.label}: RO ${fmt(c.raw,2)}m`}}}}});
+  const years=[...new Set(tk.flatMap(t=>Object.keys(ANNUAL[t])))].sort();
+  mk("cRev",{type:"bar",data:{labels:years,datasets:tk.map(t=>({label:t,data:years.map(y=>ANNUAL[t][y]?.[0]??null),backgroundColor:COLORS[t]}))},
+    options:{maintainAspectRatio:false,interaction:{mode:"index",intersect:false}}});
+  mk("cNp",{data:{labels:years,datasets:[
+    ...tk.map(t=>({type:"bar",label:t+" profit",data:years.map(y=>ANNUAL[t][y]?.[1]??null),backgroundColor:COLORS[t],yAxisID:"y"})),
+    ...tk.map(t=>({type:"line",label:t+" margin",data:years.map(y=>ANNUAL[t][y]?+(ANNUAL[t][y][1]/ANNUAL[t][y][0]*100).toFixed(1):null),
+      borderColor:COLORS[t],borderDash:[5,4],pointRadius:3,yAxisID:"y1",spanGaps:true}))]},
+    options:{maintainAspectRatio:false,interaction:{mode:"index",intersect:false},
+      scales:{y:{title:{display:true,text:"RO m"}},y1:{position:"right",grid:{drawOnChartArea:false},ticks:{callback:v=>v+"%"}}}}});
+  mk("cPx",{type:"line",data:{datasets:tk.map(t=>({label:t,data:PRICES[t].map(([d,c])=>({x:d,y:c})),borderColor:COLORS[t],backgroundColor:COLORS[t],tension:.25,pointRadius:4}))},
+    options:{maintainAspectRatio:false,scales:{x:{type:"time",time:{unit:"quarter"}},y:{title:{display:true,text:"RO"}}},
+      plugins:{tooltip:{callbacks:{label:c=>`${c.dataset.label}: RO ${c.raw.y.toFixed(3)}`}}}}});
+  mk("cIdx",{type:"line",data:{datasets:tk.map(t=>{const b=PRICES[t][0][1];return {label:t,data:PRICES[t].map(([d,c])=>({x:d,y:+(c/b*100).toFixed(1)})),borderColor:COLORS[t],backgroundColor:COLORS[t],tension:.25,pointRadius:3};})},
+    options:{maintainAspectRatio:false,scales:{x:{type:"time",time:{unit:"quarter"}}}}});
+}
+
+function renderHl(){
+  document.getElementById("hl").innerHTML=HIGHLIGHTS.filter(h=>active.has(h[0])).map(([t,m,v,n])=>
+    `<div class="card" style="border-left-color:${COLORS[t]}"><div class="m"><b>${t}</b> · ${m}</div><div class="x">${v}</div><div class="n">${n}</div></div>`).join("");
+}
+
+function render(){
+  allBtn.classList.toggle("on",active.size===T.length);
+  pills.querySelectorAll("button[data-k]").forEach(b=>b.classList.toggle("on",active.size<T.length&&active.has(b.dataset.k)));
+  renderKpis(); renderTable(); renderCharts(); renderHl();
+}
+render();
+</script>
+</body>
+</html>
