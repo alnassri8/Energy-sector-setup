@@ -126,166 +126,1400 @@ html[dir="rtl"] #edbar{right:auto;left:12px}
 
 <script>
 const C = {
-oman:{
-  name:"Oman",
-  model:"Government-led, investment-oriented model",
-  modelText:"Policy and regulation sit with the Ministry of Energy and Minerals (MEM), while the state holds its energy assets through two owners. Energy Oman (EO), a 100% government-owned company set up through the Ministry of Finance (MOF), holds the core upstream resources: 60% of Block 6 (operated by PDO), the Block 6 gas concession and Hydrom. The Oman Investment Authority (OIA), the sovereign wealth fund, owns OQ, the integrated energy group.",
-  top:["Government of Oman","His Majesty the Sultan · Council of Ministers"],
-  inst:[["MOF","Fiscal policy; owner of EO and IGC",""],["MEM","Energy policy, licensing and upstream regulation",""],["OIA","State investment and ownership","inv"],["APSR","Power and water regulator","reg"]],
-  groups:[
-    {t:"Under OIA",tag:"own",items:[["OQ Group","100%"],["Nama Group (power & water)","100%"]]},
-    {t:"Under MOF",tag:"own",items:[["Energy Oman (EO)","100% govt"],["Integrated Gas Company (IGC)","100% govt"]]},
-    {t:"Under EO",tag:"own",items:[["PDO","60%"],["Hydrom (hydrogen)","100%"]]},
-    {t:"Under OQ – listed on MSX",tag:"own",items:[["OQ Exploration & Production (OQEP)","75%"],["OQ Gas Networks (OQGN)","51%"],["OQ Base Industries (OQBI)","51%"],["Abraj Energy Services","51%"],["Oman Oil Marketing Co. (OOMCO)","49%"],["Musandam Power Company","42%"],["Muscat Gases Company","32.6%"]]},
-    {t:"Under OQ – other key companies",tag:"own",items:[["OQ Refineries & Petroleum Industries (OQRPI)","100% · Sohar & Mina Al Fahal refineries"],["OQ Alternative Energy","100%"],["OQ8 Duqm Refinery","50% with KPI"],["Marsa LNG (Sohar)","20% with TotalEnergies"]]},
-    {t:"Government stake",tag:"own",items:[["Oman LNG","51% govt, held via MEM"]]}
+ "oman": {
+  "name": "Oman",
+  "model": "Government-led, investment-oriented model",
+  "modelText": "Policy and regulation sit with the Ministry of Energy and Minerals (MEM), while the state holds its energy assets through two owners. Energy Oman (EO), a 100% government-owned company set up through the Ministry of Finance (MOF), holds the core upstream resources: 60% of Block 6 (operated by PDO), the Block 6 gas concession and Hydrom. The Oman Investment Authority (OIA), the sovereign wealth fund, owns OQ, the integrated energy group.",
+  "top": [
+   "Government of Oman",
+   "His Majesty the Sultan · Council of Ministers"
   ],
-  feat:["PDO – Petroleum Development Oman","60% EO | 34% Shell | 4% TotalEnergies | 2% PTTEP","Operator of Block 6, Oman's largest oil and gas concession"],
-  note:"MEM chairs the boards of EO and Hydrom but does not own them.",
-  A:[["MOF – Ministry of Finance","Manages public finances and the budget. Sits on the ownership side of EO and IGC, and the Finance Minister chairs OIA."],
-     ["MEM – Ministry of Energy and Minerals","Sets oil, gas and mining policy, awards concessions and regulates upstream. Its minister chairs EO and Hydrom."],
-     ["OIA – Oman Investment Authority","Sovereign wealth fund. Has owned most state companies, including OQ and Nama, since 2020."],
-     ["APSR – Authority for Public Services Regulation","Regulates electricity and parts of the water sector."]],
-  B:[["OQ Group","National energy company: refining, gas grid, petrochemicals, upstream through OQEP, renewables.","100% OIA"],
-     ["EO – Energy Oman (formerly Energy Development Oman)","Holds the state's core upstream stakes: 60% of Block 6 oil, 100% of Block 6 gas, 100% of Hydrom.","100% government (MOF side)"],
-     ["PDO – Petroleum Development Oman","Largest oil and gas producer; operates Block 6.","EO 60%, Shell 34%, TotalEnergies 4%, PTTEP 2%"],
-     ["IGC – Integrated Gas Company","Single buyer and seller of natural gas; supplies about 130 customers and Oman LNG.","100% government (MOF)"],
-     ["Oman LNG","LNG exporter at Sur, including Qalhat LNG.","Govt 51%, Shell 30%, TotalEnergies 5.54%, others"],
-     ["Hydrom","Allocates land and runs auctions for green hydrogen projects.","100% EO"],
-     ["Nama Group","Power and water: single buyer (Nama PWP), transmission, distribution, supply.","100% OIA"]],
-  Cc:[["Shell","34% of PDO, 30% of Oman LNG, operator of Block 10 gas."],
-      ["bp","Operator of Block 61 (Khazzan and Ghazeer), about a third of Oman's gas demand."],
-      ["TotalEnergies","80% of Marsa LNG at Sohar; stakes in PDO and Oman LNG."],
-      ["Occidental (Oxy)","Operator of Blocks 9, 53 (Mukhaizna) and 65."],
-      ["Kuwait Petroleum International","50% partner in the OQ8 Duqm refinery."],
-      ["PTTEP and Petronas","Partners in Block 61 (20% and 10%); PTTEP also holds 2% of PDO."]],
-  flag:"",
-  src:[["EO (formerly EDO) – About us","https://edoman.om/about-us/"],["Energy Oman launches new corporate identity (Muscat Daily, Aug 2026)","https://www.muscatdaily.com/2026/08/10/energy-oman-launches-new-corporate-identity/"],["Fitch on EO (then EDO) and OQ (Oman Observer)","https://www.omanobserver.om/ampArticle/1181210"],["IGC role (Oman Observer)","https://www.omanobserver.om/article/1156398/business/energy/igc-unveils-new-gas-application-portal-for-oman-customers"],["Oman LNG shareholders (TotalEnergies)","https://totalenergies.com/node/23021"],["Oman LNG 4th train, MEM stake (MEED)","https://guest.meed.com/oman-lng-to-add-fourth-train-at-qalhat-complex"],["Block 61 (Oman Observer)","https://www.omanobserver.om/ampArticle/1190559"],["OQ portfolio – listed companies and stakes (OQ)","https://oq.com/en/about-oq/company"],["OQRPI record 2025 operating year (Oman Observer)","https://www.omanobserver.om/article/1183211/business/energy/oqrpi-records-landmark-operating-year-in-2025"],["Marsa LNG 80/20 (MEED)","https://guest.meed.com/totalenergies-and-oq-break-ground-on-marsa-lng-project"],["Nama owned by OIA (Oman Observer)","https://www.omanobserver.om/article/1138685/business/energy/nama-restructuring-to-streamline-power-distribution-and-supply-services"]]
-},
-usa:{
-  name:"USA",
-  model:"Decentralised, private-sector-driven model",
-  modelText:"Private companies dominate petroleum production and investment, while federal and state institutions divide policymaking and regulatory responsibilities.",
-  top:["United States","Federal government · 50 states"],
-  inst:[["DOE","Energy policy, research, Strategic Petroleum Reserve",""],["Interior (DOI)","Leases federal land and offshore acreage",""],["FERC","Pipelines, wholesale power, LNG terminals","reg"],["State regulators","e.g. Texas Railroad Commission, utility commissions","reg"]],
-  groups:[
-    {t:"Federally owned",tag:"own",items:[["Tennessee Valley Authority","federal corporation"],["Bonneville Power Administration","under DOE"],["Strategic Petroleum Reserve","run by DOE"]]},
-    {t:"Investor-owned",tag:"pvt",items:[["ExxonMobil, Chevron","integrated majors"],["ConocoPhillips, EOG, Oxy","producers"],["Cheniere","LNG exporter"],["NextEra, Duke","utilities"]]}
+  "inst": [
+   [
+    "MOF",
+    "Fiscal policy; owner of EO and IGC",
+    ""
+   ],
+   [
+    "MEM",
+    "Energy policy, licensing and upstream regulation",
+    ""
+   ],
+   [
+    "OIA",
+    "State investment and ownership",
+    "inv"
+   ],
+   [
+    "APSR",
+    "Power and water regulator",
+    "reg"
+   ]
   ],
-  feat:["No national oil company","Production is private","On private land, landowners usually own the minerals; on federal land and offshore, Interior leases acreage for royalties"],
-  note:"Federal agencies regulate interstate activity; states regulate drilling and retail utilities within their borders.",
-  A:[["DOE – Department of Energy","National energy policy, research labs, the Strategic Petroleum Reserve, LNG export approvals, and federal power marketing administrations."],
-     ["DOI – Department of the Interior","Leases federal onshore land (BLM) and offshore acreage (BOEM), and enforces offshore safety (BSEE)."],
-     ["FERC – Federal Energy Regulatory Commission","Independent regulator of interstate gas pipelines, wholesale electricity, and LNG terminal siting."],
-     ["EPA, NRC, PHMSA","Environmental rules (EPA), nuclear safety (NRC), pipeline safety (PHMSA, under Transportation)."],
-     ["State regulators","Permit wells and spacing (e.g. Texas Railroad Commission) and set retail power and gas rates (state utility commissions)."]],
-  B:[["Tennessee Valley Authority (TVA)","Federally owned power producer serving Tennessee and parts of six neighbouring states.","US federal government"],
-     ["Power Marketing Administrations","Sell power from federal dams, e.g. Bonneville in the Pacific Northwest.","US federal government (DOE)"],
-     ["Strategic Petroleum Reserve","Emergency crude stocks in salt caverns on the Gulf Coast.","US federal government (DOE)"]],
-  Cc:[["ExxonMobil","Largest US oil major; upstream, refining and chemicals."],
-      ["Chevron","Second integrated major; also operates in the Saudi–Kuwaiti Partitioned Zone."],
-      ["ConocoPhillips","Largest independent producer; exited a Malaysian deepwater project in 2025."],
-      ["Cheniere Energy","Largest US LNG exporter."],
-      ["NextEra Energy","Large utility and renewables developer."],
-      ["Kinder Morgan","Major gas pipeline operator."]],
-  flag:"",
-  src:[["DOE FY2026 budget hearing (govinfo)","https://www.govinfo.gov/content/pkg/CHRG-119shrg61238/html/CHRG-119shrg61238.htm"],["FERC","https://ferc.gov/news-events/news/president-trump-names-david-rosner-chairman-ferc"]]
-},
-uae:{
-  name:"UAE",
-  model:"Emirate-owned resources inside a federation",
-  modelText:"Oil and gas belong to each emirate, not the federation. Abu Dhabi, which holds most reserves, governs ADNOC through its Supreme Council for Financial and Economic Affairs. Federal ministries set national policy, and Dubai runs its own energy companies.",
-  top:["United Arab Emirates","Federal government · seven emirates"],
-  inst:[["Ministry of Energy & Infrastructure","Federal energy policy",""],["Abu Dhabi SCFEA","Oversees ADNOC, Mubadala, ADIA, ADQ","inv"],["Abu Dhabi Dept of Energy","Power and water regulator (Abu Dhabi)","reg"],["Dubai Supreme Council of Energy","Dubai energy policy",""]],
-  groups:[
-    {t:"Abu Dhabi – oil & gas",tag:"own",items:[["ADNOC","100% Abu Dhabi govt"],["XRG (international arm)","100% ADNOC"]]},
-    {t:"Abu Dhabi – ADQ utilities",tag:"own",items:[["TAQA","majority ADQ"],["EWEC (single buyer)","ADQ"],["ENEC (nuclear)","100% ADQ"]]},
-    {t:"Abu Dhabi – clean energy",tag:"own",items:[["Masdar","TAQA 43, Mubadala 33, ADNOC 24"]]},
-    {t:"Dubai",tag:"own",items:[["ENOC","Dubai govt"],["DEWA (listed)","~82% Dubai govt"]]}
+  "groups": [
+   {
+    "t": "Under OIA",
+    "tag": "own",
+    "items": [
+     [
+      "OQ Group",
+      "100%"
+     ],
+     [
+      "Nama Group (power & water)",
+      "100%"
+     ]
+    ]
+   },
+   {
+    "t": "Under MOF",
+    "tag": "own",
+    "items": [
+     [
+      "Energy Oman (EO)",
+      "100% govt"
+     ],
+     [
+      "Integrated Gas Company (IGC)",
+      "100% govt"
+     ]
+    ]
+   },
+   {
+    "t": "Under EO",
+    "tag": "own",
+    "items": [
+     [
+      "PDO",
+      "60%"
+     ],
+     [
+      "Hydrom (hydrogen)",
+      "100%"
+     ]
+    ]
+   },
+   {
+    "t": "Under OQ – listed on MSX",
+    "tag": "own",
+    "items": [
+     [
+      "OQ Exploration & Production (OQEP)",
+      "75%"
+     ],
+     [
+      "OQ Gas Networks (OQGN)",
+      "51%"
+     ],
+     [
+      "OQ Base Industries (OQBI)",
+      "51%"
+     ],
+     [
+      "Abraj Energy Services",
+      "51%"
+     ],
+     [
+      "Oman Oil Marketing Co. (OOMCO)",
+      "49%"
+     ],
+     [
+      "Musandam Power Company",
+      "42%"
+     ],
+     [
+      "Muscat Gases Company",
+      "32.6%"
+     ]
+    ]
+   },
+   {
+    "t": "Under OQ – other key companies",
+    "tag": "own",
+    "items": [
+     [
+      "OQ Refineries & Petroleum Industries (OQRPI)",
+      "100% · Sohar & Mina Al Fahal refineries"
+     ],
+     [
+      "OQ Alternative Energy",
+      "100%"
+     ],
+     [
+      "OQ8 Duqm Refinery",
+      "50% with KPI"
+     ],
+     [
+      "Marsa LNG (Sohar)",
+      "20% with TotalEnergies"
+     ]
+    ]
+   },
+   {
+    "t": "Government stake",
+    "tag": "own",
+    "items": [
+     [
+      "Oman LNG",
+      "51% govt, held via MEM"
+     ]
+    ]
+   }
   ],
-  feat:["XRG – ADNOC's investment arm","ADNOC Gas 86% | Distribution 77% | Drilling 78.5% | L&S 78%","Also holds 24.9% of OMV and 50% of Borouge International (with OMV)"],
-  note:"Masdar shares are for its renewables business; ADNOC leads the green hydrogen business.",
-  A:[["Ministry of Energy & Infrastructure (federal)","National energy policy and infrastructure; its minister sits on ADNOC's board."],
-     ["Supreme Council for Financial and Economic Affairs (Abu Dhabi)","Took over the Supreme Petroleum Council in 2020. Approves strategy for ADNOC, Mubadala, ADIA and ADQ, and appoints ADNOC's board."],
-     ["Department of Energy (Abu Dhabi)","Regulates electricity and water in Abu Dhabi."],
-     ["Dubai Supreme Council of Energy","Sets energy strategy for Dubai and oversees DEWA and ENOC."],
-     ["FANR","Federal nuclear safety regulator for the Barakah plant."]],
-  B:[["ADNOC","National oil company of Abu Dhabi; upstream concessions with foreign partners, gas, refining, chemicals.","100% Government of Abu Dhabi"],
-     ["XRG","International investment company; also holds ADNOC's stakes in its listed units since Sep 2025.","100% ADNOC"],
-     ["TAQA","Power and water generation, transmission and distribution; partner in Abu Dhabi IWPPs.","Majority ADQ; listed on ADX"],
-     ["EWEC","Single buyer of power and water in Abu Dhabi.","ADQ"],
-     ["ENEC","Owns the Barakah nuclear plant.","100% ADQ"],
-     ["Masdar","Renewables and green hydrogen developer.","TAQA 43%, Mubadala 33%, ADNOC 24% (renewables)"],
-     ["ENOC","Dubai's refining, fuel retail and trading group; owns Dragon Oil.","Government of Dubai"],
-     ["DEWA","Dubai's electricity and water utility; listed on DFM in 2022.","~82% Government of Dubai"]],
-  Cc:[["TotalEnergies, bp, Shell, ExxonMobil","Partners in ADNOC's onshore and offshore concessions."],
-      ["OMV","Austrian group; 50% of Borouge International, 24.9% owned by XRG."],
-      ["Borouge International","Polyolefins company combining Borouge, Borealis and NOVA Chemicals; 50/50 OMV and XRG."],
-      ["Dana Gas","Sharjah-based listed private gas producer."]],
-  flag:"",
-  src:[["Abu Dhabi merges SPC into SCFEA (S&P Global)","https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/122820-abu-dhabi-merges-supreme-petroleum-council-with-new-economic-body"],["ADNOC board and SCFEA (The National)","https://thenational-the-national-prod.cdn.arcpublishing.com/business/energy/sheikh-khalifa-appoints-new-board-of-directors-for-adnoc-1.1174648"],["ADNOC stakes transferred to XRG (AGBI)","https://www.agbi.com/oil-and-gas/2025/09/adnoc-transfers-stakes-in-adx-listed-units-to-xrg/"],["Borouge International formed (Hydrocarbon Engineering)","https://www.hydrocarbonengineering.com/petrochemicals/01042026/omv-and-xrg-complete-transactions-to-create-borouge-international/"],["Masdar shareholders (Arab News)","https://www.arabnews.pk/node/2212866/business-economy"],["ENEC to ADQ (WAM)","https://www.wam.ae/en/article/hszrayka-abu-dhabi-transfers-ownership-enec-adq"],["DEWA ownership (Forbes ME)","https://www.forbesmiddleeast.com/lists/100-most-valuable-companies-2026/dubai-electricity-and-water-authority-dewa/"]]
-},
-malaysia:{
-  name:"Malaysia",
-  model:"National oil company-centred model",
-  modelText:"PETRONAS has a unique statutory role in petroleum resource ownership and management, while electricity is governed through a separate institutional framework.",
-  top:["Government of Malaysia","Prime Minister · Federal Cabinet"],
-  inst:[["Prime Minister","Petronas reports to the PM under the PDA 1974",""],["Ministry of Finance","Sole shareholder of Petronas","inv"],["PETRA ministry","Electricity, water and energy transition policy",""],["Energy Commission","Regulates electricity and piped gas","reg"]],
-  groups:[
-    {t:"Federal – petroleum",tag:"own",items:[["Petronas","100% federal govt"]]},
-    {t:"Under Petronas",tag:"own",items:[["Petronas Carigali","upstream"],["Petronas Chemicals, Gas, Dagangan","listed"],["MLNG","LNG at Bintulu"],["Gentari","clean energy"]]},
-    {t:"Electricity",tag:"own",items:[["Tenaga Nasional (TNB)","government-linked, listed"]]},
-    {t:"Sarawak state",tag:"own",items:[["Petros","Sarawak govt; gas aggregator"],["Sarawak Energy","Sarawak govt utility"]]}
+  "feat": [
+   "PDO – Petroleum Development Oman",
+   "60% EO | 34% Shell | 4% TotalEnergies | 2% PTTEP",
+   "Operator of Block 6, Oman's largest oil and gas concession"
   ],
-  feat:["Petronas – owner, manager and operator","All petroleum rights vested in Petronas by the PDA 1974","Awards and manages contracts with oil companies, and produces through Petronas Carigali"],
-  note:"Since 1 Mar 2025, Petros is Sarawak's gas aggregator for the domestic market. LNG stays with Petronas.",
-  A:[["Prime Minister","Under the Petroleum Development Act 1974, Petronas answers to the PM, and the PM's permission is needed for downstream marketing and distribution."],
-     ["Ministry of Finance","Provided Petronas's founding capital; the federal government is its sole owner. The PM is currently also Finance Minister."],
-     ["PETRA – Ministry of Energy Transition and Water Transformation","Since Dec 2023: electricity, water and energy transition policy, including the 2026–2030 PETRA Strategic Plan."],
-     ["Energy Commission (Suruhanjaya Tenaga)","Regulates electricity and piped gas supply."],
-     ["Sarawak state government","Appointed Petros as the state's gas aggregator under its 2016 gas distribution ordinance."]],
-  B:[["Petronas","National oil company; vested with ownership of all petroleum, onshore and offshore.","100% federal government"],
-     ["Petronas Carigali","Petronas's upstream exploration and production arm.","Petronas"],
-     ["Petronas Chemicals, Petronas Gas, Petronas Dagangan","Listed units: petrochemicals, gas processing and transport, fuel retail.","Majority Petronas; listed on Bursa Malaysia"],
-     ["Tenaga Nasional (TNB)","Main power utility in Peninsular Malaysia; grid investment of RM43bn planned for 2025–2027.","Government-linked; state investment funds are the main shareholders"],
-     ["Petros – Petroleum Sarawak","Sarawak's state oil company; sole domestic gas aggregator in Sarawak, excluding LNG.","Sarawak state government"]],
-  Cc:[["Shell","Major producer offshore Sarawak and Sabah."],
-      ["ExxonMobil","Long-standing producer off Peninsular Malaysia."],
-      ["PTTEP","Thai NOC with operated gas fields offshore Sarawak."],
-      ["ConocoPhillips","Withdrew from a RM13.7bn deepwater project in Apr 2025, citing regulatory uncertainty."]],
-  flag:"Petronas and Petros were still finalising their commercial agreement in Dec 2025. I couldn't confirm whether it has been signed since.",
-  src:[["Federal govt sole owner of Petronas (Bernama)","https://www.bernama.com/en/news.php/?id=2456814"],["PDA 1974 text","https://policy.asiapacificenergy.org/sites/default/files/Petroleum%20Development%20Act%201974%20%282013%20Ed.%29.pdf"],["Petronas founded with MOF capital (Petronas 50 Years)","https://issuu.com/bazuki/docs/petronas_50_years"],["PETRA ministry (Wikipedia)","https://en.wikipedia.org/wiki/Ministry_of_Energy_Transition_and_Water_Transformation_(Malaysia)"],["Petros gas aggregator (Malay Mail)","https://www.malaymail.com/news/malaysia/2025/05/21/pmo-petronas-to-maintain-role-under-pda-1974-petros-appointed-sarawak-gas-aggregator/177645"],["Petros–Petronas talks, Dec 2025 (Sarawak MUT)","https://mut.sarawak.gov.my/web/subpage/news_view/768"],["TNB grid investment (The Star)","https://www.thestar.com.my/business/business-news/2026/06/04/public-private-push-to-fuel-2050-net-zero-goals"]]
-},
-ksa:{
-  name:"KSA",
-  model:"State-centred, single-champion model",
-  modelText:"Aramco produces nearly all of the kingdom's oil and gas under Ministry of Energy policy. The Public Investment Fund increasingly holds the state's stakes across Aramco, power and renewables.",
-  top:["Kingdom of Saudi Arabia","King · Council of Ministers"],
-  inst:[["Ministry of Energy","Oil, gas, power and renewables policy",""],["PIF","Sovereign fund; stakes in Aramco, power, renewables","inv"],["Ministry of Finance","Owner of SPPC, the power single buyer",""],["SERA","Electricity regulator","reg"]],
-  groups:[
-    {t:"Government direct",tag:"own",items:[["Saudi Aramco","~81.5%"],["SPPC (single buyer)","100% state"]]},
-    {t:"Under PIF",tag:"own",items:[["Saudi Aramco","~16%"],["Saudi Energy (ex-SEC)","~74–75%"],["ACWA Power","~44%"]]},
-    {t:"Under Aramco",tag:"own",items:[["SABIC","70%"],["Saudi Aramco Power (SAPCO)","100%"],["Saudi Energy (via SAPCO)","~6.9%"]]}
+  "note": "MEM chairs the boards of EO and Hydrom but does not own them.",
+  "A": [
+   [
+    "MOF – Ministry of Finance",
+    "Manages public finances and the budget. Sits on the ownership side of EO and IGC, and the Finance Minister chairs OIA."
+   ],
+   [
+    "MEM – Ministry of Energy and Minerals",
+    "Sets oil, gas and mining policy, awards concessions and regulates upstream. Its minister chairs EO and Hydrom."
+   ],
+   [
+    "OIA – Oman Investment Authority",
+    "Sovereign wealth fund. Has owned most state companies, including OQ and Nama, since 2020."
+   ],
+   [
+    "APSR – Authority for Public Services Regulation",
+    "Regulates electricity and parts of the water sector."
+   ]
   ],
-  feat:["Saudi Aramco","Govt ~81.5% | PIF ~16% | public float ~2.5%","Produces nearly all Saudi oil and gas; listed on Tadawul since 2019"],
-  note:"PIF's Aramco stake combines direct holdings and PIF-owned companies such as Sanabil.",
-  A:[["Ministry of Energy","Sets policy for oil, gas, refining, petrochemicals, electricity and renewables; runs energy procurement plans."],
-     ["PIF – Public Investment Fund","Sovereign wealth fund; received 16% of Aramco from the state in 2022–2024 and is the largest owner of the power utility and ACWA Power."],
-     ["Ministry of Finance","Owns the Saudi Power Procurement Company, which the state took over from SEC in 2022."],
-     ["SERA – Saudi Electricity Regulatory Authority","Electricity regulator; formed from the split of the former Water and Electricity Regulatory Authority (WERA)."],
-     ["K.A.CARE","Agency for atomic and renewable energy policy."]],
-  B:[["Saudi Aramco","National oil company: upstream, refining, chemicals, trading.","Govt ~81.5%, PIF ~16%, public ~2.5%"],
-     ["SABIC","Petrochemicals; bought by Aramco from PIF in 2020.","Aramco 70%; listed"],
-     ["Saudi Energy (formerly Saudi Electricity Co.)","Main generator, grid owner and distributor; renamed Feb 2026.","PIF ~74–75%, Aramco ~6.9%; listed"],
-     ["SPPC – Saudi Power Procurement Company","Single buyer of electricity from IPPs; runs renewable tenders.","Government (taken over from SEC, 2022)"],
-     ["ACWA Power","Power, water and hydrogen developer; leads most PIF renewable projects.","PIF ~44%; listed"]],
-  Cc:[["Chevron","Operates with Kuwait in the Saudi–Kuwaiti Partitioned Zone."],
-      ["Sadara Chemical","Aramco–Dow petrochemical joint venture at Jubail."],
-      ["NEOM Green Hydrogen Co.","Hydrogen joint venture of ACWA Power, Air Products and NEOM."],
-      ["Ma'aden","PIF-controlled mining group; phosphate, aluminium and gold."]],
-  flag:"Sources differ on PIF's stake in Saudi Energy: 74.3% (Oxford Business Group) and 75.1% (Saudipedia, 2026). The page shows the range.",
-  src:[["Aramco state transfer to PIF, 82.19% (Business Recorder/AFP)","https://www.brecorder.com/news/40292495"],["Aramco ownership 2026 profile","https://vision2030.pages.dev/institutions/aramco/"],["Saudi power sector structure (Oxford Business Group)","https://oxfordbusinessgroup.com/reports/saudi-arabia/2025-report/energy-utilities/power-move-the-sector-is-transforming-through-the-expansion-of-renewables-improved-water-efficiency-and-steps-towards-privatisation-overview/"],["SEC renamed Saudi Energy (Saudipedia)","https://saudipedia.com/fr/saudi-energy"],["SPPC nationalised (Arab News)","https://arabnews.pk/node/2139186"],["SPPC and ACWA ownership (GlobalDeal)","https://globaldeal.io/finder/segments/saudi-arabia-renewable-energy"]]
-}
+  "B": [
+   [
+    "OQ Group",
+    "National energy company: refining, gas grid, petrochemicals, upstream through OQEP, renewables.",
+    "100% OIA"
+   ],
+   [
+    "EO – Energy Oman (formerly Energy Development Oman)",
+    "Holds the state's core upstream stakes: 60% of Block 6 oil, 100% of Block 6 gas, 100% of Hydrom.",
+    "100% government (MOF side)"
+   ],
+   [
+    "PDO – Petroleum Development Oman",
+    "Largest oil and gas producer; operates Block 6.",
+    "EO 60%, Shell 34%, TotalEnergies 4%, PTTEP 2%"
+   ],
+   [
+    "IGC – Integrated Gas Company",
+    "Single buyer and seller of natural gas; supplies about 130 customers and Oman LNG.",
+    "100% government (MOF)"
+   ],
+   [
+    "Oman LNG",
+    "LNG exporter at Sur, including Qalhat LNG.",
+    "Govt 51%, Shell 30%, TotalEnergies 5.54%, others"
+   ],
+   [
+    "Hydrom",
+    "Allocates land and runs auctions for green hydrogen projects.",
+    "100% EO"
+   ],
+   [
+    "Nama Group",
+    "Power and water: single buyer (Nama PWP), transmission, distribution, supply.",
+    "100% OIA"
+   ]
+  ],
+  "Cc": [
+   [
+    "Shell",
+    "34% of PDO, 30% of Oman LNG, operator of Block 10 gas."
+   ],
+   [
+    "bp",
+    "Operator of Block 61 (Khazzan and Ghazeer), about a third of Oman's gas demand."
+   ],
+   [
+    "TotalEnergies",
+    "80% of Marsa LNG at Sohar; stakes in PDO and Oman LNG."
+   ],
+   [
+    "Occidental (Oxy)",
+    "Operator of Blocks 9, 53 (Mukhaizna) and 65."
+   ],
+   [
+    "Kuwait Petroleum International",
+    "50% partner in the OQ8 Duqm refinery."
+   ],
+   [
+    "PTTEP and Petronas",
+    "Partners in Block 61 (20% and 10%); PTTEP also holds 2% of PDO."
+   ]
+  ],
+  "flag": "",
+  "src": [
+   [
+    "EO (formerly EDO) – About us",
+    "https://edoman.om/about-us/"
+   ],
+   [
+    "Energy Oman launches new corporate identity (Muscat Daily, Aug 2026)",
+    "https://www.muscatdaily.com/2026/08/10/energy-oman-launches-new-corporate-identity/"
+   ],
+   [
+    "Fitch on EO (then EDO) and OQ (Oman Observer)",
+    "https://www.omanobserver.om/ampArticle/1181210"
+   ],
+   [
+    "IGC role (Oman Observer)",
+    "https://www.omanobserver.om/article/1156398/business/energy/igc-unveils-new-gas-application-portal-for-oman-customers"
+   ],
+   [
+    "Oman LNG shareholders (TotalEnergies)",
+    "https://totalenergies.com/node/23021"
+   ],
+   [
+    "Oman LNG 4th train, MEM stake (MEED)",
+    "https://guest.meed.com/oman-lng-to-add-fourth-train-at-qalhat-complex"
+   ],
+   [
+    "Block 61 (Oman Observer)",
+    "https://www.omanobserver.om/ampArticle/1190559"
+   ],
+   [
+    "OQ portfolio – listed companies and stakes (OQ)",
+    "https://oq.com/en/about-oq/company"
+   ],
+   [
+    "OQRPI record 2025 operating year (Oman Observer)",
+    "https://www.omanobserver.om/article/1183211/business/energy/oqrpi-records-landmark-operating-year-in-2025"
+   ],
+   [
+    "Marsa LNG 80/20 (MEED)",
+    "https://guest.meed.com/totalenergies-and-oq-break-ground-on-marsa-lng-project"
+   ],
+   [
+    "Nama owned by OIA (Oman Observer)",
+    "https://www.omanobserver.om/article/1138685/business/energy/nama-restructuring-to-streamline-power-distribution-and-supply-services"
+   ]
+  ]
+ },
+ "usa": {
+  "name": "USA",
+  "model": "Decentralised, private-sector-driven model",
+  "modelText": "Private companies dominate petroleum production and investment, while federal and state institutions divide policymaking and regulatory responsibilities.",
+  "top": [
+   "United States",
+   "Federal government · 50 states"
+  ],
+  "inst": [
+   [
+    "DOE",
+    "Energy policy, research, Strategic Petroleum Reserve",
+    ""
+   ],
+   [
+    "Interior (DOI)",
+    "Leases federal land and offshore acreage",
+    ""
+   ],
+   [
+    "FERC",
+    "Pipelines, wholesale power, LNG terminals",
+    "reg"
+   ],
+   [
+    "State regulators",
+    "e.g. Texas Railroad Commission, utility commissions",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "Federally owned",
+    "tag": "own",
+    "items": [
+     [
+      "Tennessee Valley Authority",
+      "federal corporation"
+     ],
+     [
+      "Bonneville Power Administration",
+      "under DOE"
+     ],
+     [
+      "Strategic Petroleum Reserve",
+      "run by DOE"
+     ]
+    ]
+   },
+   {
+    "t": "Investor-owned",
+    "tag": "pvt",
+    "items": [
+     [
+      "ExxonMobil, Chevron",
+      "integrated majors"
+     ],
+     [
+      "ConocoPhillips, EOG, Oxy",
+      "producers"
+     ],
+     [
+      "Cheniere",
+      "LNG exporter"
+     ],
+     [
+      "NextEra, Duke",
+      "utilities"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "No national oil company",
+   "Production is private",
+   "On private land, landowners usually own the minerals; on federal land and offshore, Interior leases acreage for royalties"
+  ],
+  "note": "Federal agencies regulate interstate activity; states regulate drilling and retail utilities within their borders.",
+  "A": [
+   [
+    "DOE – Department of Energy",
+    "National energy policy, research labs, the Strategic Petroleum Reserve, LNG export approvals, and federal power marketing administrations."
+   ],
+   [
+    "DOI – Department of the Interior",
+    "Leases federal onshore land (BLM) and offshore acreage (BOEM), and enforces offshore safety (BSEE)."
+   ],
+   [
+    "FERC – Federal Energy Regulatory Commission",
+    "Independent regulator of interstate gas pipelines, wholesale electricity, and LNG terminal siting."
+   ],
+   [
+    "EPA, NRC, PHMSA",
+    "Environmental rules (EPA), nuclear safety (NRC), pipeline safety (PHMSA, under Transportation)."
+   ],
+   [
+    "State regulators",
+    "Permit wells and spacing (e.g. Texas Railroad Commission) and set retail power and gas rates (state utility commissions)."
+   ]
+  ],
+  "B": [
+   [
+    "Tennessee Valley Authority (TVA)",
+    "Federally owned power producer serving Tennessee and parts of six neighbouring states.",
+    "US federal government"
+   ],
+   [
+    "Power Marketing Administrations",
+    "Sell power from federal dams, e.g. Bonneville in the Pacific Northwest.",
+    "US federal government (DOE)"
+   ],
+   [
+    "Strategic Petroleum Reserve",
+    "Emergency crude stocks in salt caverns on the Gulf Coast.",
+    "US federal government (DOE)"
+   ]
+  ],
+  "Cc": [
+   [
+    "ExxonMobil",
+    "Largest US oil major; upstream, refining and chemicals."
+   ],
+   [
+    "Chevron",
+    "Second integrated major; also operates in the Saudi–Kuwaiti Partitioned Zone."
+   ],
+   [
+    "ConocoPhillips",
+    "Largest independent producer; exited a Malaysian deepwater project in 2025."
+   ],
+   [
+    "Cheniere Energy",
+    "Largest US LNG exporter."
+   ],
+   [
+    "NextEra Energy",
+    "Large utility and renewables developer."
+   ],
+   [
+    "Kinder Morgan",
+    "Major gas pipeline operator."
+   ]
+  ],
+  "flag": "",
+  "src": [
+   [
+    "DOE FY2026 budget hearing (govinfo)",
+    "https://www.govinfo.gov/content/pkg/CHRG-119shrg61238/html/CHRG-119shrg61238.htm"
+   ],
+   [
+    "FERC",
+    "https://ferc.gov/news-events/news/president-trump-names-david-rosner-chairman-ferc"
+   ]
+  ]
+ },
+ "uae": {
+  "name": "UAE",
+  "model": "Emirate-owned resources inside a federation",
+  "modelText": "Oil and gas belong to each emirate, not the federation. Abu Dhabi, which holds most reserves, governs ADNOC through its Supreme Council for Financial and Economic Affairs. Federal ministries set national policy, and Dubai runs its own energy companies.",
+  "top": [
+   "United Arab Emirates",
+   "Federal government · seven emirates"
+  ],
+  "inst": [
+   [
+    "Ministry of Energy & Infrastructure",
+    "Federal energy policy",
+    ""
+   ],
+   [
+    "Abu Dhabi SCFEA",
+    "Oversees ADNOC, Mubadala, ADIA, ADQ",
+    "inv"
+   ],
+   [
+    "Abu Dhabi Dept of Energy",
+    "Power and water regulator (Abu Dhabi)",
+    "reg"
+   ],
+   [
+    "Dubai Supreme Council of Energy",
+    "Dubai energy policy",
+    ""
+   ]
+  ],
+  "groups": [
+   {
+    "t": "Abu Dhabi – oil & gas",
+    "tag": "own",
+    "items": [
+     [
+      "ADNOC",
+      "100% Abu Dhabi govt"
+     ],
+     [
+      "XRG (international arm)",
+      "100% ADNOC"
+     ]
+    ]
+   },
+   {
+    "t": "Abu Dhabi – ADQ utilities",
+    "tag": "own",
+    "items": [
+     [
+      "TAQA",
+      "majority ADQ"
+     ],
+     [
+      "EWEC (single buyer)",
+      "ADQ"
+     ],
+     [
+      "ENEC (nuclear)",
+      "100% ADQ"
+     ]
+    ]
+   },
+   {
+    "t": "Abu Dhabi – clean energy",
+    "tag": "own",
+    "items": [
+     [
+      "Masdar",
+      "TAQA 43, Mubadala 33, ADNOC 24"
+     ]
+    ]
+   },
+   {
+    "t": "Dubai",
+    "tag": "own",
+    "items": [
+     [
+      "ENOC",
+      "Dubai govt"
+     ],
+     [
+      "DEWA (listed)",
+      "~82% Dubai govt"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "XRG – ADNOC's investment arm",
+   "ADNOC Gas 86% | Distribution 77% | Drilling 78.5% | L&S 78%",
+   "Also holds 24.9% of OMV and 50% of Borouge International (with OMV)"
+  ],
+  "note": "Masdar shares are for its renewables business; ADNOC leads the green hydrogen business.",
+  "A": [
+   [
+    "Ministry of Energy & Infrastructure (federal)",
+    "National energy policy and infrastructure; its minister sits on ADNOC's board."
+   ],
+   [
+    "Supreme Council for Financial and Economic Affairs (Abu Dhabi)",
+    "Took over the Supreme Petroleum Council in 2020. Approves strategy for ADNOC, Mubadala, ADIA and ADQ, and appoints ADNOC's board."
+   ],
+   [
+    "Department of Energy (Abu Dhabi)",
+    "Regulates electricity and water in Abu Dhabi."
+   ],
+   [
+    "Dubai Supreme Council of Energy",
+    "Sets energy strategy for Dubai and oversees DEWA and ENOC."
+   ],
+   [
+    "FANR",
+    "Federal nuclear safety regulator for the Barakah plant."
+   ]
+  ],
+  "B": [
+   [
+    "ADNOC",
+    "National oil company of Abu Dhabi; upstream concessions with foreign partners, gas, refining, chemicals.",
+    "100% Government of Abu Dhabi"
+   ],
+   [
+    "XRG",
+    "International investment company; also holds ADNOC's stakes in its listed units since Sep 2025.",
+    "100% ADNOC"
+   ],
+   [
+    "TAQA",
+    "Power and water generation, transmission and distribution; partner in Abu Dhabi IWPPs.",
+    "Majority ADQ; listed on ADX"
+   ],
+   [
+    "EWEC",
+    "Single buyer of power and water in Abu Dhabi.",
+    "ADQ"
+   ],
+   [
+    "ENEC",
+    "Owns the Barakah nuclear plant.",
+    "100% ADQ"
+   ],
+   [
+    "Masdar",
+    "Renewables and green hydrogen developer.",
+    "TAQA 43%, Mubadala 33%, ADNOC 24% (renewables)"
+   ],
+   [
+    "ENOC",
+    "Dubai's refining, fuel retail and trading group; owns Dragon Oil.",
+    "Government of Dubai"
+   ],
+   [
+    "DEWA",
+    "Dubai's electricity and water utility; listed on DFM in 2022.",
+    "~82% Government of Dubai"
+   ]
+  ],
+  "Cc": [
+   [
+    "TotalEnergies, bp, Shell, ExxonMobil",
+    "Partners in ADNOC's onshore and offshore concessions."
+   ],
+   [
+    "OMV",
+    "Austrian group; 50% of Borouge International, 24.9% owned by XRG."
+   ],
+   [
+    "Borouge International",
+    "Polyolefins company combining Borouge, Borealis and NOVA Chemicals; 50/50 OMV and XRG."
+   ],
+   [
+    "Dana Gas",
+    "Sharjah-based listed private gas producer."
+   ]
+  ],
+  "flag": "",
+  "src": [
+   [
+    "Abu Dhabi merges SPC into SCFEA (S&P Global)",
+    "https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/122820-abu-dhabi-merges-supreme-petroleum-council-with-new-economic-body"
+   ],
+   [
+    "ADNOC board and SCFEA (The National)",
+    "https://thenational-the-national-prod.cdn.arcpublishing.com/business/energy/sheikh-khalifa-appoints-new-board-of-directors-for-adnoc-1.1174648"
+   ],
+   [
+    "ADNOC stakes transferred to XRG (AGBI)",
+    "https://www.agbi.com/oil-and-gas/2025/09/adnoc-transfers-stakes-in-adx-listed-units-to-xrg/"
+   ],
+   [
+    "Borouge International formed (Hydrocarbon Engineering)",
+    "https://www.hydrocarbonengineering.com/petrochemicals/01042026/omv-and-xrg-complete-transactions-to-create-borouge-international/"
+   ],
+   [
+    "Masdar shareholders (Arab News)",
+    "https://www.arabnews.pk/node/2212866/business-economy"
+   ],
+   [
+    "ENEC to ADQ (WAM)",
+    "https://www.wam.ae/en/article/hszrayka-abu-dhabi-transfers-ownership-enec-adq"
+   ],
+   [
+    "DEWA ownership (Forbes ME)",
+    "https://www.forbesmiddleeast.com/lists/100-most-valuable-companies-2026/dubai-electricity-and-water-authority-dewa/"
+   ]
+  ]
+ },
+ "malaysia": {
+  "name": "Malaysia",
+  "model": "National oil company-centred model",
+  "modelText": "PETRONAS has a unique statutory role in petroleum resource ownership and management, while electricity is governed through a separate institutional framework.",
+  "top": [
+   "Government of Malaysia",
+   "Prime Minister · Federal Cabinet"
+  ],
+  "inst": [
+   [
+    "Prime Minister",
+    "Petronas reports to the PM under the PDA 1974",
+    ""
+   ],
+   [
+    "Ministry of Finance",
+    "Sole shareholder of Petronas",
+    "inv"
+   ],
+   [
+    "PETRA ministry",
+    "Electricity, water and energy transition policy",
+    ""
+   ],
+   [
+    "Energy Commission",
+    "Regulates electricity and piped gas",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "Federal – petroleum",
+    "tag": "own",
+    "items": [
+     [
+      "Petronas",
+      "100% federal govt"
+     ]
+    ]
+   },
+   {
+    "t": "Under Petronas",
+    "tag": "own",
+    "items": [
+     [
+      "Petronas Carigali",
+      "upstream"
+     ],
+     [
+      "Petronas Chemicals, Gas, Dagangan",
+      "listed"
+     ],
+     [
+      "MLNG",
+      "LNG at Bintulu"
+     ],
+     [
+      "Gentari",
+      "clean energy"
+     ]
+    ]
+   },
+   {
+    "t": "Electricity",
+    "tag": "own",
+    "items": [
+     [
+      "Tenaga Nasional (TNB)",
+      "government-linked, listed"
+     ]
+    ]
+   },
+   {
+    "t": "Sarawak state",
+    "tag": "own",
+    "items": [
+     [
+      "Petros",
+      "Sarawak govt; gas aggregator"
+     ],
+     [
+      "Sarawak Energy",
+      "Sarawak govt utility"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "Petronas – owner, manager and operator",
+   "All petroleum rights vested in Petronas by the PDA 1974",
+   "Awards and manages contracts with oil companies, and produces through Petronas Carigali"
+  ],
+  "note": "Since 1 Mar 2025, Petros is Sarawak's gas aggregator for the domestic market. LNG stays with Petronas.",
+  "A": [
+   [
+    "Prime Minister",
+    "Under the Petroleum Development Act 1974, Petronas answers to the PM, and the PM's permission is needed for downstream marketing and distribution."
+   ],
+   [
+    "Ministry of Finance",
+    "Provided Petronas's founding capital; the federal government is its sole owner. The PM is currently also Finance Minister."
+   ],
+   [
+    "PETRA – Ministry of Energy Transition and Water Transformation",
+    "Since Dec 2023: electricity, water and energy transition policy, including the 2026–2030 PETRA Strategic Plan."
+   ],
+   [
+    "Energy Commission (Suruhanjaya Tenaga)",
+    "Regulates electricity and piped gas supply."
+   ],
+   [
+    "Sarawak state government",
+    "Appointed Petros as the state's gas aggregator under its 2016 gas distribution ordinance."
+   ]
+  ],
+  "B": [
+   [
+    "Petronas",
+    "National oil company; vested with ownership of all petroleum, onshore and offshore.",
+    "100% federal government"
+   ],
+   [
+    "Petronas Carigali",
+    "Petronas's upstream exploration and production arm.",
+    "Petronas"
+   ],
+   [
+    "Petronas Chemicals, Petronas Gas, Petronas Dagangan",
+    "Listed units: petrochemicals, gas processing and transport, fuel retail.",
+    "Majority Petronas; listed on Bursa Malaysia"
+   ],
+   [
+    "Tenaga Nasional (TNB)",
+    "Main power utility in Peninsular Malaysia; grid investment of RM43bn planned for 2025–2027.",
+    "Government-linked; state investment funds are the main shareholders"
+   ],
+   [
+    "Petros – Petroleum Sarawak",
+    "Sarawak's state oil company; sole domestic gas aggregator in Sarawak, excluding LNG.",
+    "Sarawak state government"
+   ]
+  ],
+  "Cc": [
+   [
+    "Shell",
+    "Major producer offshore Sarawak and Sabah."
+   ],
+   [
+    "ExxonMobil",
+    "Long-standing producer off Peninsular Malaysia."
+   ],
+   [
+    "PTTEP",
+    "Thai NOC with operated gas fields offshore Sarawak."
+   ],
+   [
+    "ConocoPhillips",
+    "Withdrew from a RM13.7bn deepwater project in Apr 2025, citing regulatory uncertainty."
+   ]
+  ],
+  "flag": "Petronas and Petros were still finalising their commercial agreement in Dec 2025. I couldn't confirm whether it has been signed since.",
+  "src": [
+   [
+    "Federal govt sole owner of Petronas (Bernama)",
+    "https://www.bernama.com/en/news.php/?id=2456814"
+   ],
+   [
+    "PDA 1974 text",
+    "https://policy.asiapacificenergy.org/sites/default/files/Petroleum%20Development%20Act%201974%20%282013%20Ed.%29.pdf"
+   ],
+   [
+    "Petronas founded with MOF capital (Petronas 50 Years)",
+    "https://issuu.com/bazuki/docs/petronas_50_years"
+   ],
+   [
+    "PETRA ministry (Wikipedia)",
+    "https://en.wikipedia.org/wiki/Ministry_of_Energy_Transition_and_Water_Transformation_(Malaysia)"
+   ],
+   [
+    "Petros gas aggregator (Malay Mail)",
+    "https://www.malaymail.com/news/malaysia/2025/05/21/pmo-petronas-to-maintain-role-under-pda-1974-petros-appointed-sarawak-gas-aggregator/177645"
+   ],
+   [
+    "Petros–Petronas talks, Dec 2025 (Sarawak MUT)",
+    "https://mut.sarawak.gov.my/web/subpage/news_view/768"
+   ],
+   [
+    "TNB grid investment (The Star)",
+    "https://www.thestar.com.my/business/business-news/2026/06/04/public-private-push-to-fuel-2050-net-zero-goals"
+   ]
+  ]
+ },
+ "ksa": {
+  "name": "KSA",
+  "model": "State-centred, single-champion model",
+  "modelText": "Aramco produces nearly all of the kingdom's oil and gas under Ministry of Energy policy. The Public Investment Fund increasingly holds the state's stakes across Aramco, power and renewables.",
+  "top": [
+   "Kingdom of Saudi Arabia",
+   "King · Council of Ministers"
+  ],
+  "inst": [
+   [
+    "Ministry of Energy",
+    "Oil, gas, power and renewables policy",
+    ""
+   ],
+   [
+    "PIF",
+    "Sovereign fund; stakes in Aramco, power, renewables",
+    "inv"
+   ],
+   [
+    "Ministry of Finance",
+    "Owner of SPPC, the power single buyer",
+    ""
+   ],
+   [
+    "SERA",
+    "Electricity regulator",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "Government direct",
+    "tag": "own",
+    "items": [
+     [
+      "Saudi Aramco",
+      "~81.5%"
+     ],
+     [
+      "SPPC (single buyer)",
+      "100% state"
+     ]
+    ]
+   },
+   {
+    "t": "Under PIF",
+    "tag": "own",
+    "items": [
+     [
+      "Saudi Aramco",
+      "~16%"
+     ],
+     [
+      "Saudi Energy (ex-SEC)",
+      "~74–75%"
+     ],
+     [
+      "ACWA Power",
+      "~44%"
+     ]
+    ]
+   },
+   {
+    "t": "Under Aramco",
+    "tag": "own",
+    "items": [
+     [
+      "SABIC",
+      "70%"
+     ],
+     [
+      "Saudi Aramco Power (SAPCO)",
+      "100%"
+     ],
+     [
+      "Saudi Energy (via SAPCO)",
+      "~6.9%"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "Saudi Aramco",
+   "Govt ~81.5% | PIF ~16% | public float ~2.5%",
+   "Produces nearly all Saudi oil and gas; listed on Tadawul since 2019"
+  ],
+  "note": "PIF's Aramco stake combines direct holdings and PIF-owned companies such as Sanabil.",
+  "A": [
+   [
+    "Ministry of Energy",
+    "Sets policy for oil, gas, refining, petrochemicals, electricity and renewables; runs energy procurement plans."
+   ],
+   [
+    "PIF – Public Investment Fund",
+    "Sovereign wealth fund; received 16% of Aramco from the state in 2022–2024 and is the largest owner of the power utility and ACWA Power."
+   ],
+   [
+    "Ministry of Finance",
+    "Owns the Saudi Power Procurement Company, which the state took over from SEC in 2022."
+   ],
+   [
+    "SERA – Saudi Electricity Regulatory Authority",
+    "Electricity regulator; formed from the split of the former Water and Electricity Regulatory Authority (WERA)."
+   ],
+   [
+    "K.A.CARE",
+    "Agency for atomic and renewable energy policy."
+   ]
+  ],
+  "B": [
+   [
+    "Saudi Aramco",
+    "National oil company: upstream, refining, chemicals, trading.",
+    "Govt ~81.5%, PIF ~16%, public ~2.5%"
+   ],
+   [
+    "SABIC",
+    "Petrochemicals; bought by Aramco from PIF in 2020.",
+    "Aramco 70%; listed"
+   ],
+   [
+    "Saudi Energy (formerly Saudi Electricity Co.)",
+    "Main generator, grid owner and distributor; renamed Feb 2026.",
+    "PIF ~74–75%, Aramco ~6.9%; listed"
+   ],
+   [
+    "SPPC – Saudi Power Procurement Company",
+    "Single buyer of electricity from IPPs; runs renewable tenders.",
+    "Government (taken over from SEC, 2022)"
+   ],
+   [
+    "ACWA Power",
+    "Power, water and hydrogen developer; leads most PIF renewable projects.",
+    "PIF ~44%; listed"
+   ]
+  ],
+  "Cc": [
+   [
+    "Chevron",
+    "Operates with Kuwait in the Saudi–Kuwaiti Partitioned Zone."
+   ],
+   [
+    "Sadara Chemical",
+    "Aramco–Dow petrochemical joint venture at Jubail."
+   ],
+   [
+    "NEOM Green Hydrogen Co.",
+    "Hydrogen joint venture of ACWA Power, Air Products and NEOM."
+   ],
+   [
+    "Ma'aden",
+    "PIF-controlled mining group; phosphate, aluminium and gold."
+   ]
+  ],
+  "flag": "Sources differ on PIF's stake in Saudi Energy: 74.3% (Oxford Business Group) and 75.1% (Saudipedia, 2026). The page shows the range.",
+  "src": [
+   [
+    "Aramco state transfer to PIF, 82.19% (Business Recorder/AFP)",
+    "https://www.brecorder.com/news/40292495"
+   ],
+   [
+    "Aramco ownership 2026 profile",
+    "https://vision2030.pages.dev/institutions/aramco/"
+   ],
+   [
+    "Saudi power sector structure (Oxford Business Group)",
+    "https://oxfordbusinessgroup.com/reports/saudi-arabia/2025-report/energy-utilities/power-move-the-sector-is-transforming-through-the-expansion-of-renewables-improved-water-efficiency-and-steps-towards-privatisation-overview/"
+   ],
+   [
+    "SEC renamed Saudi Energy (Saudipedia)",
+    "https://saudipedia.com/fr/saudi-energy"
+   ],
+   [
+    "SPPC nationalised (Arab News)",
+    "https://arabnews.pk/node/2139186"
+   ],
+   [
+    "SPPC and ACWA ownership (GlobalDeal)",
+    "https://globaldeal.io/finder/segments/saudi-arabia-renewable-energy"
+   ]
+  ]
+ },
+ "kuwait": {
+  "name": "Kuwait",
+  "model": "Council-led model with one state oil group",
+  "modelText": "Oil policy is set by the Supreme Petroleum Council, chaired by the Prime Minister. Kuwait Petroleum Corporation (KPC), wholly state-owned and chaired by the Oil Minister, runs the whole oil and gas chain through its subsidiaries, which it is merging into fewer companies. Power and water sit with a separate ministry, and new plants are built through public-private partnerships.",
+  "top": [
+   "State of Kuwait",
+   "His Highness the Amir · Council of Ministers"
+  ],
+  "inst": [
+   [
+    "Supreme Petroleum Council",
+    "Top oil policy body; chaired by the PM",
+    ""
+   ],
+   [
+    "Ministry of Oil",
+    "Oil Minister also chairs KPC",
+    ""
+   ],
+   [
+    "MEWRE",
+    "Electricity, water and renewables",
+    ""
+   ],
+   [
+    "KAPP",
+    "Tenders power and water PPPs",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "KPC subsidiaries",
+    "tag": "own",
+    "items": [
+     [
+      "Kuwait Oil Company (KOC)",
+      "upstream; now owns KGOC"
+     ],
+     [
+      "KNPC",
+      "refining, incl. Al-Zour since 2026"
+     ],
+     [
+      "KUFPEC",
+      "international upstream"
+     ],
+     [
+      "Kuwait Petroleum International (Q8)",
+      "fuels abroad; 50% of OQ8"
+     ],
+     [
+      "Petrochemical Industries Co. (PIC)",
+      "petrochemicals"
+     ],
+     [
+      "Kuwait Oil Tanker Co. (KOTC)",
+      "being merged"
+     ]
+    ]
+   },
+   {
+    "t": "Petrochemical joint venture",
+    "tag": "own",
+    "items": [
+     [
+      "EQUATE Group",
+      "PIC 42.5%, Dow 42.5%, Boubyan 9%, Qurain 6%"
+     ]
+    ]
+   },
+   {
+    "t": "Power and water",
+    "tag": "own",
+    "items": [
+     [
+      "MEWRE",
+      "state; buys all IWPP output"
+     ],
+     [
+      "Al-Zour North 2 & 3",
+      "PPP with ACWA Power and GIC"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "KPC – Kuwait Petroleum Corporation",
+   "100% State of Kuwait | Chairman: the Oil Minister",
+   "Being consolidated: KIPIC merged into KNPC (2026); KGOC's shares moved to KOC"
+  ],
+  "note": "Major decisions sit with the Supreme Petroleum Council, not with the Oil Ministry alone.",
+  "A": [
+   [
+    "SPC – Supreme Petroleum Council",
+    "Highest decision-making body for oil, chaired by the Prime Minister. Approved the merger of KIPIC into KNPC in 2026."
+   ],
+   [
+    "Ministry of Oil",
+    "Oversees the sector. The Oil Minister, Tareq Al-Roumi, also chairs KPC's board."
+   ],
+   [
+    "MEWRE – Ministry of Electricity, Water and Renewable Energy",
+    "Runs power and water supply and buys the full output of private plants such as Al-Zour North."
+   ],
+   [
+    "KAPP – Kuwait Authority for Partnership Projects",
+    "Tenders and signs PPP contracts for power, water and renewables, including Al-Zour North 2 & 3."
+   ]
+  ],
+  "B": [
+   [
+    "KPC – Kuwait Petroleum Corporation",
+    "State holding company for oil and gas; owns all operating subsidiaries.",
+    "100% State of Kuwait"
+   ],
+   [
+    "KOC – Kuwait Oil Company",
+    "Exploration and production inside Kuwait; now holds the shares of Kuwait Gulf Oil Co. (Partitioned Zone).",
+    "100% KPC"
+   ],
+   [
+    "KNPC – Kuwait National Petroleum Company",
+    "Refining and gas processing at Mina Al-Ahmadi, Mina Abdullah and, since absorbing KIPIC, Al-Zour: about 1.4 million bpd.",
+    "100% KPC"
+   ],
+   [
+    "KUFPEC",
+    "Exploration and production outside Kuwait.",
+    "100% KPC"
+   ],
+   [
+    "KPI – Kuwait Petroleum International (Q8)",
+    "International refining and fuel retail; 50% partner in Oman's OQ8 Duqm refinery.",
+    "100% KPC"
+   ],
+   [
+    "PIC – Petrochemical Industries Company",
+    "Petrochemicals; holds 42.5% of EQUATE.",
+    "100% KPC"
+   ]
+  ],
+  "Cc": [
+   [
+    "EQUATE Group",
+    "Kuwait's largest petrochemical producer; joint venture of PIC, Dow, Boubyan and Qurain."
+   ],
+   [
+    "Dow",
+    "US chemicals group; 42.5% partner in EQUATE."
+   ],
+   [
+    "Boubyan Petrochemical",
+    "Listed Kuwaiti company holding 9% of EQUATE."
+   ],
+   [
+    "ACWA Power and Gulf Investment Corporation",
+    "Consortium building and running Al-Zour North 2 & 3 under a 25-year contract."
+   ]
+  ],
+  "flag": "The restructuring is still under way: KOTC is being split between KNPC and KPC, and a merger of KUFPEC and Q8 has been reported. The structure may change again.",
+  "src": [
+   [
+    "KNPC absorbs KIPIC (intellinews, Jun 2026)",
+    "https://www.intellinews.com/kuwait-continues-mergers-as-knpc-absorbs-kipic-446300/"
+   ],
+   [
+    "SPC approves merger; Oil Minister chairs KPC (MEED)",
+    "https://guest.meed.com/?p=16758"
+   ],
+   [
+    "Kuwait dissolves KIPIC (AGBI)",
+    "https://www.agbi.com/oil-and-gas/2026/06/kuwait-dissolves-kipic-in-oil-sector-restructuring/"
+   ],
+   [
+    "North Al-Zour 25-year PPP (Kuwait Times)",
+    "https://kuwaittimes.com/article/39387/kuwait/other-news/kuwait-signs-25-year-deal-to-buy-power-water-from-north-al-zour-plant/"
+   ],
+   [
+    "EQUATE ownership (Boubyan)",
+    "https://boubyan.com/?p=4254"
+   ]
+  ]
+ },
+ "qatar": {
+  "name": "Qatar",
+  "model": "Single state energy champion model",
+  "modelText": "QatarEnergy, wholly owned by the state, controls oil, gas, LNG and most of the energy industry. Its President and CEO is also the Minister of State for Energy Affairs, so policy and operations sit with the same person. Electricity and water are run by Kahramaa, which buys from producers led by QEWC.",
+  "top": [
+   "State of Qatar",
+   "His Highness the Amir · Council of Ministers"
+  ],
+  "inst": [
+   [
+    "Minister of State for Energy Affairs",
+    "Also President & CEO of QatarEnergy",
+    ""
+   ],
+   [
+    "SCEAI",
+    "Supreme Council for Economic Affairs and Investment",
+    ""
+   ],
+   [
+    "QIA",
+    "Sovereign wealth fund",
+    "inv"
+   ],
+   [
+    "Kahramaa",
+    "Power and water regulator and grid owner",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "QatarEnergy (100% state)",
+    "tag": "own",
+    "items": [
+     [
+      "QatarEnergy LNG",
+      "LNG operator; formerly Qatargas and RasGas"
+     ],
+     [
+      "North Field East and South JVs",
+      "75% in each"
+     ],
+     [
+      "QatarEnergy Trading",
+      "LNG and oil trading"
+     ]
+    ]
+   },
+   {
+    "t": "QatarEnergy – listed affiliates",
+    "tag": "own",
+    "items": [
+     [
+      "Industries Qatar (IQ)",
+      "51%"
+     ],
+     [
+      "Mesaieed Petrochemical Holding (MPHC)",
+      "65.45%"
+     ],
+     [
+      "Qatar Electricity & Water (QEWC)",
+      "10.7%"
+     ]
+    ]
+   },
+   {
+    "t": "Power and water",
+    "tag": "own",
+    "items": [
+     [
+      "Kahramaa",
+      "100% state; grid owner and sole buyer"
+     ],
+     [
+      "QEWC",
+      "largest producer; ~60% government entities"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "QatarEnergy",
+   "100% State of Qatar | CEO is the Minister of State for Energy Affairs",
+   "Expansion to lift LNG capacity from 77 to 160 million t/yr, 142 of it from the North Field"
+  ],
+  "note": "Foreign majors hold minority stakes in the LNG joint ventures; QatarEnergy keeps 75%.",
+  "A": [
+   [
+    "Minister of State for Energy Affairs",
+    "Saad Sherida Al-Kaabi sets energy policy and is also President & CEO and Deputy Chairman of QatarEnergy."
+   ],
+   [
+    "SCEAI – Supreme Council for Economic Affairs and Investment",
+    "Top economic policy body; ministries such as Environment and Commerce sit on it."
+   ],
+   [
+    "Kahramaa – Qatar General Electricity and Water Corporation",
+    "Sole owner and operator of the power and water grids, sole buyer from independent producers, and the sector's regulator."
+   ],
+   [
+    "QIA – Qatar Investment Authority",
+    "Qatar's sovereign wealth fund."
+   ]
+  ],
+  "B": [
+   [
+    "QatarEnergy",
+    "National energy company: oil, gas, LNG, refining, petrochemicals, trading and overseas exploration.",
+    "100% State of Qatar"
+   ],
+   [
+    "QatarEnergy LNG",
+    "Operates Qatar's LNG trains at Ras Laffan; formed from Qatargas and RasGas.",
+    "QatarEnergy, with foreign partners in each project"
+   ],
+   [
+    "Industries Qatar (IQ)",
+    "Petrochemicals (QAPCO), fertilisers (QAFCO) and steel; chaired by the Energy Minister.",
+    "QatarEnergy 51%; listed"
+   ],
+   [
+    "MPHC – Mesaieed Petrochemical Holding",
+    "Holds QatarEnergy's interests in Q-Chem, Q-Chem II and Qatar Vinyl; petrochemicals and chlor-alkali.",
+    "QatarEnergy 65.45%; listed"
+   ],
+   [
+    "QEWC – Qatar Electricity & Water Company",
+    "Largest power and water producer; sells its output to Kahramaa. Shareholders approved a rename to Nebras Energy.",
+    "About 60% government entities, incl. QatarEnergy 10.7%; listed"
+   ],
+   [
+    "Kahramaa",
+    "Grid owner, sole buyer and regulator for electricity and water.",
+    "100% State of Qatar"
+   ]
+  ],
+  "Cc": [
+   [
+    "ExxonMobil",
+    "Long-standing LNG partner; 25% of one North Field East JV (6.25% of the project)."
+   ],
+   [
+    "TotalEnergies",
+    "6.25% of North Field East, 9.375% of North Field South, and 20% of QAPCO."
+   ],
+   [
+    "Shell",
+    "6.25% of North Field East and 9.375% of North Field South."
+   ],
+   [
+    "ConocoPhillips",
+    "3.125% of North Field East and 6.25% of North Field South."
+   ],
+   [
+    "Eni",
+    "3.125% of North Field East; its first entry into Qatar's upstream."
+   ]
+  ],
+  "flag": "QatarEnergy's stakes in other listed companies (Woqod, Nakilat, GIS, QAMCO) are not shown because current figures could not be confirmed.",
+  "src": [
+   [
+    "Al-Kaabi: Minister and QatarEnergy CEO (The Peninsula, Feb 2026)",
+    "https://thepeninsulaqatar.com/article/18/02/2026/minister-al-kaabi-hosts-farewell-reception-honouring-qatarenergys-executive-vice-president-for-finance-and-planning"
+   ],
+   [
+    "LNG expansion to 160 Mtpa (Qatar Tribune)",
+    "https://www.qatar-tribune.com/article/217457/business/qatarenergy-expansion-to-add-40-of-new-global-lng-supply-al-kaabi/amp"
+   ],
+   [
+    "Utilities sector: Kahramaa, QEWC, SCEAI (Oxford Business Group 2025)",
+    "https://oxfordbusinessgroup.com/reports/qatar/2025-report/energy-utilities/full-tank-vast-natural-gas-reserves-and-utilisation-of-emerging-technologies-position-the-sector-for-long-term-growth-overview/"
+   ],
+   [
+    "North Field East partners (GIIGNL)",
+    "https://giignl.org/?p=9470"
+   ],
+   [
+    "North Field South partners (Inspenet)",
+    "https://inspenet.com/noticias/conocophillips-adquiere-una-nueva-participacion-para-el-desarrollo-del-proyecto-north-field-east-de-qatar/"
+   ],
+   [
+    "MPHC 65.45% QatarEnergy (Forbes ME)",
+    "https://www.forbesmiddleeast.com/lists/?p=25523"
+   ],
+   [
+    "Industries Qatar, QAPCO 80:20 (Wikipedia)",
+    "https://wiki.riteme.site/wiki/Industries_Qatar"
+   ],
+   [
+    "QEWC rename to Nebras Energy (Gulf Times)",
+    "https://www.gulf-times.com/article/718262/business/general-assembly-approves-change-of-qewc-name-to-nebras-energy"
+   ]
+  ]
+ }
 };
 const C_AR = {
  "oman": {
@@ -1301,10 +2535,390 @@ const C_AR = {
     "https://globaldeal.io/finder/segments/saudi-arabia-renewable-energy"
    ]
   ]
+ },
+ "kuwait": {
+  "name": "الكويت",
+  "model": "نموذج يقوده مجلس أعلى مع مجموعة نفطية حكومية واحدة",
+  "modelText": "يضع المجلس الأعلى للبترول، برئاسة رئيس مجلس الوزراء، السياسة النفطية. وتدير مؤسسة البترول الكويتية، المملوكة للدولة بالكامل ويرأس مجلس إدارتها وزير النفط، سلسلة النفط والغاز كاملة عبر شركاتها التابعة، التي تعمل على دمجها في عدد أقل من الشركات. أما الكهرباء والمياه فتتولاهما وزارة مستقلة، وتُنشأ المحطات الجديدة بنظام الشراكة بين القطاعين العام والخاص.",
+  "top": [
+   "دولة الكويت",
+   "حضرة صاحب السمو أمير البلاد · مجلس الوزراء"
+  ],
+  "inst": [
+   [
+    "المجلس الأعلى للبترول",
+    "أعلى جهة لرسم السياسة النفطية؛ برئاسة رئيس الوزراء",
+    ""
+   ],
+   [
+    "وزارة النفط",
+    "وزير النفط يرأس أيضاً مؤسسة البترول الكويتية",
+    ""
+   ],
+   [
+    "وزارة الكهرباء والماء والطاقة المتجددة",
+    "الكهرباء والمياه والطاقة المتجددة",
+    ""
+   ],
+   [
+    "هيئة مشروعات الشراكة",
+    "طرح مشاريع الكهرباء والمياه بنظام الشراكة",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "الشركات التابعة لمؤسسة البترول الكويتية",
+    "tag": "own",
+    "items": [
+     [
+      "شركة نفط الكويت (KOC)",
+      "الاستكشاف والإنتاج؛ تملك الآن شركة نفط الخليج"
+     ],
+     [
+      "شركة البترول الوطنية الكويتية (KNPC)",
+      "التكرير، بما فيه مصفاة الزور منذ 2026"
+     ],
+     [
+      "كوفبك",
+      "الاستكشاف والإنتاج خارج الكويت"
+     ],
+     [
+      "البترول الكويتية العالمية (Q8)",
+      "الوقود في الخارج؛ 50% من مصفاة الدقم"
+     ],
+     [
+      "شركة صناعة الكيماويات البترولية (PIC)",
+      "البتروكيماويات"
+     ],
+     [
+      "شركة ناقلات النفط الكويتية (KOTC)",
+      "قيد الدمج"
+     ]
+    ]
+   },
+   {
+    "t": "مشروع البتروكيماويات المشترك",
+    "tag": "own",
+    "items": [
+     [
+      "مجموعة إيكويت",
+      "PIC 42.5%، داو 42.5%، بوبيان 9%، القرين 6%"
+     ]
+    ]
+   },
+   {
+    "t": "الكهرباء والمياه",
+    "tag": "own",
+    "items": [
+     [
+      "وزارة الكهرباء والماء والطاقة المتجددة",
+      "حكومية؛ تشتري كامل إنتاج المحطات المستقلة"
+     ],
+     [
+      "الزور الشمالية 2 و3",
+      "شراكة مع أكوا باور ومؤسسة الخليج للاستثمار"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "مؤسسة البترول الكويتية (KPC)",
+   "100% لدولة الكويت | رئيس مجلس الإدارة: وزير النفط",
+   "قيد الدمج: دُمجت كيبك في البترول الوطنية (2026)، وانتقلت أسهم نفط الخليج إلى نفط الكويت"
+  ],
+  "note": "القرارات الكبرى بيد المجلس الأعلى للبترول، لا بيد وزارة النفط وحدها.",
+  "A": [
+   [
+    "المجلس الأعلى للبترول",
+    "أعلى جهة لاتخاذ القرار في القطاع النفطي برئاسة رئيس مجلس الوزراء، ووافق على دمج كيبك في شركة البترول الوطنية عام 2026."
+   ],
+   [
+    "وزارة النفط",
+    "تشرف على القطاع، ويرأس وزير النفط طارق الرومي أيضاً مجلس إدارة مؤسسة البترول الكويتية."
+   ],
+   [
+    "وزارة الكهرباء والماء والطاقة المتجددة",
+    "تدير إمدادات الكهرباء والمياه وتشتري كامل إنتاج المحطات الخاصة مثل الزور الشمالية."
+   ],
+   [
+    "هيئة مشروعات الشراكة بين القطاعين العام والخاص (KAPP)",
+    "تطرح عقود الشراكة وتوقعها لمشاريع الكهرباء والمياه والطاقة المتجددة، ومنها الزور الشمالية 2 و3."
+   ]
+  ],
+  "B": [
+   [
+    "مؤسسة البترول الكويتية (KPC)",
+    "الشركة القابضة الحكومية للنفط والغاز، وتملك جميع الشركات التشغيلية.",
+    "100% لدولة الكويت"
+   ],
+   [
+    "شركة نفط الكويت (KOC)",
+    "الاستكشاف والإنتاج داخل الكويت، وتملك الآن أسهم شركة نفط الخليج (المنطقة المقسومة).",
+    "100% مؤسسة البترول الكويتية"
+   ],
+   [
+    "شركة البترول الوطنية الكويتية (KNPC)",
+    "التكرير ومعالجة الغاز في ميناء الأحمدي وميناء عبدالله، والزور بعد دمج كيبك: نحو 1.4 مليون برميل يومياً.",
+    "100% مؤسسة البترول الكويتية"
+   ],
+   [
+    "كوفبك (KUFPEC)",
+    "الاستكشاف والإنتاج خارج الكويت.",
+    "100% مؤسسة البترول الكويتية"
+   ],
+   [
+    "البترول الكويتية العالمية (Q8)",
+    "التكرير وتجزئة الوقود خارج الكويت، وشريك بنسبة 50% في مصفاة الدقم (OQ8) في عُمان.",
+    "100% مؤسسة البترول الكويتية"
+   ],
+   [
+    "شركة صناعة الكيماويات البترولية (PIC)",
+    "البتروكيماويات، وتملك 42.5% من إيكويت.",
+    "100% مؤسسة البترول الكويتية"
+   ]
+  ],
+  "Cc": [
+   [
+    "مجموعة إيكويت",
+    "أكبر منتج للبتروكيماويات في الكويت، ومشروع مشترك بين PIC وداو وبوبيان والقرين."
+   ],
+   [
+    "داو",
+    "مجموعة كيماويات أمريكية، وشريك بنسبة 42.5% في إيكويت."
+   ],
+   [
+    "بوبيان للبتروكيماويات",
+    "شركة كويتية مدرجة تملك 9% من إيكويت."
+   ],
+   [
+    "أكوا باور ومؤسسة الخليج للاستثمار",
+    "تحالف يبني محطة الزور الشمالية 2 و3 ويشغّلها بموجب عقد مدته 25 عاماً."
+   ]
+  ],
+  "flag": "إعادة الهيكلة لا تزال جارية: تُقسَّم شركة ناقلات النفط بين البترول الوطنية والمؤسسة، وتردد دمج كوفبك وQ8، لذا قد يتغير الهيكل مجدداً.",
+  "src": [
+   [
+    "KNPC absorbs KIPIC (intellinews, Jun 2026)",
+    "https://www.intellinews.com/kuwait-continues-mergers-as-knpc-absorbs-kipic-446300/"
+   ],
+   [
+    "SPC approves merger; Oil Minister chairs KPC (MEED)",
+    "https://guest.meed.com/?p=16758"
+   ],
+   [
+    "Kuwait dissolves KIPIC (AGBI)",
+    "https://www.agbi.com/oil-and-gas/2026/06/kuwait-dissolves-kipic-in-oil-sector-restructuring/"
+   ],
+   [
+    "North Al-Zour 25-year PPP (Kuwait Times)",
+    "https://kuwaittimes.com/article/39387/kuwait/other-news/kuwait-signs-25-year-deal-to-buy-power-water-from-north-al-zour-plant/"
+   ],
+   [
+    "EQUATE ownership (Boubyan)",
+    "https://boubyan.com/?p=4254"
+   ]
+  ]
+ },
+ "qatar": {
+  "name": "قطر",
+  "model": "نموذج يتمحور حول بطل وطني واحد مملوك للدولة",
+  "modelText": "تسيطر قطر للطاقة، المملوكة للدولة بالكامل، على النفط والغاز والغاز الطبيعي المسال ومعظم صناعة الطاقة. ويشغل رئيسها التنفيذي أيضاً منصب وزير الدولة لشؤون الطاقة، فتجتمع السياسة والتشغيل لدى شخص واحد. وتتولى المؤسسة العامة القطرية للكهرباء والماء (كهرماء) قطاعي الكهرباء والمياه، وتشتري من المنتجين وفي مقدمتهم شركة الكهرباء والماء القطرية.",
+  "top": [
+   "دولة قطر",
+   "حضرة صاحب السمو الأمير · مجلس الوزراء"
+  ],
+  "inst": [
+   [
+    "وزير الدولة لشؤون الطاقة",
+    "وهو أيضاً الرئيس التنفيذي لقطر للطاقة",
+    ""
+   ],
+   [
+    "المجلس الأعلى للشؤون الاقتصادية والاستثمار",
+    "أعلى جهة للسياسات الاقتصادية",
+    ""
+   ],
+   [
+    "جهاز قطر للاستثمار",
+    "صندوق الثروة السيادي",
+    "inv"
+   ],
+   [
+    "كهرماء",
+    "منظِّم الكهرباء والمياه ومالك الشبكة",
+    "reg"
+   ]
+  ],
+  "groups": [
+   {
+    "t": "قطر للطاقة (100% للدولة)",
+    "tag": "own",
+    "items": [
+     [
+      "قطر للطاقة للغاز الطبيعي المسال",
+      "مشغّل الغاز المسال؛ قطر غاز وراس غاز سابقاً"
+     ],
+     [
+      "مشاريع حقل الشمال الشرقي والجنوبي",
+      "75% في كل مشروع"
+     ],
+     [
+      "قطر للطاقة للتجارة",
+      "تجارة الغاز المسال والنفط"
+     ]
+    ]
+   },
+   {
+    "t": "شركات قطر للطاقة المدرجة",
+    "tag": "own",
+    "items": [
+     [
+      "صناعات قطر",
+      "51%"
+     ],
+     [
+      "مسيعيد للبتروكيماويات القابضة",
+      "65.45%"
+     ],
+     [
+      "الكهرباء والماء القطرية",
+      "10.7%"
+     ]
+    ]
+   },
+   {
+    "t": "الكهرباء والمياه",
+    "tag": "own",
+    "items": [
+     [
+      "كهرماء",
+      "100% للدولة؛ مالك الشبكة والمشتري الوحيد"
+     ],
+     [
+      "الكهرباء والماء القطرية",
+      "أكبر منتج؛ نحو 60% لجهات حكومية"
+     ]
+    ]
+   }
+  ],
+  "feat": [
+   "قطر للطاقة",
+   "100% لدولة قطر | رئيسها التنفيذي وزير الدولة لشؤون الطاقة",
+   "توسعة ترفع طاقة الغاز المسال من 77 إلى 160 مليون طن سنوياً، منها 142 من حقل الشمال"
+  ],
+  "note": "تملك الشركات الأجنبية الكبرى حصص أقلية في مشاريع الغاز المسال، وتحتفظ قطر للطاقة بـ75%.",
+  "A": [
+   [
+    "وزير الدولة لشؤون الطاقة",
+    "سعد بن شريدة الكعبي، يضع سياسة الطاقة، وهو أيضاً الرئيس والرئيس التنفيذي ونائب رئيس مجلس إدارة قطر للطاقة."
+   ],
+   [
+    "المجلس الأعلى للشؤون الاقتصادية والاستثمار",
+    "أعلى جهة للسياسات الاقتصادية، وتشارك فيه وزارات منها البيئة والتجارة."
+   ],
+   [
+    "كهرماء – المؤسسة العامة القطرية للكهرباء والماء",
+    "المالك والمشغّل الوحيد لشبكتي الكهرباء والمياه، والمشتري الوحيد من المنتجين المستقلين، والجهة المنظِّمة للقطاع."
+   ],
+   [
+    "جهاز قطر للاستثمار",
+    "صندوق الثروة السيادي لدولة قطر."
+   ]
+  ],
+  "B": [
+   [
+    "قطر للطاقة",
+    "شركة الطاقة الوطنية: النفط والغاز والغاز المسال والتكرير والبتروكيماويات والتجارة والاستكشاف خارج قطر.",
+    "100% لدولة قطر"
+   ],
+   [
+    "قطر للطاقة للغاز الطبيعي المسال",
+    "تشغّل خطوط إنتاج الغاز المسال في راس لفان، وتأسست من دمج قطر غاز وراس غاز.",
+    "قطر للطاقة مع شركاء أجانب في كل مشروع"
+   ],
+   [
+    "صناعات قطر",
+    "البتروكيماويات (قابكو) والأسمدة (قافكو) والحديد والصلب، ويرأس مجلس إدارتها وزير الطاقة.",
+    "قطر للطاقة 51%، مدرجة"
+   ],
+   [
+    "مسيعيد للبتروكيماويات القابضة",
+    "تحوز حصص قطر للطاقة في كيوكيم وكيوكيم 2 وقطر للفينيل: البتروكيماويات والكلور القلوي.",
+    "قطر للطاقة 65.45%، مدرجة"
+   ],
+   [
+    "شركة الكهرباء والماء القطرية",
+    "أكبر منتج للكهرباء والمياه، وتبيع إنتاجها لكهرماء، ووافق مساهموها على تغيير اسمها إلى نبراس للطاقة.",
+    "نحو 60% لجهات حكومية منها قطر للطاقة 10.7%، مدرجة"
+   ],
+   [
+    "كهرماء",
+    "مالك الشبكة والمشتري الوحيد والجهة المنظِّمة للكهرباء والمياه.",
+    "100% لدولة قطر"
+   ]
+  ],
+  "Cc": [
+   [
+    "إكسون موبيل",
+    "شريك قديم في الغاز المسال، وتملك 25% من أحد مشاريع حقل الشمال الشرقي (6.25% من المشروع)."
+   ],
+   [
+    "توتال إنرجيز",
+    "6.25% من حقل الشمال الشرقي، و9.375% من حقل الشمال الجنوبي، و20% من قابكو."
+   ],
+   [
+    "شل",
+    "6.25% من حقل الشمال الشرقي و9.375% من حقل الشمال الجنوبي."
+   ],
+   [
+    "كونوكو فيليبس",
+    "3.125% من حقل الشمال الشرقي و6.25% من حقل الشمال الجنوبي."
+   ],
+   [
+    "إيني",
+    "3.125% من حقل الشمال الشرقي، وهي أول مشاركة لها في قطاع الاستكشاف والإنتاج القطري."
+   ]
+  ],
+  "flag": "لم تُعرض حصص قطر للطاقة في شركات مدرجة أخرى (وقود، ناقلات، الخليج الدولية للخدمات، قامكو) لعدم التمكن من تأكيد أرقامها الحالية.",
+  "src": [
+   [
+    "Al-Kaabi: Minister and QatarEnergy CEO (The Peninsula, Feb 2026)",
+    "https://thepeninsulaqatar.com/article/18/02/2026/minister-al-kaabi-hosts-farewell-reception-honouring-qatarenergys-executive-vice-president-for-finance-and-planning"
+   ],
+   [
+    "LNG expansion to 160 Mtpa (Qatar Tribune)",
+    "https://www.qatar-tribune.com/article/217457/business/qatarenergy-expansion-to-add-40-of-new-global-lng-supply-al-kaabi/amp"
+   ],
+   [
+    "Utilities sector: Kahramaa, QEWC, SCEAI (Oxford Business Group 2025)",
+    "https://oxfordbusinessgroup.com/reports/qatar/2025-report/energy-utilities/full-tank-vast-natural-gas-reserves-and-utilisation-of-emerging-technologies-position-the-sector-for-long-term-growth-overview/"
+   ],
+   [
+    "North Field East partners (GIIGNL)",
+    "https://giignl.org/?p=9470"
+   ],
+   [
+    "North Field South partners (Inspenet)",
+    "https://inspenet.com/noticias/conocophillips-adquiere-una-nueva-participacion-para-el-desarrollo-del-proyecto-north-field-east-de-qatar/"
+   ],
+   [
+    "MPHC 65.45% QatarEnergy (Forbes ME)",
+    "https://www.forbesmiddleeast.com/lists/?p=25523"
+   ],
+   [
+    "Industries Qatar, QAPCO 80:20 (Wikipedia)",
+    "https://wiki.riteme.site/wiki/Industries_Qatar"
+   ],
+   [
+    "QEWC rename to Nebras Energy (Gulf Times)",
+    "https://www.gulf-times.com/article/718262/business/general-assembly-approves-change-of-qewc-name-to-nebras-energy"
+   ]
+  ]
  }
 };
 const UI = {"en": {"title": "Energy Sector Structures", "sub": "Government institutions, state-owned companies and key players, country by country · as of Nov 2026", "structure": "Structure", "commercial": "Commercial and operating companies", "hA": "A. Main government institutions", "hB": "B. National oil and state-owned companies", "hC": "C. Other important companies", "inst": "Institution", "role": "Role in the energy sector", "co": "Company", "does": "What it does", "pos": "Position in the sector", "own": "Owned by:", "check": "Check:", "sources": "Sources", "tag_own": "Ownership", "tag_pvt": "Private", "tag_reg": "Regulation"}, "ar": {"title": "هيكلة قطاع الطاقة", "sub": "المؤسسات الحكومية والشركات المملوكة للدولة وأبرز الجهات الفاعلة، حسب الدولة · حتى نوفمبر 2026", "structure": "الهيكلة", "commercial": "الشركات التجارية والتشغيلية", "hA": "أ. أبرز المؤسسات الحكومية", "hB": "ب. شركات النفط الوطنية والشركات المملوكة للدولة", "hC": "ج. شركات مهمة أخرى", "inst": "المؤسسة", "role": "دورها في قطاع الطاقة", "co": "الشركة", "does": "نشاطها", "pos": "موقعها في القطاع", "own": "الملكية:", "check": "ملاحظة:", "sources": "المصادر", "tag_own": "ملكية", "tag_pvt": "خاص", "tag_reg": "تنظيم"}};
-const ORDER=["oman","usa","uae","malaysia","ksa"];
+const ORDER=["oman","usa","uae","malaysia","ksa","kuwait","qatar"];
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
 const TAGTXT={own:"Ownership",pvt:"Private",reg:"Regulation"};
 let LANG="en";
@@ -1345,6 +2959,7 @@ function render(id){
   ${d.flag?`<div class="flag"><b>${U.check}</b> ${E("flag",d.flag)}</div>`:""}
   <ol class="src">${d.src.map(([t,u],i)=>`<li><a href="${u}">${E(`src.${i}.0`,t)}</a></li>`).join("")}</ol>`;
   document.querySelectorAll("#tabs button").forEach(b=>{b.textContent=DATA()[b.dataset.id].name;b.setAttribute("aria-selected",b.dataset.id===id?"true":"false");});
+  try{document.querySelector("#tabs button[aria-selected=true]").scrollIntoView({inline:"nearest",block:"nearest"});}catch(e){}
   if(window.EDITING) setEditable(true);
 }
 const tabs=document.getElementById("tabs");
